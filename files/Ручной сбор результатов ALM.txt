@@ -1,0 +1,97 @@
+1) С контроллера копируем папку теста
+Место хранения по-умолчанию ():
+C:\Program Files (x86)\Hp\Performance Center Host\orchidtmp\Results\*[Название_проекта].[RunID]
+В ней хранится папка 
+res.[RunID]
+
+2) (только для ALM Performance Center) Содержимое папки 
+res.[RunID]
+Дополнить (не переписывать поверх) содержимым архивов (в случае, если они есть):
+C:\Program Files (x86)\Hp\Performance Center Host\orchidtmp\Results\*[Название_проекта].[RunID]\RawResult.zip
+C:\Program Files (x86)\Hp\Performance Center Host\orchidtmp\Results\*[Название_проекта].[RunID]\Output.mdb.zip
+
+
+3) В файле 
+res.[RunID]\remote_results.txt
+Убедиться, что указаны нужные генераторы нагрузки.
+Взять из указанных там каталогов файлы *.eve, *.map (а так же, если есть - *.map1, *.map2, *.map3)
+
+Файл RemoteResults.txt должен выглядеть так:
+Для ALM Performance Center:
+=================================
+[Hosts]
+k10-pc-genv-19.r2.vtb24.ru=C:\Program Files (x86)\HP\Performance Center Host\Temp\brr_mYv.523\netdir\C\Program Files (x86)\HP\Performance Center Host\orchidtmp\Results\LOADTEST_Proff_711\Run_711\res711\k10-pc-genv-19.r2.vtb24.ru_2.eve
+... (тут перечислены все генераторы с указанием папки, где на них лежит результат теста)
+k10-pc-genv-27.r2.vtb24.ru=C:\Program Files (x86)\HP\Performance Center Host\Temp\brr_EYt.467\netdir\C\Program Files (x86)\HP\Performance Center Host\orchidtmp\Results\LOADTEST_Proff_711\Run_711\res711\k10-pc-genv-27.r2.vtb24.ru_1.eve
+[Collate Results]
+CollateStatus=Succeeded
+VusersResultsZipStatus=Succeeded
+RawResultsZipStatus=Succeeded
+=================================
+
+Для LoadRunner Controller:
+=================================
+[Hosts]
+k10-pc-genv-19.r2.vtb24.ru=C:\Program Files (x86)\HP\Performance Center Host\Temp\brr_mYv.523\netdir\C\Program Files (x86)\HP\Performance Center Host\orchidtmp\Results\LOADTEST_Proff_711\Run_711\res711\k10-pc-genv-19.r2.vtb24.ru_2.eve
+... (тут перечислены все генераторы с указанием папки, где на них лежит результат теста)
+k10-pc-genv-27.r2.vtb24.ru=C:\Program Files (x86)\HP\Performance Center Host\Temp\brr_EYt.467\netdir\C\Program Files (x86)\HP\Performance Center Host\orchidtmp\Results\LOADTEST_Proff_711\Run_711\res711\k10-pc-genv-27.r2.vtb24.ru_1.eve
+=================================
+
+4) (обычно нужно только для ALM Performance Center) Собрать из нескольких MAP1, MAP2, MAP3-файлов для каждого генератора нагрузки один MAP-файл.
+Название файла должно быть:
+[название генератора][_цифра].map
+
+Содержимое файла:
+==================================
+[DATA_POINT]
+1="HTTP_200"
+2="tcp_connection_count"
+3="tcp_connect"
+4="mic_recv"
+5="tcp_shutdown"
+6="HTTP_500"
+7="RETRY_KEEP_ALIVE"
+[END_TRANSACTION]
+26="UC09_OWA_02_Plastics"
+... (тут перечислены транзакции)
+25="UC08_OWA_02_Contr_stat_history"
+==================================
+
+
+5) (только для ALM Performance Center)В случае отсутствия - создать файл already_collated.txt
+В него надо внести названия всех генераторов, с которых шла нагрузка. Можно взять их из файла "remote_results.txt"
+Например, так:
+==================================
+k10-pc-gen-03.r2.vtb24.ru
+k10-pc-gen-04.r2.vtb24.ru
+k10-pc-genv-02.r2.vtb24.ru
+k10-pc-genv-17.r2.vtb24.ru
+==================================
+
+6) Файл collate.txt привести к виду:
+[Diagnostics]
+Status=-1
+[Collate Recovery]
+Scenario=
+Completed=0
+[Hosts]
+k10-pc-genv-19.r2.vtb24.ru=C:\Program Files (x86)\HP\Performance Center Host\Temp\brr_mYv.523\netdir\C\Program Files (x86)\HP\Performance Center Host\orchidtmp\Results\LOADTEST_Proff_711\Run_711\res711\k10-pc-genv-19.r2.vtb24.ru_2.eve
+... (тут перечислены все генераторы с указанием папки, где на них лежит результат теста)
+k10-pc-genv-27.r2.vtb24.ru=C:\Program Files (x86)\HP\Performance Center Host\Temp\brr_EYt.467\netdir\C\Program Files (x86)\HP\Performance Center Host\orchidtmp\Results\LOADTEST_Proff_711\Run_711\res711\k10-pc-genv-27.r2.vtb24.ru_1.eve
+
+7) файл res[RunID].lrr
+проверить следующие строки:
+Для ALM Performance Center:
+==================================
+Stop_time=[больше, чем значение строки Start_time]
+[Data Collection]
+FullData=1
+SummaryEnded=1
+==================================
+
+Для LoadRunner Controller:
+==================================
+Stop_time=[больше, чем значение строки Start_time]
+[Data Collection]
+FullData=1
+==================================

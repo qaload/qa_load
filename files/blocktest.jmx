@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jmeterTestPlan version="1.2" properties="5.0" jmeter="5.1 r1853635">
+  <hashTree>
+    <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="Test Plan" enabled="true">
+      <stringProp name="TestPlan.comments"></stringProp>
+      <boolProp name="TestPlan.functional_mode">false</boolProp>
+      <boolProp name="TestPlan.tearDown_on_shutdown">true</boolProp>
+      <boolProp name="TestPlan.serialize_threadgroups">false</boolProp>
+      <elementProp name="TestPlan.user_defined_variables" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+        <collectionProp name="Arguments.arguments"/>
+      </elementProp>
+      <stringProp name="TestPlan.user_define_classpath"></stringProp>
+    </TestPlan>
+    <hashTree>
+      <SetupThreadGroup guiclass="SetupThreadGroupGui" testclass="SetupThreadGroup" testname="setUp Thread Group" enabled="true">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <stringProp name="LoopController.loops">1</stringProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">1</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration"></stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+      </SetupThreadGroup>
+      <hashTree>
+        <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="JSR223 Sampler" enabled="true">
+          <stringProp name="cacheKey">true</stringProp>
+          <stringProp name="filename"></stringProp>
+          <stringProp name="parameters"></stringProp>
+          <stringProp name="script">import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.LinkedBlockingQueue;
+
+import java.util.concurrent.ConcurrentHashMap;
+
+public class SharedHashMap
+{
+    private static final ConcurrentHashMap instance = new ConcurrentHashMap();
+
+    public static ConcurrentHashMap GetInstance()
+    {
+        return instance;
+    }
+
+    public String test() {
+        return &quot;SharedHashMap&quot;;
+    }
+}
+
+
+ConcurrentHashMap map = SharedHashMap.GetInstance();
+
+LinkedBlockingQueue queue = new LinkedBlockingQueue();
+
+map.put(&quot;in_game_users&quot;, queue);
+props.put(&quot;data&quot;,map)
+</stringProp>
+          <stringProp name="scriptLanguage">groovy</stringProp>
+        </JSR223Sampler>
+        <hashTree/>
+        <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="JSR223 Sampler" enabled="true">
+          <stringProp name="cacheKey">true</stringProp>
+          <stringProp name="filename"></stringProp>
+          <stringProp name="parameters"></stringProp>
+          <stringProp name="script">import java.util.concurrent.ConcurrentHashMap; 
+import java.util.concurrent.LinkedBlockingQueue;
+
+ConcurrentHashMap map = props.get(&quot;data&quot;);
+LinkedBlockingQueue in_game_users = map.get(&quot;in_game_users&quot;);
+
+def value = [:]
+value[&quot;a&quot;] = 0
+value[&quot;b&quot;] = 0
+value[&quot;c&quot;] = 0
+
+in_game_users.add(value);</stringProp>
+          <stringProp name="scriptLanguage">groovy</stringProp>
+        </JSR223Sampler>
+        <hashTree/>
+      </hashTree>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Thread Group" enabled="true">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <stringProp name="LoopController.loops">5</stringProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">5</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration"></stringProp>
+        <stringProp name="ThreadGroup.delay">1</stringProp>
+      </ThreadGroup>
+      <hashTree>
+        <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="ONE" enabled="true">
+          <stringProp name="scriptLanguage">groovy</stringProp>
+          <stringProp name="parameters"></stringProp>
+          <stringProp name="filename"></stringProp>
+          <stringProp name="cacheKey">true</stringProp>
+          <stringProp name="script">/*
+import java.util.concurrent.ConcurrentHashMap; 
+import java.util.concurrent.LinkedBlockingQueue;
+
+ConcurrentHashMap map = props.get(&quot;data&quot;)
+LinkedBlockingQueue in_game_users = map.get(&quot;in_game_users&quot;);
+log.info(&quot; PERVIY DO  = &quot; + in_game_users.toString())
+def pio
+pio = in_game_users.take();
+log.info(pio.toString())
+in_game_users.put([&quot;A&quot;,&quot;${__Random(1,100)}&quot;])
+in_game_users.put([&quot;AA&quot;,&quot;${__Random(1,100)}&quot;])
+
+log.info(&quot; PERVIY POSLE  = &quot; + in_game_users.toString())
+map.put(&quot;in_game_users&quot;,in_game_users)
+props.put(&quot;data&quot;,map)
+*/
+import java.util.concurrent.ConcurrentHashMap; 
+import java.util.concurrent.LinkedBlockingQueue;
+
+ConcurrentHashMap map = props.get(&quot;data&quot;);
+LinkedBlockingQueue in_game_users = map.get(&quot;in_game_users&quot;);
+
+def value = in_game_users.take();
+sleep(3);
+value[&quot;a&quot;] = value[&quot;a&quot;] + 1
+value[&quot;b&quot;] = value[&quot;b&quot;]
+value[&quot;c&quot;] = value[&quot;c&quot;]
+
+in_game_users.add(value);
+</stringProp>
+        </JSR223Sampler>
+        <hashTree/>
+      </hashTree>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Thread Group" enabled="true">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <stringProp name="LoopController.loops">10</stringProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">5</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration"></stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+      </ThreadGroup>
+      <hashTree>
+        <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="TWO" enabled="true">
+          <stringProp name="scriptLanguage">groovy</stringProp>
+          <stringProp name="parameters"></stringProp>
+          <stringProp name="filename"></stringProp>
+          <stringProp name="cacheKey">true</stringProp>
+          <stringProp name="script">/*
+import java.util.concurrent.ConcurrentHashMap; 
+import java.util.concurrent.LinkedBlockingQueue;
+
+ConcurrentHashMap map = props.get(&quot;data&quot;)
+LinkedBlockingQueue in_game_users = map.get(&quot;in_game_users&quot;);
+log.info(&quot; VTOROY DO = &quot; + in_game_users.toString())
+def pio
+
+pio = in_game_users.take();
+log.info(pio.toString())
+in_game_users.put([&quot;BABA&quot;,&quot;${__Random(1,100)}&quot;])
+in_game_users.put([&quot;BAB&quot;,&quot;${__Random(1,100)}&quot;])
+sleep(1100)
+
+log.info(&quot; VTOROY POSLE  = &quot; + in_game_users.toString())
+map.put(&quot;in_game_users&quot;,in_game_users)
+props.put(&quot;data&quot;,map)
+*/
+import java.util.concurrent.ConcurrentHashMap; 
+import java.util.concurrent.LinkedBlockingQueue;
+
+ConcurrentHashMap map = props.get(&quot;data&quot;);
+LinkedBlockingQueue in_game_users = map.get(&quot;in_game_users&quot;);
+
+def value = in_game_users.take();
+sleep(2);
+value[&quot;a&quot;] = value[&quot;a&quot;]
+value[&quot;b&quot;] = value[&quot;b&quot;] + 1
+value[&quot;c&quot;] = value[&quot;c&quot;]
+
+in_game_users.add(value);</stringProp>
+        </JSR223Sampler>
+        <hashTree/>
+      </hashTree>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Thread Group" enabled="true">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <stringProp name="LoopController.loops">20</stringProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">50</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration">1</stringProp>
+        <stringProp name="ThreadGroup.delay">3</stringProp>
+      </ThreadGroup>
+      <hashTree>
+        <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="THREE" enabled="true">
+          <stringProp name="scriptLanguage">groovy</stringProp>
+          <stringProp name="parameters"></stringProp>
+          <stringProp name="filename"></stringProp>
+          <stringProp name="cacheKey">true</stringProp>
+          <stringProp name="script">/*
+import java.util.concurrent.ConcurrentHashMap; 
+import java.util.concurrent.LinkedBlockingQueue;
+
+ConcurrentHashMap map = props.get(&quot;data&quot;)
+LinkedBlockingQueue in_game_users = map.get(&quot;in_game_users&quot;);
+log.info(&quot; RESULT = &quot; + in_game_users.toString())
+*/
+
+import java.util.concurrent.ConcurrentHashMap; 
+import java.util.concurrent.LinkedBlockingQueue;
+
+ConcurrentHashMap map = props.get(&quot;data&quot;);
+LinkedBlockingQueue in_game_users = map.get(&quot;in_game_users&quot;);
+
+def value = in_game_users.take();
+sleep(1);
+value[&quot;a&quot;] = value[&quot;a&quot;]
+value[&quot;b&quot;] = value[&quot;b&quot;]
+value[&quot;c&quot;] = value[&quot;c&quot;] + 1
+
+in_game_users.add(value);</stringProp>
+        </JSR223Sampler>
+        <hashTree/>
+      </hashTree>
+      <PostThreadGroup guiclass="PostThreadGroupGui" testclass="PostThreadGroup" testname="tearDown Thread Group" enabled="true">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <stringProp name="LoopController.loops">1</stringProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">1</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration"></stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+      </PostThreadGroup>
+      <hashTree>
+        <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="JSR223 Sampler" enabled="true">
+          <stringProp name="scriptLanguage">groovy</stringProp>
+          <stringProp name="parameters"></stringProp>
+          <stringProp name="filename"></stringProp>
+          <stringProp name="cacheKey">true</stringProp>
+          <stringProp name="script">import java.util.concurrent.ConcurrentHashMap; 
+import java.util.concurrent.LinkedBlockingQueue;
+
+ConcurrentHashMap map = props.get(&quot;data&quot;);
+LinkedBlockingQueue in_game_users = map.get(&quot;in_game_users&quot;);
+
+def value = in_game_users.take();
+
+log.error(&quot;A = &quot; + value[&quot;a&quot;].toString())
+log.error(&quot;B = &quot; + value[&quot;b&quot;].toString())
+log.error(&quot;C = &quot; + value[&quot;c&quot;].toString())
+
+in_game_users.add(value);</stringProp>
+        </JSR223Sampler>
+        <hashTree/>
+      </hashTree>
+    </hashTree>
+  </hashTree>
+</jmeterTestPlan>
