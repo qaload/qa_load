@@ -1,0 +1,6 @@
+// TODO: parametrization
+vars.put("category_url", "${category_url}")
+
+
+category_id = vars.get('category_url').split('-').last()
+vars.put('category_id', category_id)

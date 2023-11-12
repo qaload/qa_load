@@ -1,0 +1,54 @@
+import groovy.json.*;
+
+class Utils {
+	public String[] getPrices_and_DeliveryDatesPostBody(String response) {
+		def data_string = (response =~ /window\.__NUXT__=.+return(.+)\}\(.+null,/)[0][1]
+		def data = (new JsonSlurper().setType(groovy.json.JsonParserType.LAX).parseText(data_string.normalize())).state.listing
+		def keys = [ "guid", "isAvailable", "banDeliveryId", "isForPickupOnly", "isConsumable", 
+				   "profileId", "officeGuidForPickup", "countInStock", "dimensions", "price" ]
+		data.products.each { key, value -> value.retainAll{ it.key in keys } };   // leaving only keys from keys array
+		data.retainAll { it.key == "products" };  // кроме списка продуктов нам ничего не надо
+		data = toToLinkedHashMap(data)
+		
+		def args = (response =~ /window\.__NUXT__=\(function\((.+)\)\{/)[0][1].split(",");
+		// регулярка сплита такая стрёмная, потому что часть строк содержат в себе запятые 
+		def values = (response =~ /\}\}\((.+)\)\);</)[0][1].split(/,(?=(?:[^\"]*\"[^\"]*\")*[^\"]*$)/).collect{it.replaceAll(/"/,'')};
+		def parameters = [:];
+		args.eachWithIndex { it, index -> parameters[it] = values[index] };
+		
+		data.products.each { guid, info ->
+			info.each { key, value -> 
+				data.products[guid][key] = parameters.containsKey(value) ? parameters[value].toString() : value 
+			}
+		}
+		
+		return ["{\"productGuids\":" + JsonOutput.toJson(data.products.keySet()).toString() + "}",
+			   JsonOutput.toJson(data)
+			  ];
+	}
+	
+	private def toToLinkedHashMap(def obj) {
+	    if (obj instanceof org.apache.groovy.json.internal.LazyValueMap) {
+	        Map copy = [:];
+	        for (pair in (obj as Map)) {
+	            copy.put(pair.key, toToLinkedHashMap(pair.value));
+	        }
+	        return copy;
+	    }
+	    if (obj instanceof org.apache.groovy.json.internal.ValueList) {
+	        List copy = [];
+	        for (item in (obj as List)) {
+	            copy.add(toToLinkedHashMap(item));
+	        }
+	        return copy;
+	    }
+	    return obj;
+	}
+	
+	public String findAllUniqueGUIDs(String responseBody) {
+		def guids = (responseBody =~ /(\"\w{8}-\w{4}-\w{4}-\w{4}-\w{12}\")/).findAll()*.first().unique(false);
+		return "{\"productGuids\":" + guids.toString() + "}";
+	}	
+}
+
+props.put('utils', Utils);

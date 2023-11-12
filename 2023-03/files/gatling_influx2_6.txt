@@ -1,0 +1,76 @@
+		Настройка подключения вывода результатов теста из приложения gatling в influxdb v2.6
+
+1. установить inxluxdb v2* и telegraf
+2. в проекте, где пишете скрипты для тестов в файле gatling.conf следующая секция выглядит так
+(здесь вывод данных только через graphite. также можно добавить другие writers. у меня работало с console и file дополнительно):
+
+data {
+    writers = [graphite]      # The list of DataWriters to which Gatling write simulation data (currently supported : console, file, graphite)
+    console {
+      #light = false                # When set to true, displays a light version without detailed request stats
+      #writePeriod = 5              # Write interval, in seconds
+    }
+    file {
+      #bufferSize = 8192            # FileDataWriter's internal data buffer size, in bytes
+    }
+    leak {
+      #noActivityTimeout = 30  # Period, in seconds, for which Gatling may have no activity before considering a leak may be happening
+    }
+    graphite {
+      light = false              # only send the all* stats
+      host = "127.0.0.1"         # The host where the Carbon server is located
+      port = 2003                # The port to which the Carbon server listens to (2003 is default for plaintext, 2004 is default for pickle)
+      protocol = "tcp"           # The protocol used to send data to Carbon (currently supported : "tcp", "udp")
+      rootPathPrefix = "gatling" # The common prefix of all metrics sent to Graphite
+      bufferSize = 8192          # Internal data buffer size, in bytes
+      writePeriod = 1            # Write period, in seconds
+    }
+  }
+  
+3. в файле telegraf.conf(у меня в /etc/telegraf/telegraf.conf) правим следующие секции:
+## для вывода подробных логов самого telegraf агента, чтобы отладить настройку. потом лучше выключить 
+[agent]
+debug = true 
+## раскомментируем, если закомментирована
+[[outputs.influxdb_v2]]
+urls = ["http://localhost:8086"]
+token = "токен из influxdb, который можно сгенерить. посмотреть: influx auth list"
+organization = "имя организации из influxdb. посмотреть: influx org list"
+bucket = "имя бакета из influxdb. к примеру, gatling"
+
+[[inputs.socket_listener]]
+## здесь может быть указать протокол tcp без уточнений. так тоже работает 
+service_address = "tcp4://:2003"
+data_format = "graphite"
+
+    templates = [
+  	"gatling.*.users.*.*      measurement.simulation.measurement.request.field",
+  	"gatling.*.*.*.*.*.*   measurement.simulation.group1.group2.request.status.field   group=2",
+  	"gatling.*.*.*.*.*   measurement.simulation.group1.request.status.field   group=1",
+  	"gatling.*.*.*.*   measurement.simulation.request.status.field   group=0",
+
+  	"v2.gatling.*.*.*.users.*.*  .measurement.run.host.simulation.measurement.request.field",
+  	"v2.gatling.*.*.*.*.*.*.*.*  .measurement.run.host.simulation.group1.group2.request.status.field   group=2",
+  	"v2.gatling.*.*.*.*.*.*.*  .measurement.run.host.simulation.group1.request.status.field   group=1",
+  	"v2.gatling.*.*.*.*.*.*  .measurement.run.host.simulation.request.status.field   group=0",
+     ]
+
+
+## эту секции и параметры внутри них закоментировать. inputs.mongodb тоже была открыта почему то
+[[outputs.influxdb]]
+[[inputs.mongodb]]
+
+4. Для отладки остальных ошибок смотри файл /var/log/syslog
+убедитесь, что телеграф слушает 2003 порт: sudo lsof -i:2003
+посмотреть какие процессы слушают какие порты: sudo ss -tulpn | grep LISTEN
+
+У меня были проблемы:
+1. некорректный файл telegraf.conf, где открыты лишние секции, что вызывало ошибку агента
+2. у меня был запущен telegraf.service и я вызывал команду telegraf, чтобы смотреть логи запуска, 
+но данная команда запускала еще один экземпляр телеграфа
+За счет этого телеграф постоянно перезапускался т.к. возникали конфликты.
+Решил так: systemctl stop telegraf.service && systemctl stop telegraf && systemctl start telegraf.service   
+3. больше ничего делать не надо как в версии influxdb v1*, где надо было править файл influxdb.conf. в v2 править файлы на стороне influxdb не нужно в этих целях
+
+
+

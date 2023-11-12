@@ -1,0 +1,889 @@
+{
+  "content": [
+    {
+      "@id": "1",
+      "values": {
+        "ID": {
+          "value": 869974
+        },
+        "TYPE_ID": {
+          "value": [
+            {
+              "@id": "2",
+              "values": {
+                "TYPE_ID": {
+                  "value": [
+                    {
+                      "@id": "3",
+                      "values": {
+                        "ID": {
+                          "value": 15
+                        },
+                        "NAME": {
+                          "value": "Тип объекта",
+                          "locales": {
+                            "en": "Object type",
+                            "ru": "Тип объекта",
+                            "fr": "Type d’objet"
+                          }
+                        }
+                      }
+                    }
+                  ]
+                },
+                "TEMPORARY_UUID": {
+                  "value": "a18f732b-b627-4b66-8a9b-9356c164ba0b"
+                },
+                "ID": {
+                  "value": 103361
+                },
+                "NAME": {
+                  "value": "ДО. Задача на процессе"
+                }
+              }
+            }
+          ]
+        },
+        "WPT_NUM": {
+          "value": 22684
+        },
+        "NAME": {
+          "value": "22684 - Выполнение задания",
+          "locales": {
+            "ru": "22684 - Выполнение задания",
+            "en": "22684 - Выполнение задания",
+            "fr": "22684 - Выполнение задания"
+          }
+        },
+        "OBJ_ID": {
+          "value": [
+            {
+              "@id": "4",
+              "values": {
+                "TYPE_ID": {
+                  "value": [
+                    {
+                      "@id": "5",
+                      "values": {
+                        "TYPE_ID": {
+                          "value": [
+                            {
+                              "@id": "6",
+                              "values": {
+                                "ID": {
+                                  "value": 15
+                                },
+                                "NAME": {
+                                  "value": "Тип объекта",
+                                  "locales": {
+                                    "en": "Object type",
+                                    "ru": "Тип объекта",
+                                    "fr": "Type d’objet"
+                                  }
+                                }
+                              }
+                            }
+                          ]
+                        },
+                        "TEMPORARY_UUID": {
+                          "value": "93c295d2-96e8-4151-8a17-62d0cf46f413"
+                        },
+                        "ID": {
+                          "value": 844001
+                        },
+                        "NAME": {
+                          "value": "Сертификация участника"
+                        }
+                      }
+                    }
+                  ]
+                },
+                "TEMPORARY_UUID": {
+                  "value": "c02f6422-4124-4a06-b457-92b61353a913"
+                },
+                "ID": {
+                  "value": 869647
+                },
+                "NAME": {
+                  "value": "Сертификация по курсу \"Формальная логика\" 24.10.2022(Попов А.О.)",
+                  "locales": {
+                    "ru": "Сертификация по курсу \"Формальная логика\" 24.10.2022(Попов А.О.)",
+                    "en": "Сертификация по курсу \"Формальная логика\" 24.10.2022(Попов А.О.)",
+                    "fr": "Сертификация по курсу \"Формальная логика\" 24.10.2022(Попов А.О.)"
+                  }
+                }
+              }
+            }
+          ]
+        },
+        "WPT_RESP_EMP_ID": {
+          "value": [
+            {
+              "@id": "7",
+              "values": {
+                "TYPE_ID": {
+                  "value": [
+                    {
+                      "@id": "8",
+                      "values": {
+                        "TYPE_ID": {
+                          "value": [
+                            {
+                              "@id": "9",
+                              "values": {
+                                "ID": {
+                                  "value": 15
+                                },
+                                "NAME": {
+                                  "value": "Тип объекта",
+                                  "locales": {
+                                    "en": "Object type",
+                                    "ru": "Тип объекта",
+                                    "fr": "Type d’objet"
+                                  }
+                                }
+                              }
+                            }
+                          ]
+                        },
+                        "TEMPORARY_UUID": {
+                          "value": "dbce5de0-6391-463b-876f-b8b7e3d4d8f5"
+                        },
+                        "ID": {
+                          "value": 4
+                        },
+                        "NAME": {
+                          "value": "Справочник сотрудников"
+                        }
+                      }
+                    }
+                  ]
+                },
+                "TEMPORARY_UUID": {
+                  "value": "42b85b96-4e0f-4186-9f72-306ffc291f08"
+                },
+                "ID": {
+                  "value": 847456
+                },
+                "NAME": {
+                  "value": "Попов А. О. (Сертификация)",
+                  "locales": {
+                    "ru": "Попов А. О. (Сертификация)",
+                    "en": "Попов А. О. (Сертификация)",
+                    "fr": "Попов А. О. (Сертификация)"
+                  }
+                }
+              }
+            }
+          ]
+        },
+        "WPT_RESP_EMP_POSSIBLE": {
+          "value": "Попов А. О. (Сертификация)"
+        },
+        "WPT_DEAD_LINE": {
+          "value": null
+        },
+        "ORG_ID": {
+          "value": [
+            {
+              "@id": "10",
+              "values": {
+                "TYPE_ID": {
+                  "value": [
+                    {
+                      "@id": "11",
+                      "values": {
+                        "TYPE_ID": {
+                          "value": [
+                            {
+                              "@id": "12",
+                              "values": {
+                                "ID": {
+                                  "value": 15
+                                },
+                                "NAME": {
+                                  "value": "Тип объекта",
+                                  "locales": {
+                                    "en": "Object type",
+                                    "ru": "Тип объекта",
+                                    "fr": "Type d’objet"
+                                  }
+                                }
+                              }
+                            }
+                          ]
+                        },
+                        "TEMPORARY_UUID": {
+                          "value": "3c7f0256-14e6-4a29-ac41-57dc09b50784"
+                        },
+                        "ID": {
+                          "value": 3
+                        },
+                        "NAME": {
+                          "value": "Подразделение"
+                        }
+                      }
+                    }
+                  ]
+                },
+                "TEMPORARY_UUID": {
+                  "value": "49aa7308-402d-4aab-82c5-c78ba91d3167"
+                },
+                "ID": {
+                  "value": 844022
+                },
+                "IDENT": {
+                  "value": "ID_844079"
+                },
+                "NAME": {
+                  "value": "Сертификация",
+                  "locales": {
+                    "ru": "Сертификация",
+                    "en": null,
+                    "fr": null
+                  }
+                }
+              }
+            }
+          ]
+        },
+        "WPT_EXECUTED_TIME": {
+          "value": null
+        },
+        "COMMENT": {
+          "value": null
+        },
+        "WPT_EXECUTED": {
+          "value": false
+        },
+        "CREATE_DATE": {
+          "value": "2022-10-25T06:04:06.971Z"
+        },
+        "WPT_INIT_TIME": {
+          "value": "2022-10-25T06:04:06.577Z"
+        },
+        "WF_IS_MY_TASK": {
+          "value": true
+        }
+      }
+    },
+    {
+      "@id": "13",
+      "values": {
+        "ID": {
+          "value": 869976
+        },
+        "TYPE_ID": {
+          "value": [
+            {
+              "@ref": "2"
+            }
+          ]
+        },
+        "WPT_NUM": {
+          "value": 22685
+        },
+        "NAME": {
+          "value": "22685 - Выполнение задания",
+          "locales": {
+            "ru": "22685 - Выполнение задания",
+            "en": "22685 - Выполнение задания",
+            "fr": "22685 - Выполнение задания"
+          }
+        },
+        "OBJ_ID": {
+          "value": [
+            {
+              "@id": "14",
+              "values": {
+                "TYPE_ID": {
+                  "value": [
+                    {
+                      "@ref": "5"
+                    }
+                  ]
+                },
+                "TEMPORARY_UUID": {
+                  "value": "6f2d1993-3d95-43c7-b490-36cdb617da5d"
+                },
+                "ID": {
+                  "value": 869658
+                },
+                "NAME": {
+                  "value": "Сертификация по курсу \"Формальная логика\" 24.10.2022(Попов А.О.)",
+                  "locales": {
+                    "ru": "Сертификация по курсу \"Формальная логика\" 24.10.2022(Попов А.О.)",
+                    "en": "Сертификация по курсу \"Формальная логика\" 24.10.2022(Попов А.О.)",
+                    "fr": "Сертификация по курсу \"Формальная логика\" 24.10.2022(Попов А.О.)"
+                  }
+                }
+              }
+            }
+          ]
+        },
+        "WPT_RESP_EMP_ID": {
+          "value": [
+            {
+              "@ref": "7"
+            }
+          ]
+        },
+        "WPT_RESP_EMP_POSSIBLE": {
+          "value": "Попов А. О. (Сертификация)"
+        },
+        "WPT_DEAD_LINE": {
+          "value": null
+        },
+        "ORG_ID": {
+          "value": [
+            {
+              "@ref": "10"
+            }
+          ]
+        },
+        "WPT_EXECUTED_TIME": {
+          "value": null
+        },
+        "COMMENT": {
+          "value": null
+        },
+        "WPT_EXECUTED": {
+          "value": false
+        },
+        "CREATE_DATE": {
+          "value": "2022-10-25T06:04:12.054Z"
+        },
+        "WPT_INIT_TIME": {
+          "value": "2022-10-25T06:04:11.826Z"
+        },
+        "WF_IS_MY_TASK": {
+          "value": true
+        }
+      }
+    },
+    {
+      "@id": "15",
+      "values": {
+        "ID": {
+          "value": 869978
+        },
+        "TYPE_ID": {
+          "value": [
+            {
+              "@ref": "2"
+            }
+          ]
+        },
+        "WPT_NUM": {
+          "value": 22686
+        },
+        "NAME": {
+          "value": "22686 - Выполнение задания",
+          "locales": {
+            "ru": "22686 - Выполнение задания",
+            "en": "22686 - Выполнение задания",
+            "fr": "22686 - Выполнение задания"
+          }
+        },
+        "OBJ_ID": {
+          "value": [
+            {
+              "@id": "16",
+              "values": {
+                "TYPE_ID": {
+                  "value": [
+                    {
+                      "@ref": "5"
+                    }
+                  ]
+                },
+                "TEMPORARY_UUID": {
+                  "value": "cfc51cc8-890e-4e74-b60f-09c9f82245b9"
+                },
+                "ID": {
+                  "value": 869669
+                },
+                "NAME": {
+                  "value": "Сертификация по курсу \"Формальная логика\" 24.10.2022(Попов А.О.)",
+                  "locales": {
+                    "ru": "Сертификация по курсу \"Формальная логика\" 24.10.2022(Попов А.О.)",
+                    "en": "Сертификация по курсу \"Формальная логика\" 24.10.2022(Попов А.О.)",
+                    "fr": "Сертификация по курсу \"Формальная логика\" 24.10.2022(Попов А.О.)"
+                  }
+                }
+              }
+            }
+          ]
+        },
+        "WPT_RESP_EMP_ID": {
+          "value": [
+            {
+              "@ref": "7"
+            }
+          ]
+        },
+        "WPT_RESP_EMP_POSSIBLE": {
+          "value": "Попов А. О. (Сертификация)"
+        },
+        "WPT_DEAD_LINE": {
+          "value": null
+        },
+        "ORG_ID": {
+          "value": [
+            {
+              "@ref": "10"
+            }
+          ]
+        },
+        "WPT_EXECUTED_TIME": {
+          "value": null
+        },
+        "COMMENT": {
+          "value": null
+        },
+        "WPT_EXECUTED": {
+          "value": false
+        },
+        "CREATE_DATE": {
+          "value": "2022-10-25T06:04:15.995Z"
+        },
+        "WPT_INIT_TIME": {
+          "value": "2022-10-25T06:04:15.796Z"
+        },
+        "WF_IS_MY_TASK": {
+          "value": true
+        }
+      }
+    },
+    {
+      "@id": "17",
+      "values": {
+        "ID": {
+          "value": 869980
+        },
+        "TYPE_ID": {
+          "value": [
+            {
+              "@ref": "2"
+            }
+          ]
+        },
+        "WPT_NUM": {
+          "value": 22687
+        },
+        "NAME": {
+          "value": "22687 - Выполнение задания",
+          "locales": {
+            "ru": "22687 - Выполнение задания",
+            "en": "22687 - Выполнение задания",
+            "fr": "22687 - Выполнение задания"
+          }
+        },
+        "OBJ_ID": {
+          "value": [
+            {
+              "@id": "18",
+              "values": {
+                "TYPE_ID": {
+                  "value": [
+                    {
+                      "@ref": "5"
+                    }
+                  ]
+                },
+                "TEMPORARY_UUID": {
+                  "value": "a5b6bd3a-389c-4584-9969-6f8d13f77203"
+                },
+                "ID": {
+                  "value": 869687
+                },
+                "NAME": {
+                  "value": "Сертификация по курсу \"Формальная логика\" 24.10.2022(Попов А.О.)",
+                  "locales": {
+                    "ru": "Сертификация по курсу \"Формальная логика\" 24.10.2022(Попов А.О.)",
+                    "en": "Сертификация по курсу \"Формальная логика\" 24.10.2022(Попов А.О.)",
+                    "fr": "Сертификация по курсу \"Формальная логика\" 24.10.2022(Попов А.О.)"
+                  }
+                }
+              }
+            }
+          ]
+        },
+        "WPT_RESP_EMP_ID": {
+          "value": [
+            {
+              "@ref": "7"
+            }
+          ]
+        },
+        "WPT_RESP_EMP_POSSIBLE": {
+          "value": "Попов А. О. (Сертификация)"
+        },
+        "WPT_DEAD_LINE": {
+          "value": null
+        },
+        "ORG_ID": {
+          "value": [
+            {
+              "@ref": "10"
+            }
+          ]
+        },
+        "WPT_EXECUTED_TIME": {
+          "value": null
+        },
+        "COMMENT": {
+          "value": null
+        },
+        "WPT_EXECUTED": {
+          "value": false
+        },
+        "CREATE_DATE": {
+          "value": "2022-10-25T06:04:18.808Z"
+        },
+        "WPT_INIT_TIME": {
+          "value": "2022-10-25T06:04:18.616Z"
+        },
+        "WF_IS_MY_TASK": {
+          "value": true
+        }
+      }
+    },
+    {
+      "@id": "19",
+      "values": {
+        "ID": {
+          "value": 869982
+        },
+        "TYPE_ID": {
+          "value": [
+            {
+              "@ref": "2"
+            }
+          ]
+        },
+        "WPT_NUM": {
+          "value": 22688
+        },
+        "NAME": {
+          "value": "22688 - Выполнение задания",
+          "locales": {
+            "ru": "22688 - Выполнение задания",
+            "en": "22688 - Выполнение задания",
+            "fr": "22688 - Выполнение задания"
+          }
+        },
+        "OBJ_ID": {
+          "value": [
+            {
+              "@id": "20",
+              "values": {
+                "TYPE_ID": {
+                  "value": [
+                    {
+                      "@ref": "5"
+                    }
+                  ]
+                },
+                "TEMPORARY_UUID": {
+                  "value": "9a269288-8d3a-44fa-b453-291d253a2538"
+                },
+                "ID": {
+                  "value": 869698
+                },
+                "NAME": {
+                  "value": "Сертификация по курсу \"Формальная логика\" 24.10.2022(Попов А.О.)",
+                  "locales": {
+                    "ru": "Сертификация по курсу \"Формальная логика\" 24.10.2022(Попов А.О.)",
+                    "en": "Сертификация по курсу \"Формальная логика\" 24.10.2022(Попов А.О.)",
+                    "fr": "Сертификация по курсу \"Формальная логика\" 24.10.2022(Попов А.О.)"
+                  }
+                }
+              }
+            }
+          ]
+        },
+        "WPT_RESP_EMP_ID": {
+          "value": [
+            {
+              "@ref": "7"
+            }
+          ]
+        },
+        "WPT_RESP_EMP_POSSIBLE": {
+          "value": "Попов А. О. (Сертификация)"
+        },
+        "WPT_DEAD_LINE": {
+          "value": null
+        },
+        "ORG_ID": {
+          "value": [
+            {
+              "@ref": "10"
+            }
+          ]
+        },
+        "WPT_EXECUTED_TIME": {
+          "value": null
+        },
+        "COMMENT": {
+          "value": null
+        },
+        "WPT_EXECUTED": {
+          "value": false
+        },
+        "CREATE_DATE": {
+          "value": "2022-10-25T06:04:21.002Z"
+        },
+        "WPT_INIT_TIME": {
+          "value": "2022-10-25T06:04:20.822Z"
+        },
+        "WF_IS_MY_TASK": {
+          "value": true
+        }
+      }
+    },
+    {
+      "@id": "21",
+      "values": {
+        "ID": {
+          "value": 869984
+        },
+        "TYPE_ID": {
+          "value": [
+            {
+              "@ref": "2"
+            }
+          ]
+        },
+        "WPT_NUM": {
+          "value": 22689
+        },
+        "NAME": {
+          "value": "22689 - Выполнение задания",
+          "locales": {
+            "ru": "22689 - Выполнение задания",
+            "en": "22689 - Выполнение задания",
+            "fr": "22689 - Выполнение задания"
+          }
+        },
+        "OBJ_ID": {
+          "value": [
+            {
+              "@id": "22",
+              "values": {
+                "TYPE_ID": {
+                  "value": [
+                    {
+                      "@ref": "5"
+                    }
+                  ]
+                },
+                "TEMPORARY_UUID": {
+                  "value": "476572f3-789f-45f0-98b1-1fe2e0d2dfd8"
+                },
+                "ID": {
+                  "value": 869709
+                },
+                "NAME": {
+                  "value": "Сертификация по курсу \"Формальная логика\" 24.10.2022(Попов А.О.)",
+                  "locales": {
+                    "ru": "Сертификация по курсу \"Формальная логика\" 24.10.2022(Попов А.О.)",
+                    "en": "Сертификация по курсу \"Формальная логика\" 24.10.2022(Попов А.О.)",
+                    "fr": "Сертификация по курсу \"Формальная логика\" 24.10.2022(Попов А.О.)"
+                  }
+                }
+              }
+            }
+          ]
+        },
+        "WPT_RESP_EMP_ID": {
+          "value": [
+            {
+              "@ref": "7"
+            }
+          ]
+        },
+        "WPT_RESP_EMP_POSSIBLE": {
+          "value": "Попов А. О. (Сертификация)"
+        },
+        "WPT_DEAD_LINE": {
+          "value": null
+        },
+        "ORG_ID": {
+          "value": [
+            {
+              "@ref": "10"
+            }
+          ]
+        },
+        "WPT_EXECUTED_TIME": {
+          "value": null
+        },
+        "COMMENT": {
+          "value": null
+        },
+        "WPT_EXECUTED": {
+          "value": false
+        },
+        "CREATE_DATE": {
+          "value": "2022-10-25T06:04:22.884Z"
+        },
+        "WPT_INIT_TIME": {
+          "value": "2022-10-25T06:04:22.730Z"
+        },
+        "WF_IS_MY_TASK": {
+          "value": true
+        }
+      }
+    },
+    {
+      "@id": "23",
+      "values": {
+        "ID": {
+          "value": 869986
+        },
+        "TYPE_ID": {
+          "value": [
+            {
+              "@ref": "2"
+            }
+          ]
+        },
+        "WPT_NUM": {
+          "value": 22690
+        },
+        "NAME": {
+          "value": "22690 - Выполнение задания",
+          "locales": {
+            "ru": "22690 - Выполнение задания",
+            "en": "22690 - Выполнение задания",
+            "fr": "22690 - Выполнение задания"
+          }
+        },
+        "OBJ_ID": {
+          "value": [
+            {
+              "@id": "24",
+              "values": {
+                "TYPE_ID": {
+                  "value": [
+                    {
+                      "@ref": "5"
+                    }
+                  ]
+                },
+                "TEMPORARY_UUID": {
+                  "value": "efeb9762-f3b2-4d8e-ba71-32072faf32ca"
+                },
+                "ID": {
+                  "value": 869720
+                },
+                "NAME": {
+                  "value": "Сертификация по курсу \"Формальная логика\" 24.10.2022(Попов А.О.)",
+                  "locales": {
+                    "ru": "Сертификация по курсу \"Формальная логика\" 24.10.2022(Попов А.О.)",
+                    "en": "Сертификация по курсу \"Формальная логика\" 24.10.2022(Попов А.О.)",
+                    "fr": "Сертификация по курсу \"Формальная логика\" 24.10.2022(Попов А.О.)"
+                  }
+                }
+              }
+            }
+          ]
+        },
+        "WPT_RESP_EMP_ID": {
+          "value": [
+            {
+              "@ref": "7"
+            }
+          ]
+        },
+        "WPT_RESP_EMP_POSSIBLE": {
+          "value": "Попов А. О. (Сертификация)"
+        },
+        "WPT_DEAD_LINE": {
+          "value": null
+        },
+        "ORG_ID": {
+          "value": [
+            {
+              "@ref": "10"
+            }
+          ]
+        },
+        "WPT_EXECUTED_TIME": {
+          "value": null
+        },
+        "COMMENT": {
+          "value": null
+        },
+        "WPT_EXECUTED": {
+          "value": false
+        },
+        "CREATE_DATE": {
+          "value": "2022-10-25T06:04:24.809Z"
+        },
+        "WPT_INIT_TIME": {
+          "value": "2022-10-25T06:04:24.668Z"
+        },
+        "WF_IS_MY_TASK": {
+          "value": true
+        }
+      }
+    }
+  ],
+  "pageable": {
+    "sort": [
+      {
+        "direction": "ASC",
+        "property": "WPT_DEAD_LINE",
+        "ignoreCase": false,
+        "nullHandling": "NATIVE",
+        "descending": false,
+        "ascending": true
+      },
+      {
+        "direction": "ASC",
+        "property": "ID",
+        "ignoreCase": false,
+        "nullHandling": "NATIVE",
+        "descending": false,
+        "ascending": true
+      }
+    ],
+    "offset": 0,
+    "pageNumber": 0,
+    "pageSize": 25,
+    "paged": true,
+    "unpaged": false
+  },
+  "negativeOversize": 0,
+  "positiveOversize": 0,
+  "aggValues": [],
+  "totalElements": 7,
+  "totalPages": 1,
+  "size": 25,
+  "number": 0,
+  "sort": [
+    {
+      "direction": "ASC",
+      "property": "WPT_DEAD_LINE",
+      "ignoreCase": false,
+      "nullHandling": "NATIVE",
+      "descending": false,
+      "ascending": true
+    },
+    {
+      "direction": "ASC",
+      "property": "ID",
+      "ignoreCase": false,
+      "nullHandling": "NATIVE",
+      "descending": false,
+      "ascending": true
+    }
+  ],
+  "first": true,
+  "last": true,
+  "numberOfElements": 7,
+  "empty": false
+}

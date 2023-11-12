@@ -1,0 +1,17 @@
+Windows Registry Editor Version 5.00
+
+[HKEY_CURRENT_USER\Software\Classes\.jmx]
+@="jmxfile"
+
+[HKEY_CURRENT_USER\Software\Classes\jmxfile]
+@="Jmeter Test Plan"
+
+[HKEY_CURRENT_USER\Software\Classes\jmxfile\DefaultIcon]
+@="%systemroot%\\System32\\SHELL32.dll,84"
+
+[HKEY_CURRENT_USER\Software\Classes\jmxfile\shell]
+
+[HKEY_CURRENT_USER\Software\Classes\jmxfile\shell\open]
+
+[HKEY_CURRENT_USER\Software\Classes\jmxfile\shell\open\command]
+@="\"D:\\Distr\\apache-jmeter\\bin\\jmeter.bat\" -t \"%1\" %*"

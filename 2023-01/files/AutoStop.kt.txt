@@ -1,0 +1,214 @@
+
+
+import java.time.Duration
+import java.util.concurrent.ConcurrentHashMap
+import kotlin.reflect.KFunction
+import kotlin.reflect.KFunction1
+import org.apache.jmeter.samplers.SampleResult
+import org.hamcrest.Matcher
+import org.hamcrest.StringDescription
+import org.samokat.performance.factory.qg.QualityGate
+import org.slf4j.LoggerFactory
+import us.abstracta.jmeter.javadsl.JmeterDsl.jsr223PostProcessor
+import us.abstracta.jmeter.javadsl.core.engines.EmbeddedStatsSummary
+import us.abstracta.jmeter.javadsl.core.testelements.BaseTestElement
+import us.abstracta.jmeter.javadsl.http.DslHttpSampler
+
+object AutoStop {
+
+    private val logger = LoggerFactory.getLogger(javaClass)
+    private val labelsMap = ConcurrentHashMap<String, StatsSummary>()
+    var asserts = ArrayList<Assert<*, *>>()
+    private var stop = false
+    @JvmStatic
+    var startTime = 0L
+
+    @JvmStatic
+    fun setStartTime(stime: String) {
+        startTime = stime.toLong()
+    }
+
+    init {
+        // Чтобы получить метод по строке - DetailedEmbeddedStatsSummary::class.memberFunctions.filter { it.name == "connectTime" }
+        // val postShowcaseList = DslHttpSampler("showcasesList", "https://samokat.io/showcases/list")
+
+        // autoStopOnCondition(postShowcaseList, StatsSummary::connectTime, TimeMetricSummary::perc95, greaterThan(10.minutes))
+    }
+
+    val Number.millis: Duration
+        get() = Duration.ofMillis(this.toLong())
+    val Number.seconds: Duration
+        get() = Duration.ofSeconds(this.toLong())
+    val Number.minutes: Duration
+        get() = Duration.ofMinutes(this.toLong())
+
+    @JvmStatic
+    fun <T, V> autoStopOnCondition(
+        assertLabel: DslHttpSampler,
+        metric: KFunction1<StatsSummary, T>,
+        aggregationMethod: KFunction1<T, V>,
+        stopWhen: Matcher<V>
+    ) {
+        asserts.add(Assert(assertLabel, metric, aggregationMethod, stopWhen, false))
+    }
+
+    fun <T, V> autoStopOnCondition(
+        assertLabel: String,
+        metric: KFunction1<StatsSummary, T>,
+        aggregationMethod: KFunction1<T, V>,
+        stopWhen: Matcher<V>
+    ) {
+        val label = LabeledClass(assertLabel).getDslHttpObject()
+        asserts.add(Assert(label, metric, aggregationMethod, stopWhen, false))
+    }
+
+    @JvmStatic
+    fun <T, V> warnAlertCondition(
+        assertLabel: DslHttpSampler,
+        metric: KFunction1<StatsSummary, T>,
+        aggregationMethod: KFunction1<T, V>,
+        stopWhen: Matcher<V>
+    ) {
+        asserts.add(Assert(assertLabel, metric, aggregationMethod, stopWhen, true))
+    }
+
+    fun <T, V> warnAlertCondition(
+        assertLabel: String,
+        metric: KFunction1<StatsSummary, T>,
+        aggregationMethod: KFunction1<T, V>,
+        stopWhen: Matcher<V>
+    ) {
+        val label = LabeledClass(assertLabel).getDslHttpObject()
+        asserts.add(Assert(label, metric, aggregationMethod, stopWhen, true))
+    }
+
+    @JvmStatic
+    fun autoStopLogic() = jsr223PostProcessor { vars ->
+        if (startTime == 0L) {
+            setStartTime(vars.props.get("TESTSTART.MS") as String)
+        }
+        if (shouldStop(vars.prev)) {
+            if (!vars.ctx.thread.threadName.contains("Finishing")) {
+                vars.ctx.threadGroup.stop()
+            }
+        }
+    }
+
+    fun shouldStop(prev: SampleResult): Boolean {
+        return if (prev.sampleLabel.first() == '_') {
+            computer(prev, prev.sampleLabel)
+        } else {
+            computer(prev, "all") || computer(prev, prev.sampleLabel)
+        }
+    }
+
+    private fun computer(prev: SampleResult, label: String): Boolean {
+        if (asserts.any { it.assertLabel.name == label }) {
+            labelsMap
+                .compute(label) { _, v ->
+                    (v ?: StatsSummary())
+                        .apply { add(prev) }
+                        .apply { stopLogic(this@apply, label) }
+                }!!
+        }
+        return stop
+    }
+
+    fun stopLogic(stats: StatsSummary, label: String): Boolean {
+        if (stop) return true else if (stats.samples().total() < 100) return false // TODO сеттеры для сотки. как выставлять? время?
+        return asserts
+            .filter { it.assertLabel.name == label }
+            .any { assertStats: Assert<*, *> ->
+                val aggregationMethod = assertStats.aggregationMethod
+                val resultValue = aggregationMethod.call(assertStats.metric.call(stats))
+                if (!assertStats.warnAlert) {
+                    stop = assertStats.stopWhen.matches(resultValue)
+                    if (stop) {
+                        StringDescription().apply {
+                            assertStats.stopWhen.describeMismatch(resultValue, this)
+                            QualityGate.result(
+                                assertStats.assertLabel.name,
+                                assertStats.metric.name, assertStats.aggregationMethod.name, this, asserts
+                            )
+                        }
+                    }
+                } else if (assertStats.stopWhen.matches(resultValue)) {
+                    StringDescription().apply {
+                        assertStats.stopWhen.describeMismatch(resultValue, this)
+                        QualityGate.warning(
+                            assertStats, assertStats.assertLabel.name,
+                            assertStats.metric.name, assertStats.aggregationMethod.name, this, asserts
+                        )
+                    }
+                }
+                stop
+            }
+    }
+
+    class Assert<T, V>(
+        val assertLabel: DslHttpSampler,
+        val metric: KFunction1<StatsSummary, T>,
+        val aggregationMethod: KFunction<V>,
+        val stopWhen: Matcher<V>,
+        val warnAlert: Boolean
+    )
+
+    @JvmStatic
+    fun getLabelName(assert: Assert<*, *>): String {
+        return assert.assertLabel.name
+    }
+
+    @JvmStatic
+    fun getLabelName(assert: LabeledAssert<*, *>): String {
+        return assert.assertLabel.name
+    }
+
+    class LabeledAssert<T, V>(
+        val assertLabel: LabeledClass,
+        val metric: KFunction1<StatsSummary, T>,
+        val aggregationMethod: KFunction<V>,
+        val stopWhen: Matcher<V>,
+        val warnAlert: Boolean
+    )
+
+    class LabeledClass(var name: String) {
+        fun getDslHttpObject(): DslHttpSampler {
+            return DslHttpSampler(name, "")
+        }
+    }
+    class StatsSummary : EmbeddedStatsSummary() {
+        var label = ""
+        private val responseCode = DetailedEmbeddedTimeMetricSummary()
+        private val connectTime = EmbeddedTimeMetricSummary()
+        private val latencyTime = EmbeddedTimeMetricSummary()
+        private val idleTime = EmbeddedTimeMetricSummary()
+        private val errorPercent = DetailedEmbeddedTimeMetricSummary()
+
+        override fun add(result: SampleResult) {
+            super.add(result)
+            label = result.sampleLabel
+            responseCode.instantValue = result.responseCode
+            connectTime.add(result.connectTime)
+            latencyTime.add(result.latency)
+            idleTime.add(result.idleTime)
+            errorPercent.errorPercent = errors().total().toDouble() / samples().total().toDouble() * 100
+        }
+
+        fun responseCode() = responseCode
+        fun connectTime() = connectTime
+        fun latencyTime() = latencyTime
+        fun idleTime() = idleTime
+        fun errorPercent() = errorPercent
+
+        inner class DetailedEmbeddedTimeMetricSummary : EmbeddedTimeMetricSummary() {
+            var errorPercent: Double? = null
+            var instantValue: String? = null
+        }
+    }
+
+    val DslHttpSampler.name: String
+        get() = BaseTestElement::class.java.declaredFields
+            .first { it.name == "name" }
+            .also { it.isAccessible = true }
+            .get(this) as String
+}

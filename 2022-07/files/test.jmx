@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jmeterTestPlan version="1.2" properties="5.0" jmeter="5.4.3">
+  <hashTree>
+    <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="Test Plan" enabled="true">
+      <stringProp name="TestPlan.comments"></stringProp>
+      <boolProp name="TestPlan.functional_mode">false</boolProp>
+      <boolProp name="TestPlan.tearDown_on_shutdown">true</boolProp>
+      <boolProp name="TestPlan.serialize_threadgroups">false</boolProp>
+      <elementProp name="TestPlan.user_defined_variables" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+        <collectionProp name="Arguments.arguments"/>
+      </elementProp>
+      <stringProp name="TestPlan.user_define_classpath"></stringProp>
+    </TestPlan>
+    <hashTree>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Thread Group" enabled="true">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <stringProp name="LoopController.loops">1</stringProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">10</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration"></stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+        <boolProp name="ThreadGroup.same_user_on_next_iteration">true</boolProp>
+      </ThreadGroup>
+      <hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="HTTP Request" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&#xd;
+&quot;types&quot;:[&quot;${valueVar}&quot;],&#xd;
+&quot;channels&quot;:[&quot;push&quot;, &quot;keyVar&quot;]&#xd;
+}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain"></stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path"></stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <BeanShellPreProcessor guiclass="TestBeanGUI" testclass="BeanShellPreProcessor" testname="BeanShell PreProcessor" enabled="true">
+            <stringProp name="filename"></stringProp>
+            <stringProp name="parameters"></stringProp>
+            <boolProp name="resetInterpreter">false</boolProp>
+            <stringProp name="script">
+/*
+    HashMap&lt;String, String&gt; capitalCities = new HashMap&lt;String, String&gt;();
+    capitalCities.put(&quot;England&quot;, &quot;London&quot;);
+    capitalCities.put(&quot;Germany&quot;, &quot;Berlin&quot;);
+    capitalCities.put(&quot;Norway&quot;, &quot;Oslo&quot;);
+    capitalCities.put(&quot;USA&quot;, &quot;Washington DC&quot;);
+    System.out.println(capitalCities);
+    */
+java.util.HashMap myMap1 = new java.util.HashMap();
+myMap1.put(&quot;GPU1-NVIDIA&quot;,&quot;GeForce RTX 1660 SUPER&quot;);
+myMap1.put(&quot;GPU2-NVIDIA&quot;,&quot;GeForce RTX 2060&quot;);
+myMap1.put(&quot;GPU3-NVIDIA&quot;,&quot;GeForce RTX 2060 SUPER&quot;);
+myMap1.put(&quot;GPU4-NVIDIA&quot;,&quot;GeForce RTX 3060&quot;);
+myMap1.put(&quot;GPU5-NVIDIA&quot;,&quot;GeForce RTX 3060TI&quot;);
+myMap1.put(&quot;GPU6-NVIDIA&quot;,&quot;GeForce RTX 3070&quot;);
+myMap1.put(&quot;GPU7-NVIDIA&quot;,&quot;GeForce RTX 3080&quot;);
+myMap1.put(&quot;GPU8-NVIDIA&quot;,&quot;GeForce RTX 3080TI&quot;);
+myMap1.put(&quot;GPU1-AMD&quot;,&quot;Radeon RX 580&quot;);
+myMap1.put(&quot;GPU2-AMD&quot;,&quot;Radeon RX 6600&quot;);
+myMap1.put(&quot;GPU3-AMD&quot;,&quot;Radeon RX 6600 XT&quot;);
+myMap1.put(&quot;GPU4-AMD&quot;,&quot;Radeon RX 5500&quot;);
+myMap1.put(&quot;GPU5-AMD&quot;,&quot;Radeon RX 5500 XT&quot;);
+myMap1.put(&quot;GPU6-AMD&quot;,&quot;Radeon RX 5700&quot;);
+myMap1.put(&quot;GPU7-AMD&quot;,&quot;Radeon RX 5700XT&quot;);
+/*
+myMap1.forEach((key, value) - &gt;
+                log.info(key + &quot; = &quot; + value));
+               
+                for(Entry &lt;String, String&gt; entry: myMap1.entrySet()) {
+      System.out.print(entry);
+      System.out.print(&quot;, &quot;);
+    }
+     */
+
+    for (String name: myMap1.keySet()) {
+    String key = name.toString();
+    String value = myMap1.get(name).toString();
+      vars.put(&quot;valueVar&quot;,  value);
+    String s1 = key.substring(key.indexOf(&quot;-&quot;) + 1); 
+    vars.put(&quot;keyVar&quot;,  s1);
+    log.info(s1);
+    
+    log.info(key + &quot; &quot; + value);
+}
+//log.info(myMap1.get(&quot;NVIDIA&quot;));
+
+
+
+
+/*
+&quot;name&quot;: &quot;${valueVar}&quot;,
+&quot;brand&quot;: &quot;${keyVar}&quot;,
+
+
+*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+Map&lt;String, List&lt;String&gt;&gt; hm = new HashMap&lt;String, List&lt;String&gt;&gt;();
+List&lt;String&gt; values = new ArrayList&lt;String&gt;();
+values.add(&quot;3060&quot;);
+values.add(&quot;3060ti&quot;);
+hm.put(&quot;Nvidia&quot;, values);
+
+// to get the arraylist
+log.info(hm.get(&quot;key1&quot;));
+*/</stringProp>
+          </BeanShellPreProcessor>
+          <hashTree/>
+        </hashTree>
+      </hashTree>
+    </hashTree>
+  </hashTree>
+</jmeterTestPlan>

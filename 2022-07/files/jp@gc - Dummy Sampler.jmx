@@ -1,0 +1,1575 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jmeterTestPlan version="1.2" properties="5.0" jmeter="5.4.3">
+  <hashTree>
+    <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="API_Manager" enabled="true">
+      <stringProp name="TestPlan.comments"></stringProp>
+      <boolProp name="TestPlan.functional_mode">false</boolProp>
+      <boolProp name="TestPlan.tearDown_on_shutdown">true</boolProp>
+      <boolProp name="TestPlan.serialize_threadgroups">false</boolProp>
+      <elementProp name="TestPlan.user_defined_variables" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+        <collectionProp name="Arguments.arguments">
+          <elementProp name="TIMESTAMP" elementType="Argument">
+            <stringProp name="Argument.name">TIMESTAMP</stringProp>
+            <stringProp name="Argument.value">${__timeShift(MM-dd-yy_hh:mm:ss:SSS ,TIMESTAMP,,,)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="AGGREGATE_FILE_GETS" elementType="Argument">
+            <stringProp name="Argument.name">AGGREGATE_FILE_GETS</stringProp>
+            <stringProp name="Argument.value">${__P(aggregateFile,..\Results\Results_GETs_${__time(MM-dd-yy_hh;mm;ss)}.csv)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="SUCCESS_VALUE" elementType="Argument">
+            <stringProp name="Argument.name">SUCCESS_VALUE</stringProp>
+            <stringProp name="Argument.value">${__P(success_value,Acme One Hundred Percent)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="cTime" elementType="Argument">
+            <stringProp name="Argument.name">cTime</stringProp>
+            <stringProp name="Argument.value">${__time(MM/dd/yyyy hh:mm:ss:SSS, cTime)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="users_gets" elementType="Argument">
+            <stringProp name="Argument.name">users_gets</stringProp>
+            <stringProp name="Argument.value">${__P(users_gets,1)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+        </collectionProp>
+      </elementProp>
+      <stringProp name="TestPlan.user_define_classpath"></stringProp>
+    </TestPlan>
+    <hashTree>
+      <BackendListener guiclass="BackendListenerGui" testclass="BackendListener" testname="Backend Listener" enabled="false">
+        <elementProp name="arguments" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" enabled="true">
+          <collectionProp name="Arguments.arguments">
+            <elementProp name="graphiteMetricsSender" elementType="Argument">
+              <stringProp name="Argument.name">graphiteMetricsSender</stringProp>
+              <stringProp name="Argument.value">org.apache.jmeter.visualizers.backend.graphite.TextGraphiteMetricsSender</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="graphiteHost" elementType="Argument">
+              <stringProp name="Argument.name">graphiteHost</stringProp>
+              <stringProp name="Argument.value"></stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="graphitePort" elementType="Argument">
+              <stringProp name="Argument.name">graphitePort</stringProp>
+              <stringProp name="Argument.value">2003</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="rootMetricsPrefix" elementType="Argument">
+              <stringProp name="Argument.name">rootMetricsPrefix</stringProp>
+              <stringProp name="Argument.value">jmeter.</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="summaryOnly" elementType="Argument">
+              <stringProp name="Argument.name">summaryOnly</stringProp>
+              <stringProp name="Argument.value">true</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="samplersList" elementType="Argument">
+              <stringProp name="Argument.name">samplersList</stringProp>
+              <stringProp name="Argument.value"></stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="percentiles" elementType="Argument">
+              <stringProp name="Argument.name">percentiles</stringProp>
+              <stringProp name="Argument.value">90;95;99</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="connectionString" elementType="Argument">
+              <stringProp name="Argument.name">connectionString</stringProp>
+              <stringProp name="Argument.value"></stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="logResponseData" elementType="Argument">
+              <stringProp name="Argument.name">logResponseData</stringProp>
+              <stringProp name="Argument.value">false</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="liveMetrics" elementType="Argument">
+              <stringProp name="Argument.name">liveMetrics</stringProp>
+              <stringProp name="Argument.value">true</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="useRegexForSamplerList" elementType="Argument">
+              <stringProp name="Argument.name">useRegexForSamplerList</stringProp>
+              <stringProp name="Argument.value">false</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="logSampleData" elementType="Argument">
+              <stringProp name="Argument.name">logSampleData</stringProp>
+              <stringProp name="Argument.value">false</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="testName" elementType="Argument">
+              <stringProp name="Argument.name">testName</stringProp>
+              <stringProp name="Argument.value">jmeter</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+          </collectionProp>
+        </elementProp>
+        <stringProp name="classname">org.apache.jmeter.visualizers.backend.graphite.GraphiteBackendListenerClient</stringProp>
+      </BackendListener>
+      <hashTree/>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="1. Thread Group_GETs" enabled="true">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <stringProp name="LoopController.loops">2</stringProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">1</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">0</stringProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration">${duration_secs_gets}</stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+        <boolProp name="ThreadGroup.same_user_on_next_iteration">true</boolProp>
+      </ThreadGroup>
+      <hashTree>
+        <DebugSampler guiclass="TestBeanGUI" testclass="DebugSampler" testname="Debug_Products" enabled="true">
+          <boolProp name="displayJMeterProperties">false</boolProp>
+          <boolProp name="displayJMeterVariables">true</boolProp>
+          <boolProp name="displaySystemProperties">false</boolProp>
+        </DebugSampler>
+        <hashTree/>
+        <kg.apc.jmeter.samplers.DummySampler guiclass="kg.apc.jmeter.samplers.DummySamplerGui" testclass="kg.apc.jmeter.samplers.DummySampler" testname="jp@gc - Dummy Sampler" enabled="true">
+          <boolProp name="WAITING">true</boolProp>
+          <boolProp name="SUCCESFULL">true</boolProp>
+          <stringProp name="RESPONSE_CODE">200</stringProp>
+          <stringProp name="RESPONSE_MESSAGE">OK</stringProp>
+          <stringProp name="REQUEST_DATA">Dummy Sampler used to simulate requests and responses
+without actual network activity. This helps debugging tests.</stringProp>
+          <stringProp name="RESPONSE_DATA">{
+    &quot;data&quot;: [
+        {
+            &quot;productId&quot;: &quot;1a29f0c3-9180-4cd7-a5c7-282f6689c31a&quot;,
+            &quot;componentGroups&quot;: [
+                {
+                    &quot;image&quot;: null,
+                    &quot;components&quot;: [
+                        {
+                            &quot;image&quot;: null,
+                            &quot;id&quot;: &quot;8291365c-df9f-4d7b-8f34-be0b500065ee&quot;,
+                            &quot;componentName&quot;: &quot;Panel Amount&quot;,
+                            &quot;audio&quot;: null,
+                            &quot;componentConsumerSelectionType&quot;: 2
+                        }
+                    ],
+                    &quot;componentGroupName&quot;: &quot;Panel Amount Components&quot;,
+                    &quot;poolId&quot;: &quot;cb720883-04f1-4be4-a416-2f0c75230768&quot;,
+                    &quot;id&quot;: &quot;126140ac-1cfa-40a3-9ab7-1a84469ab0db&quot;,
+                    &quot;audio&quot;: null
+                },
+                {
+                    &quot;image&quot;: null,
+                    &quot;components&quot;: [
+                        {
+                            &quot;image&quot;: null,
+                            &quot;id&quot;: &quot;3f4b1a61-5d80-4b78-8c20-9f2b92022cf4&quot;,
+                            &quot;componentName&quot;: &quot;Heads&quot;,
+                            &quot;audio&quot;: null,
+                            &quot;componentConsumerSelectionType&quot;: 1
+                        }
+                    ],
+                    &quot;componentGroupName&quot;: &quot;Heads Components&quot;,
+                    &quot;poolId&quot;: &quot;2f1403cb-df3e-4fbf-b594-352f76943895&quot;,
+                    &quot;id&quot;: &quot;03ed0e60-8fba-4e01-83c2-ce960bf5e889&quot;,
+                    &quot;audio&quot;: null
+                }
+            ],
+            &quot;pools&quot;: [
+                {
+                    &quot;image&quot;: null,
+                    &quot;options&quot;: [
+                        {
+                            &quot;optionAmount&quot;: 1.0,
+                            &quot;image&quot;: &quot;https:\/\/lprglobalshared.blob.core.windows.net\/media\/1-dollar-ball.png&quot;,
+                            &quot;optionIndex&quot;: 0,
+                            &quot;id&quot;: &quot;355548b5-b032-44f5-bf91-acfe987be3aa&quot;,
+                            &quot;audio&quot;: null,
+                            &quot;optionName&quot;: &quot;$1&quot;
+                        },
+                        {
+                            &quot;optionAmount&quot;: 5.0,
+                            &quot;image&quot;: &quot;https:\/\/lprglobalshared.blob.core.windows.net\/media\/5-dollar-ball.png&quot;,
+                            &quot;optionIndex&quot;: 1,
+                            &quot;id&quot;: &quot;178709f3-f47d-4a6f-9aa1-f27958c628ea&quot;,
+                            &quot;audio&quot;: null,
+                            &quot;optionName&quot;: &quot;$5&quot;
+                        },
+                        {
+                            &quot;optionAmount&quot;: 10.0,
+                            &quot;image&quot;: &quot;https:\/\/lprglobalshared.blob.core.windows.net\/media\/10-dollar-ball.png&quot;,
+                            &quot;optionIndex&quot;: 2,
+                            &quot;id&quot;: &quot;b0a227b0-2bf8-47cc-8422-5114edfb5c41&quot;,
+                            &quot;audio&quot;: null,
+                            &quot;optionName&quot;: &quot;$10&quot;
+                        },
+                        {
+                            &quot;optionAmount&quot;: 20.0,
+                            &quot;image&quot;: &quot;https:\/\/lprglobalshared.blob.core.windows.net\/media\/20-dollar-ball.png&quot;,
+                            &quot;optionIndex&quot;: 3,
+                            &quot;id&quot;: &quot;ee8e2b49-7539-4ddd-90a4-6745b1385733&quot;,
+                            &quot;audio&quot;: null,
+                            &quot;optionName&quot;: &quot;$20&quot;
+                        }
+                    ],
+                    &quot;id&quot;: &quot;cb720883-04f1-4be4-a416-2f0c75230768&quot;,
+                    &quot;audio&quot;: null,
+                    &quot;poolName&quot;: &quot;Panel Amounts&quot;
+                },
+                {
+                    &quot;image&quot;: null,
+                    &quot;options&quot;: [
+                        {
+                            &quot;optionAmount&quot;: 0.0,
+                            &quot;image&quot;: &quot;https:\/\/lprglobalshared.blob.core.windows.net\/media\/OneHundredPercent\/LibertyBellCoin.png&quot;,
+                            &quot;optionIndex&quot;: 0,
+                            &quot;id&quot;: &quot;a5dc21e7-cc4e-4e93-b74f-1f4b19f322ef&quot;,
+                            &quot;audio&quot;: null,
+                            &quot;optionName&quot;: &quot;Heads&quot;
+                        }
+                    ],
+                    &quot;id&quot;: &quot;2f1403cb-df3e-4fbf-b594-352f76943895&quot;,
+                    &quot;audio&quot;: null,
+                    &quot;poolName&quot;: &quot;Heads&quot;
+                }
+            ],
+            &quot;id&quot;: &quot;4248b1b3-a7c5-4102-b45e-d0d6a429433d&quot;,
+            &quot;productName&quot;: &quot;Acme One Hundred Percent&quot;
+        },
+        {
+            &quot;productId&quot;: &quot;ecc29f29-bc03-41d7-b107-db3be8103216&quot;,
+            &quot;componentGroups&quot;: [
+                {
+                    &quot;image&quot;: null,
+                    &quot;components&quot;: [
+                        {
+                            &quot;image&quot;: null,
+                            &quot;id&quot;: &quot;db7ae266-bf79-4d63-984a-aea1aa7af460&quot;,
+                            &quot;componentName&quot;: &quot;Panel Amount&quot;,
+                            &quot;audio&quot;: null,
+                            &quot;componentConsumerSelectionType&quot;: 2
+                        }
+                    ],
+                    &quot;componentGroupName&quot;: &quot;Panel Amount Components&quot;,
+                    &quot;poolId&quot;: &quot;d929dd55-b0a8-4092-acff-570c638764f1&quot;,
+                    &quot;id&quot;: &quot;b996b598-57e5-47f4-82a8-a1a54c70a6a9&quot;,
+                    &quot;audio&quot;: null
+                },
+                {
+                    &quot;image&quot;: null,
+                    &quot;components&quot;: [
+                        {
+                            &quot;image&quot;: null,
+                            &quot;id&quot;: &quot;8b750179-6ead-425e-b5a2-ab422e72a03e&quot;,
+                            &quot;componentName&quot;: &quot;White Ball - 1&quot;,
+                            &quot;audio&quot;: null,
+                            &quot;componentConsumerSelectionType&quot;: 0
+                        },
+                        {
+                            &quot;image&quot;: null,
+                            &quot;id&quot;: &quot;3a87a9aa-d8c8-465a-ae35-f7d894204b13&quot;,
+                            &quot;componentName&quot;: &quot;White Ball - 2&quot;,
+                            &quot;audio&quot;: null,
+                            &quot;componentConsumerSelectionType&quot;: 0
+                        },
+                        {
+                            &quot;image&quot;: null,
+                            &quot;id&quot;: &quot;6b674bc4-1143-4558-8020-88872064b6d2&quot;,
+                            &quot;componentName&quot;: &quot;White Ball - 3&quot;,
+                            &quot;audio&quot;: null,
+                            &quot;componentConsumerSelectionType&quot;: 0
+                        },
+                        {
+                            &quot;image&quot;: null,
+                            &quot;id&quot;: &quot;0cf02fdf-c717-4ea0-a230-cb837792e7f5&quot;,
+                            &quot;componentName&quot;: &quot;White Ball - 4&quot;,
+                            &quot;audio&quot;: null,
+                            &quot;componentConsumerSelectionType&quot;: 0
+                        },
+                        {
+                            &quot;image&quot;: null,
+                            &quot;id&quot;: &quot;e627485b-eb3b-4afe-a20d-bed5c30ba195&quot;,
+                            &quot;componentName&quot;: &quot;White Ball - 5&quot;,
+                            &quot;audio&quot;: null,
+                            &quot;componentConsumerSelectionType&quot;: 0
+                        }
+                    ],
+                    &quot;componentGroupName&quot;: &quot;White Ball Components&quot;,
+                    &quot;poolId&quot;: &quot;e63f9eea-4966-4c83-8764-28f8ba19f551&quot;,
+                    &quot;id&quot;: &quot;be80677c-114b-4200-a625-badd301373a6&quot;,
+                    &quot;audio&quot;: null
+                },
+                {
+                    &quot;image&quot;: null,
+                    &quot;components&quot;: [
+                        {
+                            &quot;image&quot;: null,
+                            &quot;id&quot;: &quot;e4c6e609-954a-4707-88b5-c47993fb3f82&quot;,
+                            &quot;componentName&quot;: &quot;Powerball&quot;,
+                            &quot;audio&quot;: null,
+                            &quot;componentConsumerSelectionType&quot;: 0
+                        }
+                    ],
+                    &quot;componentGroupName&quot;: &quot;Powerball Components&quot;,
+                    &quot;poolId&quot;: &quot;a93aa286-3e9e-47c6-a989-4cbd9b83d529&quot;,
+                    &quot;id&quot;: &quot;00757a5a-a544-4f4f-985b-60d516a999b6&quot;,
+                    &quot;audio&quot;: null
+                },
+                {
+                    &quot;image&quot;: null,
+                    &quot;components&quot;: [
+                        {
+                            &quot;image&quot;: null,
+                            &quot;id&quot;: &quot;21a81d68-d9c1-4bea-ad7f-5656584fb37c&quot;,
+                            &quot;componentName&quot;: &quot;Power Play&quot;,
+                            &quot;audio&quot;: null,
+                            &quot;componentConsumerSelectionType&quot;: 1
+                        }
+                    ],
+                    &quot;componentGroupName&quot;: &quot;Power Play Components&quot;,
+                    &quot;poolId&quot;: &quot;458199ef-e868-4639-b594-92c0d39422ea&quot;,
+                    &quot;id&quot;: &quot;eb50e66d-fb77-4d7c-845a-b9492a4c29d1&quot;,
+                    &quot;audio&quot;: null
+                }
+            ],
+            &quot;pools&quot;: [
+                {
+                    &quot;image&quot;: null,
+                    &quot;options&quot;: [
+                        {
+                            &quot;optionAmount&quot;: 2.0,
+                            &quot;image&quot;: &quot;https:\/\/lprglobalshared.blob.core.windows.net\/media\/2-dollar-ball.png&quot;,
+                            &quot;optionIndex&quot;: 0,
+                            &quot;id&quot;: &quot;66ff00ab-0aba-479a-b96d-9f6011531440&quot;,
+                            &quot;audio&quot;: null,
+                            &quot;optionName&quot;: &quot;$2&quot;
+                        },
+                        {
+                            &quot;optionAmount&quot;: 3.0,
+                            &quot;image&quot;: &quot;https:\/\/lprglobalshared.blob.core.windows.net\/media\/2-dollar-ball+megaplier.png&quot;,
+                            &quot;optionIndex&quot;: 0,
+                            &quot;id&quot;: &quot;9e6b0868-19b3-466d-bed2-7055efc1e993&quot;,
+                            &quot;audio&quot;: null,
+                            &quot;optionName&quot;: &quot;$2 + Power Play&quot;
+                        }
+                    ],
+                    &quot;id&quot;: &quot;d929dd55-b0a8-4092-acff-570c638764f1&quot;,
+                    &quot;audio&quot;: null,
+                    &quot;poolName&quot;: &quot;Panel Amounts&quot;
+                },
+                {
+                    &quot;image&quot;: null,
+                    &quot;options&quot;: [
+                        {
+                            &quot;optionAmount&quot;: 0.0,
+                            &quot;image&quot;: &quot;https:\/\/lprglobalshared.blob.core.windows.net\/media\/01.png&quot;,
+                            &quot;optionIndex&quot;: 0,
+                            &quot;id&quot;: &quot;7cf2d659-2989-48f9-84f2-1dc117b52f7c&quot;,
+                            &quot;audio&quot;: null,
+                            &quot;optionName&quot;: &quot;1&quot;
+                        },
+                        {
+                            &quot;optionAmount&quot;: 0.0,
+                            &quot;image&quot;: &quot;https:\/\/lprglobalshared.blob.core.windows.net\/media\/02.png&quot;,
+                            &quot;optionIndex&quot;: 1,
+                            &quot;id&quot;: &quot;919687ba-26c5-4c43-a3dd-df4e40524372&quot;,
+                            &quot;audio&quot;: null,
+                            &quot;optionName&quot;: &quot;2&quot;
+                        },
+                        {
+                            &quot;optionAmount&quot;: 0.0,
+                            &quot;image&quot;: &quot;https:\/\/lprglobalshared.blob.core.windows.net\/media\/03.png&quot;,
+                            &quot;optionIndex&quot;: 2,
+                            &quot;id&quot;: &quot;c7b4f660-55eb-4001-84af-06a91d48ce60&quot;,
+                            &quot;audio&quot;: null,
+                            &quot;optionName&quot;: &quot;3&quot;
+                        },
+                        {
+                            &quot;optionAmount&quot;: 0.0,
+                            &quot;image&quot;: &quot;https:\/\/lprglobalshared.blob.core.windows.net\/media\/04.png&quot;,
+                            &quot;optionIndex&quot;: 3,
+                            &quot;id&quot;: &quot;9166a901-2842-4638-bfc3-7d91bd414d43&quot;,
+                            &quot;audio&quot;: null,
+                            &quot;optionName&quot;: &quot;4&quot;
+                        },
+                        {
+                            &quot;optionAmount&quot;: 0.0,
+                            &quot;image&quot;: &quot;https:\/\/lprglobalshared.blob.core.windows.net\/media\/05.png&quot;,
+                            &quot;optionIndex&quot;: 4,
+                            &quot;id&quot;: &quot;80af4f8e-19ff-42bb-97ce-b50f906bc54d&quot;,
+                            &quot;audio&quot;: null,
+                            &quot;optionName&quot;: &quot;5&quot;
+                        },
+                        {
+                            &quot;optionAmount&quot;: 0.0,
+                            &quot;image&quot;: &quot;https:\/\/lprglobalshared.blob.core.windows.net\/media\/06.png&quot;,
+                            &quot;optionIndex&quot;: 5,
+                            &quot;id&quot;: &quot;5cef00bb-3eab-441a-9074-e031ae8d70c4&quot;,
+                            &quot;audio&quot;: null,
+                            &quot;optionName&quot;: &quot;6&quot;
+                        },
+                        {
+                            &quot;optionAmount&quot;: 0.0,
+                            &quot;image&quot;: &quot;https:\/\/lprglobalshared.blob.core.windows.net\/media\/07.png&quot;,
+                            &quot;optionIndex&quot;: 6,
+                            &quot;id&quot;: &quot;6ddb5b7b-c8af-4c92-8d7c-c4ef88ddb1d5&quot;,
+                            &quot;audio&quot;: null,
+                            &quot;optionName&quot;: &quot;7&quot;
+                        },
+                        {
+                            &quot;optionAmount&quot;: 0.0,
+                            &quot;image&quot;: &quot;https:\/\/lprglobalshared.blob.core.windows.net\/media\/08.png&quot;,
+                            &quot;optionIndex&quot;: 7,
+                            &quot;id&quot;: &quot;d97d0d9c-c111-41f7-bdae-c268f08a473b&quot;,
+                            &quot;audio&quot;: null,
+                            &quot;optionName&quot;: &quot;8&quot;
+                        },
+                        {
+                            &quot;optionAmount&quot;: 0.0,
+                            &quot;image&quot;: &quot;https:\/\/lprglobalshared.blob.core.windows.net\/media\/09.png&quot;,
+                            &quot;optionIndex&quot;: 8,
+                            &quot;id&quot;: &quot;96675540-6b2e-4e82-b68b-4e8583d1f11c&quot;,
+                            &quot;audio&quot;: null,
+                            &quot;optionName&quot;: &quot;9&quot;
+                        },
+                        {
+                            &quot;optionAmount&quot;: 0.0,
+                            &quot;image&quot;: &quot;https:\/\/lprglobalshared.blob.core.windows.net\/media\/10.png&quot;,
+                            &quot;optionIndex&quot;: 9,
+                            &quot;id&quot;: &quot;4f0a080f-a4f9-48ed-ac63-b7192be6d015&quot;,
+                            &quot;audio&quot;: null,
+                            &quot;optionName&quot;: &quot;10&quot;
+                        },
+                        {
+                            &quot;optionAmount&quot;: 0.0,
+                            &quot;image&quot;: &quot;https:\/\/lprglobalshared.blob.core.windows.net\/media\/11.png&quot;,
+                            &quot;optionIndex&quot;: 10,
+                            &quot;id&quot;: &quot;3cafe858-d3cb-4303-a681-611324025753&quot;,
+                            &quot;audio&quot;: null,
+                            &quot;optionName&quot;: &quot;11&quot;
+                        },
+                        {
+                            &quot;optionAmount&quot;: 0.0,
+                            &quot;image&quot;: &quot;https:\/\/lprglobalshared.blob.core.windows.net\/media\/12.png&quot;,
+                            &quot;optionIndex&quot;: 11,
+                            &quot;id&quot;: &quot;bc9face4-90a1-4776-9c3e-6384702e93eb&quot;,
+                            &quot;audio&quot;: null,
+                            &quot;optionName&quot;: &quot;12&quot;
+                        },
+                        {
+                            &quot;optionAmount&quot;: 0.0,
+                            &quot;image&quot;: &quot;https:\/\/lprglobalshared.blob.core.windows.net\/media\/13.png&quot;,
+                            &quot;optionIndex&quot;: 12,
+                            &quot;id&quot;: &quot;5f6f6728-b8fd-4e38-bfca-a189fec1e314&quot;,
+                            &quot;audio&quot;: null,
+                            &quot;optionName&quot;: &quot;13&quot;
+                        },
+                        {
+                            &quot;optionAmount&quot;: 0.0,
+                            &quot;image&quot;: &quot;https:\/\/lprglobalshared.blob.core.windows.net\/media\/14.png&quot;,
+                            &quot;optionIndex&quot;: 13,
+                            &quot;id&quot;: &quot;0c9c7009-c272-41a0-8330-c769c0e27450&quot;,
+                            &quot;audio&quot;: null,
+                            &quot;optionName&quot;: &quot;14&quot;
+                        },
+                        {
+                            &quot;optionAmount&quot;: 0.0,
+                            &quot;image&quot;: &quot;https:\/\/lprglobalshared.blob.core.windows.net\/media\/15.png&quot;,
+                            &quot;optionIndex&quot;: 14,
+                            &quot;id&quot;: &quot;6598a24a-a787-4e44-b8aa-93f2a8438011&quot;,
+                            &quot;audio&quot;: null,
+                            &quot;optionName&quot;: &quot;15&quot;
+                        },
+                        {
+                            &quot;optionAmount&quot;: 0.0,
+                            &quot;image&quot;: &quot;https:\/\/lprglobalshared.blob.core.windows.net\/media\/16.png&quot;,
+                            &quot;optionIndex&quot;: 15,
+                            &quot;id&quot;: &quot;e30527b7-894a-411e-94ca-680cf2ce0350&quot;,
+                            &quot;audio&quot;: null,
+                            &quot;optionName&quot;: &quot;16&quot;
+                        },
+                        {
+                            &quot;optionAmount&quot;: 0.0,
+                            &quot;image&quot;: &quot;https:\/\/lprglobalshared.blob.core.windows.net\/media\/17.png&quot;,
+                            &quot;optionIndex&quot;: 16,
+                            &quot;id&quot;: &quot;3162a3cf-5a3b-4e2e-ab5b-5bdc2c373a06&quot;,
+                            &quot;audio&quot;: null,
+                            &quot;optionName&quot;: &quot;17&quot;
+                        },
+                        {
+                            &quot;optionAmount&quot;: 0.0,
+                            &quot;image&quot;: &quot;https:\/\/lprglobalshared.blob.core.windows.net\/media\/18.png&quot;,
+                            &quot;optionIndex&quot;: 17,
+                            &quot;id&quot;: &quot;d0f25456-3386-4bf2-806a-04d96c895ae2&quot;,
+                            &quot;audio&quot;: null,
+                            &quot;optionName&quot;: &quot;18&quot;
+                        },
+                        {
+                            &quot;optionAmount&quot;: 0.0,
+                            &quot;image&quot;: &quot;https:\/\/lprglobalshared.blob.core.windows.net\/media\/19.png&quot;,
+                            &quot;optionIndex&quot;: 18,
+                            &quot;id&quot;: &quot;0d4fcf3d-efbd-4a1e-9a3d-e1b93f74e0ae&quot;,
+                            &quot;audio&quot;: null,
+                            &quot;optionName&quot;: &quot;19&quot;
+                        },
+                        {
+                            &quot;optionAmount&quot;: 0.0,
+                            &quot;image&quot;: &quot;https:\/\/lprglobalshared.blob.core.windows.net\/media\/20.png&quot;,
+                            &quot;optionIndex&quot;: 19,
+                            &quot;id&quot;: &quot;bf4ce27a-34cf-4fc1-aa59-2978312e8f12&quot;,
+                            &quot;audio&quot;: null,
+                            &quot;optionName&quot;: &quot;20&quot;
+                        },
+                        {
+                            &quot;optionAmount&quot;: 0.0,
+                            &quot;image&quot;: &quot;https:\/\/lprglobalshared.blob.core.windows.net\/media\/21.png&quot;,
+                            &quot;optionIndex&quot;: 20,
+                            &quot;id&quot;: &quot;7df89377-319a-45d4-bf36-beff684a05f0&quot;,
+                            &quot;audio&quot;: null,
+                            &quot;optionName&quot;: &quot;21&quot;
+                        },
+                        {
+                            &quot;optionAmount&quot;: 0.0,
+                            &quot;image&quot;: &quot;https:\/\/lprglobalshared.blob.core.windows.net\/media\/22.png&quot;,
+                            &quot;optionIndex&quot;: 21,
+                            &quot;id&quot;: &quot;d7b067e2-2e06-439f-ae76-14544b34c04c&quot;,
+                            &quot;audio&quot;: null,
+                            &quot;optionName&quot;: &quot;22&quot;
+                        },
+                        {
+                            &quot;optionAmount&quot;: 0.0,
+                            &quot;image&quot;: &quot;https:\/\/lprglobalshared.blob.core.windows.net\/media\/23.png&quot;,
+                            &quot;optionIndex&quot;: 22,
+                            &quot;id&quot;: &quot;7ca80ead-0327-43f7-951c-61307cc3cfdb&quot;,
+                            &quot;audio&quot;: null,
+                            &quot;optionName&quot;: &quot;23&quot;
+                        },
+                        {
+                            &quot;optionAmount&quot;: 0.0,
+                            &quot;image&quot;: &quot;https:\/\/lprglobalshared.blob.core.windows.net\/media\/24.png&quot;,
+                            &quot;optionIndex&quot;: 23,
+                            &quot;id&quot;: &quot;a4956e60-91e2-436b-8ff2-7478807d2c25&quot;,
+                            &quot;audio&quot;: null,
+                            &quot;optionName&quot;: &quot;24&quot;
+                        },
+                        {
+                            &quot;optionAmount&quot;: 0.0,
+                            &quot;image&quot;: &quot;https:\/\/lprglobalshared.blob.core.windows.net\/media\/25.png&quot;,
+                            &quot;optionIndex&quot;: 24,
+                            &quot;id&quot;: &quot;2294d57c-7d89-4449-9be6-91c32c72af8c&quot;,
+                            &quot;audio&quot;: null,
+                            &quot;optionName&quot;: &quot;25&quot;
+                        },
+                        {
+                            &quot;optionAmount&quot;: 0.0,
+                            &quot;image&quot;: &quot;https:\/\/lprglobalshared.blob.core.windows.net\/media\/26.png&quot;,
+                            &quot;optionIndex&quot;: 25,
+                            &quot;id&quot;: &quot;f15c9bb9-2493-4758-8874-824a204bdf07&quot;,
+                            &quot;audio&quot;: null,
+                            &quot;optionName&quot;: &quot;26&quot;
+                        },
+                        {
+                            &quot;optionAmount&quot;: 0.0,
+                            &quot;image&quot;: &quot;https:\/\/lprglobalshared.blob.core.windows.net\/media\/27.png&quot;,
+                            &quot;optionIndex&quot;: 26,
+                            &quot;id&quot;: &quot;6d119e36-a52f-430b-b43d-14e43637a628&quot;,
+                            &quot;audio&quot;: null,
+                            &quot;optionName&quot;: &quot;27&quot;
+                        },
+                        {
+                            &quot;optionAmount&quot;: 0.0,
+                            &quot;image&quot;: &quot;https:\/\/lprglobalshared.blob.core.windows.net\/media\/28.png&quot;,
+                            &quot;optionIndex&quot;: 27,
+                            &quot;id&quot;: &quot;e0ce0666-1577-460c-80a4-d0bf2739b24a&quot;,
+                            &quot;audio&quot;: null,
+                            &quot;optionName&quot;: &quot;28&quot;
+                        },
+                        {
+                            &quot;optionAmount&quot;: 0.0,
+                            &quot;image&quot;: &quot;https:\/\/lprglobalshared.blob.core.windows.net\/media\/29.png&quot;,
+                            &quot;optionIndex&quot;: 28,
+                            &quot;id&quot;: &quot;9511465b-d514-4419-b6b6-8c812a78ccc3&quot;,
+                            &quot;audio&quot;: null,
+                            &quot;optionName&quot;: &quot;29&quot;
+                        },
+                        {
+                            &quot;optionAmount&quot;: 0.0,
+                            &quot;image&quot;: &quot;https:\/\/lprglobalshared.blob.core.windows.net\/media\/30.png&quot;,
+                            &quot;optionIndex&quot;: 29,
+                            &quot;id&quot;: &quot;f0b1852a-4f61-4e28-b547-0f32f3189dce&quot;,
+                            &quot;audio&quot;: null,
+                            &quot;optionName&quot;: &quot;30&quot;
+                        },
+                        {
+                            &quot;optionAmount&quot;: 0.0,
+                            &quot;image&quot;: &quot;https:\/\/lprglobalshared.blob.core.windows.net\/media\/31.png&quot;,
+                            &quot;optionIndex&quot;: 30,
+                            &quot;id&quot;: &quot;2035118c-224b-42f7-af3b-74f4a55d4c95&quot;,
+                            &quot;audio&quot;: null,
+                            &quot;optionName&quot;: &quot;31&quot;
+                        },
+                        {
+                            &quot;optionAmount&quot;: 0.0,
+                            &quot;image&quot;: &quot;https:\/\/lprglobalshared.blob.core.windows.net\/media\/32.png&quot;,
+                            &quot;optionIndex&quot;: 31,
+                            &quot;id&quot;: &quot;bc1ae8ae-ff45-492a-9b97-aeae6ac6b52e&quot;,
+                            &quot;audio&quot;: null,
+                            &quot;optionName&quot;: &quot;32&quot;
+                        },
+                        {
+                            &quot;optionAmount&quot;: 0.0,
+                            &quot;image&quot;: &quot;https:\/\/lprglobalshared.blob.core.windows.net\/media\/33.png&quot;,
+                            &quot;optionIndex&quot;: 32,
+                            &quot;id&quot;: &quot;971433cf-f7c2-4340-a5cb-6bd40a42b5b5&quot;,
+                            &quot;audio&quot;: null,
+                            &quot;optionName&quot;: &quot;33&quot;
+                        },
+                        {
+                            &quot;optionAmount&quot;: 0.0,
+                            &quot;image&quot;: &quot;https:\/\/lprglobalshared.blob.core.windows.net\/media\/34.png&quot;,
+                            &quot;optionIndex&quot;: 33,
+                            &quot;id&quot;: &quot;6f2dd4bd-2480-44d6-bce4-30e65543270b&quot;,
+                            &quot;audio&quot;: null,
+                            &quot;optionName&quot;: &quot;34&quot;
+                        },
+                        {
+                            &quot;optionAmount&quot;: 0.0,
+                            &quot;image&quot;: &quot;https:\/\/lprglobalshared.blob.core.windows.net\/media\/35.png&quot;,
+                            &quot;optionIndex&quot;: 34,
+                            &quot;id&quot;: &quot;4935f6b4-c400-407b-84bc-1d99a762d5be&quot;,
+                            &quot;audio&quot;: null,
+                            &quot;optionName&quot;: &quot;35&quot;
+                        },
+                        {
+                            &quot;optionAmount&quot;: 0.0,
+                            &quot;image&quot;: &quot;https:\/\/lprglobalshared.blob.core.windows.net\/media\/36.png&quot;,
+                            &quot;optionIndex&quot;: 35,
+                            &quot;id&quot;: &quot;a0dc85fc-7790-42a7-9bc5-8a062e57f67f&quot;,
+                            &quot;audio&quot;: null,
+                            &quot;optionName&quot;: &quot;36&quot;
+                        },
+                        {
+                            &quot;optionAmount&quot;: 0.0,
+                            &quot;image&quot;: &quot;https:\/\/lprglobalshared.blob.core.windows.net\/media\/37.png&quot;,
+                            &quot;optionIndex&quot;: 36,
+                            &quot;id&quot;: &quot;185cbd94-7d05-4c78-b2a8-39b797389a83&quot;,
+                            &quot;audio&quot;: null,
+                            &quot;optionName&quot;: &quot;37&quot;
+                        },
+                        {
+                            &quot;optionAmount&quot;: 0.0,
+                            &quot;image&quot;: &quot;https:\/\/lprglobalshared.blob.core.windows.net\/media\/38.png&quot;,
+                            &quot;optionIndex&quot;: 37,
+                            &quot;id&quot;: &quot;f13cfeb2-1039-4dc3-8bd8-db3ecb64cfa1&quot;,
+                            &quot;audio&quot;: null,
+                            &quot;optionName&quot;: &quot;38&quot;
+                        },
+                        {
+                            &quot;optionAmount&quot;: 0.0,
+                            &quot;image&quot;: &quot;https:\/\/lprglobalshared.blob.core.windows.net\/media\/39.png&quot;,
+                            &quot;optionIndex&quot;: 38,
+                            &quot;id&quot;: &quot;87d70b87-2ce9-482a-a6df-4001c51151e1&quot;,
+                            &quot;audio&quot;: null,
+                            &quot;optionName&quot;: &quot;39&quot;
+                        },
+                        {
+                            &quot;optionAmount&quot;: 0.0,
+                            &quot;image&quot;: &quot;https:\/\/lprglobalshared.blob.core.windows.net\/media\/40.png&quot;,
+                            &quot;optionIndex&quot;: 39,
+                            &quot;id&quot;: &quot;6597df50-9463-42f3-b5b2-91e18d5f00f7&quot;,
+                            &quot;audio&quot;: null,
+                            &quot;optionName&quot;: &quot;40&quot;
+                        },
+                        {
+                            &quot;optionAmount&quot;: 0.0,
+                            &quot;image&quot;: &quot;https:\/\/lprglobalshared.blob.core.windows.net\/media\/41.png&quot;,
+                            &quot;optionIndex&quot;: 40,
+                            &quot;id&quot;: &quot;7f559bbc-97b2-46c5-a108-2479894f4e1f&quot;,
+                            &quot;audio&quot;: null,
+                            &quot;optionName&quot;: &quot;41&quot;
+                        },
+                        {
+                            &quot;optionAmount&quot;: 0.0,
+                            &quot;image&quot;: &quot;https:\/\/lprglobalshared.blob.core.windows.net\/media\/42.png&quot;,
+                            &quot;optionIndex&quot;: 41,
+                            &quot;id&quot;: &quot;d959e875-0fe4-4664-b40f-490d128b23a9&quot;,
+                            &quot;audio&quot;: null,
+                            &quot;optionName&quot;: &quot;42&quot;
+                        },
+                        {
+                            &quot;optionAmount&quot;: 0.0,
+                            &quot;image&quot;: &quot;https:\/\/lprglobalshared.blob.core.windows.net\/media\/43.png&quot;,
+                            &quot;optionIndex&quot;: 42,
+                            &quot;id&quot;: &quot;f8d914e9-d22b-4a8e-b00a-99d3e3aa93df&quot;,
+                            &quot;audio&quot;: null,
+                            &quot;optionName&quot;: &quot;43&quot;
+                        },
+                        {
+                            &quot;optionAmount&quot;: 0.0,
+                            &quot;image&quot;: &quot;https:\/\/lprglobalshared.blob.core.windows.net\/media\/44.png&quot;,
+                            &quot;optionIndex&quot;: 43,
+                            &quot;id&quot;: &quot;b2351eae-a192-44a0-8078-b988ce96a67a&quot;,
+                            &quot;audio&quot;: null,
+                            &quot;optionName&quot;: &quot;44&quot;
+                        },
+                        {
+                            &quot;optionAmount&quot;: 0.0,
+                            &quot;image&quot;: &quot;https:\/\/lprglobalshared.blob.core.windows.net\/media\/45.png&quot;,
+                            &quot;optionIndex&quot;: 44,
+                            &quot;id&quot;: &quot;84b99307-614e-4c58-8bf3-ef83ab65bbc4&quot;,
+                            &quot;audio&quot;: null,
+                            &quot;optionName&quot;: &quot;45&quot;
+                        },
+                        {
+                            &quot;optionAmount&quot;: 0.0,
+                            &quot;image&quot;: &quot;https:\/\/lprglobalshared.blob.core.windows.net\/media\/46.png&quot;,
+                            &quot;optionIndex&quot;: 45,
+                            &quot;id&quot;: &quot;bd861963-32ef-493d-8fcc-257e0353d120&quot;,
+                            &quot;audio&quot;: null,
+                            &quot;optionName&quot;: &quot;46&quot;
+                        },
+                        {
+                            &quot;optionAmount&quot;: 0.0,
+                            &quot;image&quot;: &quot;https:\/\/lprglobalshared.blob.core.windows.net\/media\/47.png&quot;,
+                            &quot;optionIndex&quot;: 46,
+                            &quot;id&quot;: &quot;de241b59-c12f-4b59-a3e2-47edde0b409f&quot;,
+                            &quot;audio&quot;: null,
+                            &quot;optionName&quot;: &quot;47&quot;
+                        },
+                        {
+                            &quot;optionAmount&quot;: 0.0,
+                            &quot;image&quot;: &quot;https:\/\/lprglobalshared.blob.core.windows.net\/media\/48.png&quot;,
+                            &quot;optionIndex&quot;: 47,
+                            &quot;id&quot;: &quot;136e11ac-2295-4ebf-9b7b-7c43b3d4d9af&quot;,
+                            &quot;audio&quot;: null,
+                            &quot;optionName&quot;: &quot;48&quot;
+                        },
+                        {
+                            &quot;optionAmount&quot;: 0.0,
+                            &quot;image&quot;: &quot;https:\/\/lprglobalshared.blob.core.windows.net\/media\/49.png&quot;,
+                            &quot;optionIndex&quot;: 48,
+                            &quot;id&quot;: &quot;e302e2e7-958b-4559-b212-be203a37f12d&quot;,
+                            &quot;audio&quot;: null,
+                            &quot;optionName&quot;: &quot;49&quot;
+                        },
+                        {
+                            &quot;optionAmount&quot;: 0.0,
+                            &quot;image&quot;: &quot;https:\/\/lprglobalshared.blob.core.windows.net\/media\/50.png&quot;,
+                            &quot;optionIndex&quot;: 49,
+                            &quot;id&quot;: &quot;d873c9f1-714f-4dcb-bdb3-6074f221b773&quot;,
+                            &quot;audio&quot;: null,
+                            &quot;optionName&quot;: &quot;50&quot;
+                        },
+                        {
+                            &quot;optionAmount&quot;: 0.0,
+                            &quot;image&quot;: &quot;https:\/\/lprglobalshared.blob.core.windows.net\/media\/51.png&quot;,
+                            &quot;optionIndex&quot;: 50,
+                            &quot;id&quot;: &quot;2e6fb7e4-908e-4fdd-9f16-be0df0f06d47&quot;,
+                            &quot;audio&quot;: null,
+                            &quot;optionName&quot;: &quot;51&quot;
+                        },
+                        {
+                            &quot;optionAmount&quot;: 0.0,
+                            &quot;image&quot;: &quot;https:\/\/lprglobalshared.blob.core.windows.net\/media\/52.png&quot;,
+                            &quot;optionIndex&quot;: 51,
+                            &quot;id&quot;: &quot;f6b8dd60-4aca-4545-a6c6-564ed4a96a1a&quot;,
+                            &quot;audio&quot;: null,
+                            &quot;optionName&quot;: &quot;52&quot;
+                        },
+                        {
+                            &quot;optionAmount&quot;: 0.0,
+                            &quot;image&quot;: &quot;https:\/\/lprglobalshared.blob.core.windows.net\/media\/53.png&quot;,
+                            &quot;optionIndex&quot;: 52,
+                            &quot;id&quot;: &quot;fc696087-80b2-4ffc-a62b-e21aa1e02b0b&quot;,
+                            &quot;audio&quot;: null,
+                            &quot;optionName&quot;: &quot;53&quot;
+                        },
+                        {
+                            &quot;optionAmount&quot;: 0.0,
+                            &quot;image&quot;: &quot;https:\/\/lprglobalshared.blob.core.windows.net\/media\/54.png&quot;,
+                            &quot;optionIndex&quot;: 53,
+                            &quot;id&quot;: &quot;f4d545ef-41c4-4ad1-90ad-f1b82011fc30&quot;,
+                            &quot;audio&quot;: null,
+                            &quot;optionName&quot;: &quot;54&quot;
+                        },
+                        {
+                            &quot;optionAmount&quot;: 0.0,
+                            &quot;image&quot;: &quot;https:\/\/lprglobalshared.blob.core.windows.net\/media\/55.png&quot;,
+                            &quot;optionIndex&quot;: 54,
+                            &quot;id&quot;: &quot;c96e9b6a-017d-458c-ab0c-08f1ba4ff841&quot;,
+                            &quot;audio&quot;: null,
+                            &quot;optionName&quot;: &quot;55&quot;
+                        },
+                        {
+                            &quot;optionAmount&quot;: 0.0,
+                            &quot;image&quot;: &quot;https:\/\/lprglobalshared.blob.core.windows.net\/media\/56.png&quot;,
+                            &quot;optionIndex&quot;: 55,
+                            &quot;id&quot;: &quot;cdf1d3f6-97b4-481f-be4e-667f1cf4d83a&quot;,
+                            &quot;audio&quot;: null,
+                            &quot;optionName&quot;: &quot;56&quot;
+                        },
+                        {
+                            &quot;optionAmount&quot;: 0.0,
+                            &quot;image&quot;: &quot;https:\/\/lprglobalshared.blob.core.windows.net\/media\/57.png&quot;,
+                            &quot;optionIndex&quot;: 56,
+                            &quot;id&quot;: &quot;dfd92359-7926-45ce-ac77-9a57c59e3a96&quot;,
+                            &quot;audio&quot;: null,
+                            &quot;optionName&quot;: &quot;57&quot;
+                        },
+                        {
+                            &quot;optionAmount&quot;: 0.0,
+                            &quot;image&quot;: &quot;https:\/\/lprglobalshared.blob.core.windows.net\/media\/58.png&quot;,
+                            &quot;optionIndex&quot;: 57,
+                            &quot;id&quot;: &quot;454fc2ab-866b-4b81-a032-684eb9aa73d8&quot;,
+                            &quot;audio&quot;: null,
+                            &quot;optionName&quot;: &quot;58&quot;
+                        },
+                        {
+                            &quot;optionAmount&quot;: 0.0,
+                            &quot;image&quot;: &quot;https:\/\/lprglobalshared.blob.core.windows.net\/media\/59.png&quot;,
+                            &quot;optionIndex&quot;: 58,
+                            &quot;id&quot;: &quot;d64a90d5-a0eb-4910-ba40-8f4d4a6e33c9&quot;,
+                            &quot;audio&quot;: null,
+                            &quot;optionName&quot;: &quot;59&quot;
+                        },
+                        {
+                            &quot;optionAmount&quot;: 0.0,
+                            &quot;image&quot;: &quot;https:\/\/lprglobalshared.blob.core.windows.net\/media\/60.png&quot;,
+                            &quot;optionIndex&quot;: 59,
+                            &quot;id&quot;: &quot;d71dc958-34f5-4d70-8555-081f53e6cd3c&quot;,
+                            &quot;audio&quot;: null,
+                            &quot;optionName&quot;: &quot;60&quot;
+                        },
+                        {
+                            &quot;optionAmount&quot;: 0.0,
+                            &quot;image&quot;: &quot;https:\/\/lprglobalshared.blob.core.windows.net\/media\/61.png&quot;,
+                            &quot;optionIndex&quot;: 60,
+                            &quot;id&quot;: &quot;b6b6eacc-58e6-44f3-ba08-de01f4c1233a&quot;,
+                            &quot;audio&quot;: null,
+                            &quot;optionName&quot;: &quot;61&quot;
+                        },
+                        {
+                            &quot;optionAmount&quot;: 0.0,
+                            &quot;image&quot;: &quot;https:\/\/lprglobalshared.blob.core.windows.net\/media\/62.png&quot;,
+                            &quot;optionIndex&quot;: 61,
+                            &quot;id&quot;: &quot;053b54e3-1d1d-4f1a-976e-de2df814dc80&quot;,
+                            &quot;audio&quot;: null,
+                            &quot;optionName&quot;: &quot;62&quot;
+                        },
+                        {
+                            &quot;optionAmount&quot;: 0.0,
+                            &quot;image&quot;: &quot;https:\/\/lprglobalshared.blob.core.windows.net\/media\/63.png&quot;,
+                            &quot;optionIndex&quot;: 62,
+                            &quot;id&quot;: &quot;dff1d383-8234-483d-943d-654466286499&quot;,
+                            &quot;audio&quot;: null,
+                            &quot;optionName&quot;: &quot;63&quot;
+                        },
+                        {
+                            &quot;optionAmount&quot;: 0.0,
+                            &quot;image&quot;: &quot;https:\/\/lprglobalshared.blob.core.windows.net\/media\/64.png&quot;,
+                            &quot;optionIndex&quot;: 63,
+                            &quot;id&quot;: &quot;a8182183-961e-4df2-a131-0678c47bf211&quot;,
+                            &quot;audio&quot;: null,
+                            &quot;optionName&quot;: &quot;64&quot;
+                        },
+                        {
+                            &quot;optionAmount&quot;: 0.0,
+                            &quot;image&quot;: &quot;https:\/\/lprglobalshared.blob.core.windows.net\/media\/65.png&quot;,
+                            &quot;optionIndex&quot;: 64,
+                            &quot;id&quot;: &quot;0f0fd71a-3482-4ca5-ba97-e0e1df2993db&quot;,
+                            &quot;audio&quot;: null,
+                            &quot;optionName&quot;: &quot;65&quot;
+                        },
+                        {
+                            &quot;optionAmount&quot;: 0.0,
+                            &quot;image&quot;: &quot;https:\/\/lprglobalshared.blob.core.windows.net\/media\/66.png&quot;,
+                            &quot;optionIndex&quot;: 65,
+                            &quot;id&quot;: &quot;916d4cba-b67e-4bfb-bf3e-08bff5e41e2f&quot;,
+                            &quot;audio&quot;: null,
+                            &quot;optionName&quot;: &quot;66&quot;
+                        },
+                        {
+                            &quot;optionAmount&quot;: 0.0,
+                            &quot;image&quot;: &quot;https:\/\/lprglobalshared.blob.core.windows.net\/media\/67.png&quot;,
+                            &quot;optionIndex&quot;: 66,
+                            &quot;id&quot;: &quot;3f73a926-91d1-4b2c-8b2c-c2dd94d4d45b&quot;,
+                            &quot;audio&quot;: null,
+                            &quot;optionName&quot;: &quot;67&quot;
+                        },
+                        {
+                            &quot;optionAmount&quot;: 0.0,
+                            &quot;image&quot;: &quot;https:\/\/lprglobalshared.blob.core.windows.net\/media\/68.png&quot;,
+                            &quot;optionIndex&quot;: 67,
+                            &quot;id&quot;: &quot;3b5be2b0-50d9-4315-8dd4-f87a8fab0c26&quot;,
+                            &quot;audio&quot;: null,
+                            &quot;optionName&quot;: &quot;68&quot;
+                        },
+                        {
+                            &quot;optionAmount&quot;: 0.0,
+                            &quot;image&quot;: &quot;https:\/\/lprglobalshared.blob.core.windows.net\/media\/69.png&quot;,
+                            &quot;optionIndex&quot;: 68,
+                            &quot;id&quot;: &quot;7bf74431-bf68-4314-8e8d-2b28ca25706a&quot;,
+                            &quot;audio&quot;: null,
+                            &quot;optionName&quot;: &quot;69&quot;
+                        }
+                    ],
+                    &quot;id&quot;: &quot;e63f9eea-4966-4c83-8764-28f8ba19f551&quot;,
+                    &quot;audio&quot;: null,
+                    &quot;poolName&quot;: &quot;White Balls&quot;
+                },
+                {
+                    &quot;image&quot;: null,
+                    &quot;options&quot;: [
+                        {
+                            &quot;optionAmount&quot;: 0.0,
+                            &quot;image&quot;: &quot;https:\/\/lprglobalshared.blob.core.windows.net\/media\/01r.png&quot;,
+                            &quot;optionIndex&quot;: 0,
+                            &quot;id&quot;: &quot;87550358-6a12-4184-9bbd-cd0aed629432&quot;,
+                            &quot;audio&quot;: null,
+                            &quot;optionName&quot;: &quot;1&quot;
+                        },
+                        {
+                            &quot;optionAmount&quot;: 0.0,
+                            &quot;image&quot;: &quot;https:\/\/lprglobalshared.blob.core.windows.net\/media\/02r.png&quot;,
+                            &quot;optionIndex&quot;: 1,
+                            &quot;id&quot;: &quot;4a820bfd-9137-4f76-859f-30d3866664c4&quot;,
+                            &quot;audio&quot;: null,
+                            &quot;optionName&quot;: &quot;2&quot;
+                        },
+                        {
+                            &quot;optionAmount&quot;: 0.0,
+                            &quot;image&quot;: &quot;https:\/\/lprglobalshared.blob.core.windows.net\/media\/03r.png&quot;,
+                            &quot;optionIndex&quot;: 2,
+                            &quot;id&quot;: &quot;a9b80b22-c1bc-4eb1-85e9-bf6bb6b94b5a&quot;,
+                            &quot;audio&quot;: null,
+                            &quot;optionName&quot;: &quot;3&quot;
+                        },
+                        {
+                            &quot;optionAmount&quot;: 0.0,
+                            &quot;image&quot;: &quot;https:\/\/lprglobalshared.blob.core.windows.net\/media\/04r.png&quot;,
+                            &quot;optionIndex&quot;: 3,
+                            &quot;id&quot;: &quot;ff3207db-805e-406d-a02e-aaa0e14bb255&quot;,
+                            &quot;audio&quot;: null,
+                            &quot;optionName&quot;: &quot;4&quot;
+                        },
+                        {
+                            &quot;optionAmount&quot;: 0.0,
+                            &quot;image&quot;: &quot;https:\/\/lprglobalshared.blob.core.windows.net\/media\/05r.png&quot;,
+                            &quot;optionIndex&quot;: 4,
+                            &quot;id&quot;: &quot;7623d2c5-365b-4463-93ca-bc7e95998308&quot;,
+                            &quot;audio&quot;: null,
+                            &quot;optionName&quot;: &quot;5&quot;
+                        },
+                        {
+                            &quot;optionAmount&quot;: 0.0,
+                            &quot;image&quot;: &quot;https:\/\/lprglobalshared.blob.core.windows.net\/media\/06r.png&quot;,
+                            &quot;optionIndex&quot;: 5,
+                            &quot;id&quot;: &quot;77f079ac-eb74-4ea8-ab45-81b219d86413&quot;,
+                            &quot;audio&quot;: null,
+                            &quot;optionName&quot;: &quot;6&quot;
+                        },
+                        {
+                            &quot;optionAmount&quot;: 0.0,
+                            &quot;image&quot;: &quot;https:\/\/lprglobalshared.blob.core.windows.net\/media\/07r.png&quot;,
+                            &quot;optionIndex&quot;: 6,
+                            &quot;id&quot;: &quot;9f132f89-8e20-4d04-ac80-5e03090f02dd&quot;,
+                            &quot;audio&quot;: null,
+                            &quot;optionName&quot;: &quot;7&quot;
+                        },
+                        {
+                            &quot;optionAmount&quot;: 0.0,
+                            &quot;image&quot;: &quot;https:\/\/lprglobalshared.blob.core.windows.net\/media\/08r.png&quot;,
+                            &quot;optionIndex&quot;: 7,
+                            &quot;id&quot;: &quot;37a6a434-6f2b-42fb-9cbc-d1fe0257f7be&quot;,
+                            &quot;audio&quot;: null,
+                            &quot;optionName&quot;: &quot;8&quot;
+                        },
+                        {
+                            &quot;optionAmount&quot;: 0.0,
+                            &quot;image&quot;: &quot;https:\/\/lprglobalshared.blob.core.windows.net\/media\/09r.png&quot;,
+                            &quot;optionIndex&quot;: 8,
+                            &quot;id&quot;: &quot;78a95217-690a-4752-afc4-48bac3700923&quot;,
+                            &quot;audio&quot;: null,
+                            &quot;optionName&quot;: &quot;9&quot;
+                        },
+                        {
+                            &quot;optionAmount&quot;: 0.0,
+                            &quot;image&quot;: &quot;https:\/\/lprglobalshared.blob.core.windows.net\/media\/10r.png&quot;,
+                            &quot;optionIndex&quot;: 9,
+                            &quot;id&quot;: &quot;ece9017f-2b45-42f1-a187-573143c0e62a&quot;,
+                            &quot;audio&quot;: null,
+                            &quot;optionName&quot;: &quot;10&quot;
+                        },
+                        {
+                            &quot;optionAmount&quot;: 0.0,
+                            &quot;image&quot;: &quot;https:\/\/lprglobalshared.blob.core.windows.net\/media\/11r.png&quot;,
+                            &quot;optionIndex&quot;: 10,
+                            &quot;id&quot;: &quot;4e59a9db-e334-4ded-8064-bdec74bc2f04&quot;,
+                            &quot;audio&quot;: null,
+                            &quot;optionName&quot;: &quot;11&quot;
+                        },
+                        {
+                            &quot;optionAmount&quot;: 0.0,
+                            &quot;image&quot;: &quot;https:\/\/lprglobalshared.blob.core.windows.net\/media\/12r.png&quot;,
+                            &quot;optionIndex&quot;: 11,
+                            &quot;id&quot;: &quot;3d09e4c2-b41c-49a0-9915-979b9b779886&quot;,
+                            &quot;audio&quot;: null,
+                            &quot;optionName&quot;: &quot;12&quot;
+                        },
+                        {
+                            &quot;optionAmount&quot;: 0.0,
+                            &quot;image&quot;: &quot;https:\/\/lprglobalshared.blob.core.windows.net\/media\/13r.png&quot;,
+                            &quot;optionIndex&quot;: 12,
+                            &quot;id&quot;: &quot;5f808d65-8447-4c92-a23a-280acf5427be&quot;,
+                            &quot;audio&quot;: null,
+                            &quot;optionName&quot;: &quot;13&quot;
+                        },
+                        {
+                            &quot;optionAmount&quot;: 0.0,
+                            &quot;image&quot;: &quot;https:\/\/lprglobalshared.blob.core.windows.net\/media\/14r.png&quot;,
+                            &quot;optionIndex&quot;: 13,
+                            &quot;id&quot;: &quot;87c602cf-57ea-4c9c-9085-e08285034d1d&quot;,
+                            &quot;audio&quot;: null,
+                            &quot;optionName&quot;: &quot;14&quot;
+                        },
+                        {
+                            &quot;optionAmount&quot;: 0.0,
+                            &quot;image&quot;: &quot;https:\/\/lprglobalshared.blob.core.windows.net\/media\/15r.png&quot;,
+                            &quot;optionIndex&quot;: 14,
+                            &quot;id&quot;: &quot;8e508be0-654c-43ab-8695-a32a28071380&quot;,
+                            &quot;audio&quot;: null,
+                            &quot;optionName&quot;: &quot;15&quot;
+                        },
+                        {
+                            &quot;optionAmount&quot;: 0.0,
+                            &quot;image&quot;: &quot;https:\/\/lprglobalshared.blob.core.windows.net\/media\/16r.png&quot;,
+                            &quot;optionIndex&quot;: 15,
+                            &quot;id&quot;: &quot;c3e02da0-dba1-4a93-aa1f-a21eb374e35b&quot;,
+                            &quot;audio&quot;: null,
+                            &quot;optionName&quot;: &quot;16&quot;
+                        },
+                        {
+                            &quot;optionAmount&quot;: 0.0,
+                            &quot;image&quot;: &quot;https:\/\/lprglobalshared.blob.core.windows.net\/media\/17r.png&quot;,
+                            &quot;optionIndex&quot;: 16,
+                            &quot;id&quot;: &quot;a46ed2ce-478b-4bf3-9e21-77b2e07f3faa&quot;,
+                            &quot;audio&quot;: null,
+                            &quot;optionName&quot;: &quot;17&quot;
+                        },
+                        {
+                            &quot;optionAmount&quot;: 0.0,
+                            &quot;image&quot;: &quot;https:\/\/lprglobalshared.blob.core.windows.net\/media\/18r.png&quot;,
+                            &quot;optionIndex&quot;: 17,
+                            &quot;id&quot;: &quot;d975d245-3852-4d66-925d-5f3e409e0770&quot;,
+                            &quot;audio&quot;: null,
+                            &quot;optionName&quot;: &quot;18&quot;
+                        },
+                        {
+                            &quot;optionAmount&quot;: 0.0,
+                            &quot;image&quot;: &quot;https:\/\/lprglobalshared.blob.core.windows.net\/media\/19r.png&quot;,
+                            &quot;optionIndex&quot;: 18,
+                            &quot;id&quot;: &quot;4c954ee0-f6d6-40f0-918f-c07e16b110cf&quot;,
+                            &quot;audio&quot;: null,
+                            &quot;optionName&quot;: &quot;19&quot;
+                        },
+                        {
+                            &quot;optionAmount&quot;: 0.0,
+                            &quot;image&quot;: &quot;https:\/\/lprglobalshared.blob.core.windows.net\/media\/20r.png&quot;,
+                            &quot;optionIndex&quot;: 19,
+                            &quot;id&quot;: &quot;7799dfce-ec26-43c1-8311-ccdfc59f0dec&quot;,
+                            &quot;audio&quot;: null,
+                            &quot;optionName&quot;: &quot;20&quot;
+                        },
+                        {
+                            &quot;optionAmount&quot;: 0.0,
+                            &quot;image&quot;: &quot;https:\/\/lprglobalshared.blob.core.windows.net\/media\/21r.png&quot;,
+                            &quot;optionIndex&quot;: 20,
+                            &quot;id&quot;: &quot;089230ac-0cb5-4737-bdde-faf1214d4a3b&quot;,
+                            &quot;audio&quot;: null,
+                            &quot;optionName&quot;: &quot;21&quot;
+                        },
+                        {
+                            &quot;optionAmount&quot;: 0.0,
+                            &quot;image&quot;: &quot;https:\/\/lprglobalshared.blob.core.windows.net\/media\/22r.png&quot;,
+                            &quot;optionIndex&quot;: 21,
+                            &quot;id&quot;: &quot;b6dfbd96-5a85-42bb-9094-eb8cc3bb52d3&quot;,
+                            &quot;audio&quot;: null,
+                            &quot;optionName&quot;: &quot;22&quot;
+                        },
+                        {
+                            &quot;optionAmount&quot;: 0.0,
+                            &quot;image&quot;: &quot;https:\/\/lprglobalshared.blob.core.windows.net\/media\/23r.png&quot;,
+                            &quot;optionIndex&quot;: 22,
+                            &quot;id&quot;: &quot;3de9193e-272a-47e6-b803-d7e0dc5b16ba&quot;,
+                            &quot;audio&quot;: null,
+                            &quot;optionName&quot;: &quot;23&quot;
+                        },
+                        {
+                            &quot;optionAmount&quot;: 0.0,
+                            &quot;image&quot;: &quot;https:\/\/lprglobalshared.blob.core.windows.net\/media\/24r.png&quot;,
+                            &quot;optionIndex&quot;: 23,
+                            &quot;id&quot;: &quot;fb049500-f6bd-4798-b330-d46b837b974d&quot;,
+                            &quot;audio&quot;: null,
+                            &quot;optionName&quot;: &quot;24&quot;
+                        },
+                        {
+                            &quot;optionAmount&quot;: 0.0,
+                            &quot;image&quot;: &quot;https:\/\/lprglobalshared.blob.core.windows.net\/media\/25r.png&quot;,
+                            &quot;optionIndex&quot;: 24,
+                            &quot;id&quot;: &quot;d721c27c-b44a-4ba6-9164-9b7971d92db8&quot;,
+                            &quot;audio&quot;: null,
+                            &quot;optionName&quot;: &quot;25&quot;
+                        },
+                        {
+                            &quot;optionAmount&quot;: 0.0,
+                            &quot;image&quot;: &quot;https:\/\/lprglobalshared.blob.core.windows.net\/media\/26r.png&quot;,
+                            &quot;optionIndex&quot;: 25,
+                            &quot;id&quot;: &quot;6a2ff192-7044-4991-91d1-38bbdd6c76a3&quot;,
+                            &quot;audio&quot;: null,
+                            &quot;optionName&quot;: &quot;26&quot;
+                        }
+                    ],
+                    &quot;id&quot;: &quot;a93aa286-3e9e-47c6-a989-4cbd9b83d529&quot;,
+                    &quot;audio&quot;: null,
+                    &quot;poolName&quot;: &quot;Powerballs&quot;
+                },
+                {
+                    &quot;image&quot;: null,
+                    &quot;options&quot;: [
+                        {
+                            &quot;optionAmount&quot;: 0.0,
+                            &quot;image&quot;: &quot;https:\/\/lprglobalshared.blob.core.windows.net\/media\/multiplier-x2.png&quot;,
+                            &quot;optionIndex&quot;: 0,
+                            &quot;id&quot;: &quot;f3c3e4b1-fe33-4de3-a94d-619666146de2&quot;,
+                            &quot;audio&quot;: null,
+                            &quot;optionName&quot;: &quot;x2&quot;
+                        },
+                        {
+                            &quot;optionAmount&quot;: 0.0,
+                            &quot;image&quot;: &quot;https:\/\/lprglobalshared.blob.core.windows.net\/media\/multiplier-x3.png&quot;,
+                            &quot;optionIndex&quot;: 1,
+                            &quot;id&quot;: &quot;e2b41fee-bcac-4c00-b7c0-0f69813e1876&quot;,
+                            &quot;audio&quot;: null,
+                            &quot;optionName&quot;: &quot;x3&quot;
+                        },
+                        {
+                            &quot;optionAmount&quot;: 0.0,
+                            &quot;image&quot;: &quot;https:\/\/lprglobalshared.blob.core.windows.net\/media\/multiplier-x4.png&quot;,
+                            &quot;optionIndex&quot;: 2,
+                            &quot;id&quot;: &quot;d87d6298-85df-4c34-a2aa-b45de2d2d029&quot;,
+                            &quot;audio&quot;: null,
+                            &quot;optionName&quot;: &quot;x4&quot;
+                        },
+                        {
+                            &quot;optionAmount&quot;: 0.0,
+                            &quot;image&quot;: &quot;https:\/\/lprglobalshared.blob.core.windows.net\/media\/multiplier-x5.png&quot;,
+                            &quot;optionIndex&quot;: 3,
+                            &quot;id&quot;: &quot;f9c1842c-749e-4a4d-8d4f-55e3ce200fca&quot;,
+                            &quot;audio&quot;: null,
+                            &quot;optionName&quot;: &quot;x5&quot;
+                        },
+                        {
+                            &quot;optionAmount&quot;: 0.0,
+                            &quot;image&quot;: &quot;https:\/\/lprglobalshared.blob.core.windows.net\/media\/multiplier-x10.png&quot;,
+                            &quot;optionIndex&quot;: 4,
+                            &quot;id&quot;: &quot;57599727-d2f1-4249-b80f-0c4994244423&quot;,
+                            &quot;audio&quot;: null,
+                            &quot;optionName&quot;: &quot;x10&quot;
+                        }
+                    ],
+                    &quot;id&quot;: &quot;458199ef-e868-4639-b594-92c0d39422ea&quot;,
+                    &quot;audio&quot;: null,
+                    &quot;poolName&quot;: &quot;Power Plays&quot;
+                }
+            ],
+            &quot;id&quot;: &quot;b0793365-7212-44db-a044-12c213c020c2&quot;,
+            &quot;productName&quot;: &quot;Acme Powerball&quot;
+        },
+        {
+            &quot;productId&quot;: &quot;557a97a5-ef93-46b7-868c-4f26439fbcb9&quot;,
+            &quot;componentGroups&quot;: [
+                {
+                    &quot;image&quot;: null,
+                    &quot;components&quot;: [
+                        {
+                            &quot;image&quot;: null,
+                            &quot;id&quot;: &quot;a3d14456-64cb-4cae-b749-133c4b6a476a&quot;,
+                            &quot;componentName&quot;: &quot;Panel Amount&quot;,
+                            &quot;audio&quot;: null,
+                            &quot;componentConsumerSelectionType&quot;: 2
+                        }
+                    ],
+                    &quot;componentGroupName&quot;: &quot;Panel Amount Components&quot;,
+                    &quot;poolId&quot;: &quot;efc2ab5c-c709-4b1d-81a7-e61a8d120d8d&quot;,
+                    &quot;id&quot;: &quot;85ee94f1-fbcf-4392-aa08-5320abc13dcc&quot;,
+                    &quot;audio&quot;: null
+                },
+                {
+                    &quot;image&quot;: null,
+                    &quot;components&quot;: [
+                        {
+                            &quot;image&quot;: null,
+                            &quot;id&quot;: &quot;d50aeef2-4821-4247-b712-585a2ba55f81&quot;,
+                            &quot;componentName&quot;: &quot;Play Type&quot;,
+                            &quot;audio&quot;: null,
+                            &quot;componentConsumerSelectionType&quot;: 2
+                        }
+                    ],
+                    &quot;componentGroupName&quot;: &quot;Play Type Components&quot;,
+                    &quot;poolId&quot;: &quot;60b8910b-baa7-4776-bb7a-05f277887a11&quot;,
+                    &quot;id&quot;: &quot;2be68fe5-2872-4631-b994-bb8e691db233&quot;,
+                    &quot;audio&quot;: null
+                },
+                {
+                    &quot;image&quot;: null,
+                    &quot;components&quot;: [
+                        {
+                            &quot;image&quot;: null,
+                            &quot;id&quot;: &quot;ed6a4930-2558-414d-b47f-a3f95e719f60&quot;,
+                            &quot;componentName&quot;: &quot;Front Number&quot;,
+                            &quot;audio&quot;: null,
+                            &quot;componentConsumerSelectionType&quot;: 0
+                        }
+                    ],
+                    &quot;componentGroupName&quot;: &quot;Front Number Components&quot;,
+                    &quot;poolId&quot;: &quot;53fb7c9a-17dd-4f95-94b0-0110433404a2&quot;,
+                    &quot;id&quot;: &quot;9b3433e8-48f3-4b37-bccb-e0ed5c55ffe8&quot;,
+                    &quot;audio&quot;: null
+                },
+                {
+                    &quot;image&quot;: null,
+                    &quot;components&quot;: [
+                        {
+                            &quot;image&quot;: null,
+                            &quot;id&quot;: &quot;e0957685-22d8-4827-a3db-a1e2e0b5b76b&quot;,
+                            &quot;componentName&quot;: &quot;Middle Number&quot;,
+                            &quot;audio&quot;: null,
+                            &quot;componentConsumerSelectionType&quot;: 0
+                        }
+                    ],
+                    &quot;componentGroupName&quot;: &quot;Middle Number Components&quot;,
+                    &quot;poolId&quot;: &quot;53fb7c9a-17dd-4f95-94b0-0110433404a2&quot;,
+                    &quot;id&quot;: &quot;6ca0c5d1-0939-4603-9c0f-d6be5171a068&quot;,
+                    &quot;audio&quot;: null
+                },
+                {
+                    &quot;image&quot;: null,
+                    &quot;components&quot;: [
+                        {
+                            &quot;image&quot;: null,
+                            &quot;id&quot;: &quot;98b3c77a-bb25-4a45-a2ca-c90a79c75ecb&quot;,
+                            &quot;componentName&quot;: &quot;Back Number&quot;,
+                            &quot;audio&quot;: null,
+                            &quot;componentConsumerSelectionType&quot;: 0
+                        }
+                    ],
+                    &quot;componentGroupName&quot;: &quot;Back Number Components&quot;,
+                    &quot;poolId&quot;: &quot;53fb7c9a-17dd-4f95-94b0-0110433404a2&quot;,
+                    &quot;id&quot;: &quot;e2ed942b-98e2-4d91-a500-ab5884acf66f&quot;,
+                    &quot;audio&quot;: null
+                }
+            ],
+            &quot;pools&quot;: [
+                {
+                    &quot;image&quot;: null,
+                    &quot;options&quot;: [
+                        {
+                            &quot;optionAmount&quot;: 0.5,
+                            &quot;image&quot;: &quot;https:\/\/lprglobalshared.blob.core.windows.net\/media\/01.png&quot;,
+                            &quot;optionIndex&quot;: 0,
+                            &quot;id&quot;: &quot;cf85f8ca-7686-4585-b154-2e069e7bf976&quot;,
+                            &quot;audio&quot;: null,
+                            &quot;optionName&quot;: &quot;$.50&quot;
+                        },
+                        {
+                            &quot;optionAmount&quot;: 1.0,
+                            &quot;image&quot;: &quot;https:\/\/lprglobalshared.blob.core.windows.net\/media\/01.png&quot;,
+                            &quot;optionIndex&quot;: 1,
+                            &quot;id&quot;: &quot;b0f6c744-af0a-4395-a2d5-bfaf39aeeab5&quot;,
+                            &quot;audio&quot;: null,
+                            &quot;optionName&quot;: &quot;$1&quot;
+                        }
+                    ],
+                    &quot;id&quot;: &quot;efc2ab5c-c709-4b1d-81a7-e61a8d120d8d&quot;,
+                    &quot;audio&quot;: null,
+                    &quot;poolName&quot;: &quot;Panel Amounts&quot;
+                },
+                {
+                    &quot;image&quot;: null,
+                    &quot;options&quot;: [
+                        {
+                            &quot;optionAmount&quot;: 0.0,
+                            &quot;image&quot;: &quot;https:\/\/lprglobalshared.blob.core.windows.net\/media\/tilestraight.png&quot;,
+                            &quot;optionIndex&quot;: 0,
+                            &quot;id&quot;: &quot;d51485a5-1cb4-4aca-8ad9-551ac0bddce3&quot;,
+                            &quot;audio&quot;: null,
+                            &quot;optionName&quot;: &quot;Exact Order&quot;
+                        },
+                        {
+                            &quot;optionAmount&quot;: 0.0,
+                            &quot;image&quot;: &quot;https:\/\/lprglobalshared.blob.core.windows.net\/media\/tilebox.png&quot;,
+                            &quot;optionIndex&quot;: 1,
+                            &quot;id&quot;: &quot;4ed3eaa0-7b58-47db-8072-bbe78f0e40cf&quot;,
+                            &quot;audio&quot;: null,
+                            &quot;optionName&quot;: &quot;Any Order&quot;
+                        },
+                        {
+                            &quot;optionAmount&quot;: 0.0,
+                            &quot;image&quot;: &quot;https:\/\/lprglobalshared.blob.core.windows.net\/media\/tilefiftyfifty.png&quot;,
+                            &quot;optionIndex&quot;: 2,
+                            &quot;id&quot;: &quot;46571384-8bea-404b-8aa1-c0965fa0bed1&quot;,
+                            &quot;audio&quot;: null,
+                            &quot;optionName&quot;: &quot;50\/50&quot;
+                        },
+                        {
+                            &quot;optionAmount&quot;: 0.0,
+                            &quot;image&quot;: &quot;https:\/\/lprglobalshared.blob.core.windows.net\/media\/tilefrontpair.png&quot;,
+                            &quot;optionIndex&quot;: 3,
+                            &quot;id&quot;: &quot;325d52e8-ed3f-4a69-8f09-8e49a53608dd&quot;,
+                            &quot;audio&quot;: null,
+                            &quot;optionName&quot;: &quot;Front Pair&quot;
+                        },
+                        {
+                            &quot;optionAmount&quot;: 0.0,
+                            &quot;image&quot;: &quot;https:\/\/lprglobalshared.blob.core.windows.net\/media\/tilesplitpair.png&quot;,
+                            &quot;optionIndex&quot;: 4,
+                            &quot;id&quot;: &quot;5960a4af-0b74-4c2b-b8a4-2dc4033e96a2&quot;,
+                            &quot;audio&quot;: null,
+                            &quot;optionName&quot;: &quot;Split Pair&quot;
+                        },
+                        {
+                            &quot;optionAmount&quot;: 0.0,
+                            &quot;image&quot;: &quot;https:\/\/lprglobalshared.blob.core.windows.net\/media\/tilebackpair.png&quot;,
+                            &quot;optionIndex&quot;: 5,
+                            &quot;id&quot;: &quot;c2a817ca-1bd8-4b5b-8f6f-e12f3286ea54&quot;,
+                            &quot;audio&quot;: null,
+                            &quot;optionName&quot;: &quot;Back Pair&quot;
+                        }
+                    ],
+                    &quot;id&quot;: &quot;60b8910b-baa7-4776-bb7a-05f277887a11&quot;,
+                    &quot;audio&quot;: null,
+                    &quot;poolName&quot;: &quot;Play Types&quot;
+                },
+                {
+                    &quot;image&quot;: null,
+                    &quot;options&quot;: [
+                        {
+                            &quot;optionAmount&quot;: 0.0,
+                            &quot;image&quot;: &quot;https:\/\/lprglobalshared.blob.core.windows.net\/media\/tilegreen00.png&quot;,
+                            &quot;optionIndex&quot;: 0,
+                            &quot;id&quot;: &quot;fae5912c-9d4a-466b-b515-d60b3186c2e5&quot;,
+                            &quot;audio&quot;: null,
+                            &quot;optionName&quot;: &quot;0&quot;
+                        },
+                        {
+                            &quot;optionAmount&quot;: 0.0,
+                            &quot;image&quot;: &quot;https:\/\/lprglobalshared.blob.core.windows.net\/media\/tilegreen01.png&quot;,
+                            &quot;optionIndex&quot;: 1,
+                            &quot;id&quot;: &quot;42055e6a-f08a-48b4-a7c8-41b87f11ca51&quot;,
+                            &quot;audio&quot;: null,
+                            &quot;optionName&quot;: &quot;1&quot;
+                        },
+                        {
+                            &quot;optionAmount&quot;: 0.0,
+                            &quot;image&quot;: &quot;https:\/\/lprglobalshared.blob.core.windows.net\/media\/tilegreen02.png&quot;,
+                            &quot;optionIndex&quot;: 2,
+                            &quot;id&quot;: &quot;ea28a99c-6068-4d67-8e2d-c6857656b499&quot;,
+                            &quot;audio&quot;: null,
+                            &quot;optionName&quot;: &quot;2&quot;
+                        },
+                        {
+                            &quot;optionAmount&quot;: 0.0,
+                            &quot;image&quot;: &quot;https:\/\/lprglobalshared.blob.core.windows.net\/media\/tilegreen03.png&quot;,
+                            &quot;optionIndex&quot;: 3,
+                            &quot;id&quot;: &quot;bf5e29ea-a377-46ad-865d-e4585d652b13&quot;,
+                            &quot;audio&quot;: null,
+                            &quot;optionName&quot;: &quot;3&quot;
+                        },
+                        {
+                            &quot;optionAmount&quot;: 0.0,
+                            &quot;image&quot;: &quot;https:\/\/lprglobalshared.blob.core.windows.net\/media\/tilegreen04.png&quot;,
+                            &quot;optionIndex&quot;: 4,
+                            &quot;id&quot;: &quot;41c26a4b-ce86-4c28-ae5a-35c13a539fbc&quot;,
+                            &quot;audio&quot;: null,
+                            &quot;optionName&quot;: &quot;4&quot;
+                        },
+                        {
+                            &quot;optionAmount&quot;: 0.0,
+                            &quot;image&quot;: &quot;https:\/\/lprglobalshared.blob.core.windows.net\/media\/tilegreen05.png&quot;,
+                            &quot;optionIndex&quot;: 5,
+                            &quot;id&quot;: &quot;fcb34895-25b9-4e5e-8a00-652febfcd31e&quot;,
+                            &quot;audio&quot;: null,
+                            &quot;optionName&quot;: &quot;5&quot;
+                        },
+                        {
+                            &quot;optionAmount&quot;: 0.0,
+                            &quot;image&quot;: &quot;https:\/\/lprglobalshared.blob.core.windows.net\/media\/tilegreen06.png&quot;,
+                            &quot;optionIndex&quot;: 6,
+                            &quot;id&quot;: &quot;0f0cf6ef-a7b7-4d11-98c4-0ea2cfd32f39&quot;,
+                            &quot;audio&quot;: null,
+                            &quot;optionName&quot;: &quot;6&quot;
+                        },
+                        {
+                            &quot;optionAmount&quot;: 0.0,
+                            &quot;image&quot;: &quot;https:\/\/lprglobalshared.blob.core.windows.net\/media\/tilegreen07.png&quot;,
+                            &quot;optionIndex&quot;: 7,
+                            &quot;id&quot;: &quot;3db2fafd-698c-44bb-a4be-f9e43ee6248b&quot;,
+                            &quot;audio&quot;: null,
+                            &quot;optionName&quot;: &quot;7&quot;
+                        },
+                        {
+                            &quot;optionAmount&quot;: 0.0,
+                            &quot;image&quot;: &quot;https:\/\/lprglobalshared.blob.core.windows.net\/media\/tilegreen08.png&quot;,
+                            &quot;optionIndex&quot;: 8,
+                            &quot;id&quot;: &quot;25d17003-9db8-407b-b6e2-65c0c2f014a0&quot;,
+                            &quot;audio&quot;: null,
+                            &quot;optionName&quot;: &quot;8&quot;
+                        },
+                        {
+                            &quot;optionAmount&quot;: 0.0,
+                            &quot;image&quot;: &quot;https:\/\/lprglobalshared.blob.core.windows.net\/media\/tilegreen09.png&quot;,
+                            &quot;optionIndex&quot;: 9,
+                            &quot;id&quot;: &quot;37232037-ca87-4f2e-99a4-40cbfec2bf62&quot;,
+                            &quot;audio&quot;: null,
+                            &quot;optionName&quot;: &quot;9&quot;
+                        }
+                    ],
+                    &quot;id&quot;: &quot;53fb7c9a-17dd-4f95-94b0-0110433404a2&quot;,
+                    &quot;audio&quot;: null,
+                    &quot;poolName&quot;: &quot;Numbers&quot;
+                }
+            ],
+            &quot;id&quot;: &quot;a7bb18a0-9231-4e04-8542-4a86fe4f7f25&quot;,
+            &quot;productName&quot;: &quot;Acme Pick 3&quot;
+        }
+    ],
+    &quot;error&quot;: null
+}</stringProp>
+          <stringProp name="RESPONSE_TIME">${__Random(50,500)}</stringProp>
+          <stringProp name="LATENCY">${__Random(1,50)}</stringProp>
+          <stringProp name="CONNECT">${__Random(1,5)}</stringProp>
+          <stringProp name="URL"></stringProp>
+          <stringProp name="RESULT_CLASS">org.apache.jmeter.samplers.SampleResult</stringProp>
+        </kg.apc.jmeter.samplers.DummySampler>
+        <hashTree/>
+      </hashTree>
+      <ResultCollector guiclass="StatVisualizer" testclass="ResultCollector" testname="Aggregate Report" enabled="true">
+        <boolProp name="ResultCollector.error_logging">false</boolProp>
+        <objProp>
+          <name>saveConfig</name>
+          <value class="SampleSaveConfiguration">
+            <time>true</time>
+            <latency>true</latency>
+            <timestamp>true</timestamp>
+            <success>true</success>
+            <label>true</label>
+            <code>true</code>
+            <message>true</message>
+            <threadName>true</threadName>
+            <dataType>true</dataType>
+            <encoding>true</encoding>
+            <assertions>true</assertions>
+            <subresults>true</subresults>
+            <responseData>true</responseData>
+            <samplerData>true</samplerData>
+            <xml>false</xml>
+            <fieldNames>true</fieldNames>
+            <responseHeaders>true</responseHeaders>
+            <requestHeaders>true</requestHeaders>
+            <responseDataOnError>false</responseDataOnError>
+            <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+            <assertionsResultsToSave>0</assertionsResultsToSave>
+            <bytes>true</bytes>
+            <sentBytes>true</sentBytes>
+            <url>true</url>
+            <fileName>true</fileName>
+            <hostname>true</hostname>
+            <threadCounts>true</threadCounts>
+            <sampleCount>true</sampleCount>
+            <idleTime>true</idleTime>
+            <connectTime>true</connectTime>
+          </value>
+        </objProp>
+        <stringProp name="filename">${AGGREGATE_FILE_GETS}</stringProp>
+      </ResultCollector>
+      <hashTree/>
+      <ResultCollector guiclass="TableVisualizer" testclass="ResultCollector" testname="View Results in Table" enabled="true">
+        <boolProp name="ResultCollector.error_logging">false</boolProp>
+        <objProp>
+          <name>saveConfig</name>
+          <value class="SampleSaveConfiguration">
+            <time>true</time>
+            <latency>true</latency>
+            <timestamp>true</timestamp>
+            <success>true</success>
+            <label>true</label>
+            <code>true</code>
+            <message>true</message>
+            <threadName>true</threadName>
+            <dataType>true</dataType>
+            <encoding>false</encoding>
+            <assertions>true</assertions>
+            <subresults>true</subresults>
+            <responseData>false</responseData>
+            <samplerData>false</samplerData>
+            <xml>false</xml>
+            <fieldNames>true</fieldNames>
+            <responseHeaders>false</responseHeaders>
+            <requestHeaders>false</requestHeaders>
+            <responseDataOnError>false</responseDataOnError>
+            <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+            <assertionsResultsToSave>0</assertionsResultsToSave>
+            <bytes>true</bytes>
+            <sentBytes>true</sentBytes>
+            <url>true</url>
+            <threadCounts>true</threadCounts>
+            <idleTime>true</idleTime>
+            <connectTime>true</connectTime>
+          </value>
+        </objProp>
+        <stringProp name="filename"></stringProp>
+      </ResultCollector>
+      <hashTree/>
+      <Summariser guiclass="SummariserGui" testclass="Summariser" testname="Generate Summary Results" enabled="true"/>
+      <hashTree/>
+      <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+        <boolProp name="ResultCollector.error_logging">false</boolProp>
+        <objProp>
+          <name>saveConfig</name>
+          <value class="SampleSaveConfiguration">
+            <time>true</time>
+            <latency>true</latency>
+            <timestamp>true</timestamp>
+            <success>true</success>
+            <label>true</label>
+            <code>true</code>
+            <message>true</message>
+            <threadName>true</threadName>
+            <dataType>true</dataType>
+            <encoding>false</encoding>
+            <assertions>true</assertions>
+            <subresults>true</subresults>
+            <responseData>false</responseData>
+            <samplerData>false</samplerData>
+            <xml>false</xml>
+            <fieldNames>true</fieldNames>
+            <responseHeaders>false</responseHeaders>
+            <requestHeaders>false</requestHeaders>
+            <responseDataOnError>false</responseDataOnError>
+            <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+            <assertionsResultsToSave>0</assertionsResultsToSave>
+            <bytes>true</bytes>
+            <sentBytes>true</sentBytes>
+            <url>true</url>
+            <threadCounts>true</threadCounts>
+            <idleTime>true</idleTime>
+            <connectTime>true</connectTime>
+          </value>
+        </objProp>
+        <stringProp name="filename"></stringProp>
+      </ResultCollector>
+      <hashTree/>
+    </hashTree>
+  </hashTree>
+</jmeterTestPlan>

@@ -1,0 +1,13 @@
+//vars.put('text_data_1', '${text_data}');
+//vars.put('pickup_date_param', '${pickup_date}');
+text_data_1 = "${text_data}"
+pickup_date_param = "${pickup_date}"
+if (text_data_1 == "Сроки поставки уточнит менеджер") {
+    pickupDate_final = "";
+    //vars.put("pickupDate_final", pickupDate_final);
+} else {
+    pickupDate_final = "${pickup_date}";
+    //vars.put("pickupDate_final", pickupDate_final);
+
+}
+vars.put("pickupDate_final", pickupDate_final);

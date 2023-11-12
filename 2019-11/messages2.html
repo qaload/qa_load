@@ -1,0 +1,3673 @@
+<!DOCTYPE html>
+<html>
+
+ <head>
+
+  <meta charset="utf-8"/>
+<title>Exported Data</title>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+
+  <link href="css/style.css" rel="stylesheet"/>
+
+  <script src="js/script.js" type="text/javascript">
+
+  </script>
+
+ </head>
+
+ <body onload="CheckLocation();">
+
+  <div class="page_wrap">
+
+   <div class="page_header">
+
+    <div class="content">
+
+     <div class="text bold">
+QA — Load &amp; Performance (2019-11)
+     </div>
+
+    </div>
+
+   </div>
+
+   <div class="page_body chat_page">
+
+    <div class="history">
+
+     <a class="pagination block_link" href="messages.html">
+Previous messages
+     </a>
+
+     <div class="message service" id="message-28">
+
+      <div class="body details">
+27 November 2019
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message11937">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic1" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+СЧ
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="27.11.2019 19:28:38 UTC+04:00">
+19:28
+       </div>
+
+       <div class="from_name">
+Сергей Чепкасов
+       </div>
+
+       <div class="reply_to details">
+In reply to <a href="messages.html#go_to_message11935">this message</a>
+       </div>
+
+       <div class="text">
+Если нужен только уровень INFO то можно в FileAppender добавить фильтр и убрать все остальные сообщения:<br>&lt;filter class=&quot;ch.qos.logback.classic.filter.LevelFilter&quot;&gt;<br>            &lt;level&gt;INFO&lt;/level&gt;<br>            &lt;onMatch&gt;ACCEPT&lt;/onMatch&gt;<br>            &lt;onMismatch&gt;DENY&lt;/onMismatch&gt;<br>        &lt;/filter&gt;
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message11938">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic2" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+Д
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="27.11.2019 21:02:15 UTC+04:00">
+21:02
+       </div>
+
+       <div class="from_name">
+Дмитрий 
+       </div>
+
+       <div class="text">
+Всем привет, кто нибудь реализовывал в Jmeter переотправку запросов если он пришел с 504 статусом, например?
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message11939">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="27.11.2019 21:04:09 UTC+04:00">
+21:04
+       </div>
+
+       <div class="text">
+При этом запросов много, любой может упасть и не хочется все пихать в вайл контроллеры и все такое
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message11940">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic6" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+СФ
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="27.11.2019 21:13:24 UTC+04:00">
+21:13
+       </div>
+
+       <div class="from_name">
+Сергей (care1e55) Филимонов
+       </div>
+
+       <div class="reply_to details">
+In reply to <a href="#go_to_message11938" onclick="return GoToMessage(11938)">this message</a>
+       </div>
+
+       <div class="text">
+Видел на <a href="stackoverflow.com">stackoverflow.com</a> jsr223 post-processor в котором из sample result парсится код ответа и в цикле  отправляются запросы. При такой реализации метрики не логирутся, хотя возможно получится в этот же постпроцесор добавить и отправку метрик тоже <a href="https://stackoverflow.com/questions/47259211/jmeter-groovy-re-execute-a-sampler-x-times-under-condition">https://stackoverflow.com/questions/47259211/jmeter-groovy-re-execute-a-sampler-x-times-under-condition</a>
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message11941">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="27.11.2019 21:14:22 UTC+04:00">
+21:14
+       </div>
+
+       <div class="text">
+По хорошему было бы здорово добавить retry on error в thread group в последующих версиях jmeter
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message11942">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic2" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+Д
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="27.11.2019 21:25:53 UTC+04:00">
+21:25
+       </div>
+
+       <div class="from_name">
+Дмитрий 
+       </div>
+
+       <div class="reply_to details">
+In reply to <a href="#go_to_message11940" onclick="return GoToMessage(11940)">this message</a>
+       </div>
+
+       <div class="text">
+Спасибо, почитаю)<br>Да, было бы хорошо, если б добавили))
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message11943">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic2" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+A
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="27.11.2019 21:28:27 UTC+04:00">
+21:28
+       </div>
+
+       <div class="from_name">
+Alex 
+       </div>
+
+       <div class="reply_to details">
+In reply to <a href="#go_to_message11941" onclick="return GoToMessage(11941)">this message</a>
+       </div>
+
+       <div class="text">
+ну тогда уж  и поле с кол-вом ретраев ☺️
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message11944">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic6" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+СФ
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="27.11.2019 21:28:43 UTC+04:00">
+21:28
+       </div>
+
+       <div class="from_name">
+Сергей (care1e55) Филимонов
+       </div>
+
+       <div class="reply_to details">
+In reply to <a href="#go_to_message11943" onclick="return GoToMessage(11943)">this message</a>
+       </div>
+
+       <div class="text">
+Само собой
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message11945">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="27.11.2019 21:35:28 UTC+04:00">
+21:35
+       </div>
+
+       <div class="text">
+Насколько могу судить, самое кропотливое в разработке плагина для jmeter - это gui часть. Почти уверен, что в негуёвой части thread group реализовать подобный функционал не так сложно - обернуть отправку в цикл с проверкой условия on error. Если кто-то возьмётся, то отпишитесь плз в чатике и делитесь ссылкой на гит :)
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message11946">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic2" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+Д
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="27.11.2019 21:37:38 UTC+04:00">
+21:37
+       </div>
+
+       <div class="from_name">
+Дмитрий 
+       </div>
+
+       <div class="reply_to details">
+In reply to <a href="#go_to_message11943" onclick="return GoToMessage(11943)">this message</a>
+       </div>
+
+       <div class="text">
+Сделай плагин плиз, ты ж сеньор вроде как, будем использовать чаткой
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message11947">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic5" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+VS
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="27.11.2019 21:55:50 UTC+04:00">
+21:55
+       </div>
+
+       <div class="from_name">
+Vyacheslav Smirnov
+       </div>
+
+       <div class="text">
+А зачем переотправлять запросы при 504-й ошибке?<br><br>Я за то, чтобы по умолчанию в Thread Group ставить Next Iteration в настройке On Error, вместо Continue.<br><br>Тогда скрипты становятся стабильнее
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message11948">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="27.11.2019 21:59:06 UTC+04:00">
+21:59
+       </div>
+
+       <div class="text">
+Из минусов, сценарий становится короче. Но ведь это только при ошибках.<br><br>А цель достигнута - найдена интенсивность, при которой закончился пул подключений. И надо или его расширить если система не нагрущилась, или ускорить работу системы.
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message11949">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic2" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+Д
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="27.11.2019 22:07:22 UTC+04:00">
+22:07
+       </div>
+
+       <div class="from_name">
+Дмитрий 
+       </div>
+
+       <div class="text">
+Как сказал заказчик, в nginx стоит 10 секундный тайм-аут и если ядро в течении 10 секунд не отвечает, то появляются 504 ошибки, а тесты проводить надо
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message11951">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic5" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+ВК
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="27.11.2019 22:51:40 UTC+04:00">
+22:51
+       </div>
+
+       <div class="from_name">
+Вячеслав Калёкин
+       </div>
+
+       <div class="reply_to details">
+In reply to <a href="#go_to_message11949" onclick="return GoToMessage(11949)">this message</a>
+       </div>
+
+       <div class="text">
+А какие SLA у сервиса?
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message11952">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="27.11.2019 22:52:25 UTC+04:00">
+22:52
+       </div>
+
+       <div class="text">
+Это считается багом, что там не отвечает 10 секунд
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message11953">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="27.11.2019 22:54:43 UTC+04:00">
+22:54
+       </div>
+
+       <div class="text">
+Тестирование с какой целью проводится, чтобы все респонзы 200 были, или чтобы время ответа померить
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message11954">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic2" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+Д
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="27.11.2019 22:56:46 UTC+04:00">
+22:56
+       </div>
+
+       <div class="from_name">
+Дмитрий 
+       </div>
+
+       <div class="text">
+Не отвечает из за высокой нагрузки во время теста, пока просто нету возможности менять конфиги, очень все серьезно, в итоге костыли создаём)
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message11955">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic8" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+ВС
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="27.11.2019 22:57:02 UTC+04:00">
+22:57
+       </div>
+
+       <div class="from_name">
+Владимир Ситников
+       </div>
+
+       <div class="text">
+Если клиенты будут так же получать 504 и так же ломиться дальше, то нормальная цель — посмотреть «как будет в реальности»
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message11956">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic5" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+ВК
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="27.11.2019 23:00:04 UTC+04:00">
+23:00
+       </div>
+
+       <div class="from_name">
+Вячеслав Калёкин
+       </div>
+
+       <div class="reply_to details">
+In reply to <a href="#go_to_message11954" onclick="return GoToMessage(11954)">this message</a>
+       </div>
+
+       <div class="text">
+Ну значит вы задудосили сервис и хотите узнать что будет если его добивать
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message11957">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="27.11.2019 23:03:03 UTC+04:00">
+23:03
+       </div>
+
+       <div class="text">
+По моему субъективному мнению сложная логика в сценариях, это неправильно. Всякие if, while, for проверяют скорее какие-то функциональные требования
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message11958">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="27.11.2019 23:04:13 UTC+04:00">
+23:04
+       </div>
+
+       <div class="text">
+Всякие ветвления добавляют проблем только, с логгироанием и анализом
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message11959">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="27.11.2019 23:05:29 UTC+04:00">
+23:05
+       </div>
+
+       <div class="text">
+Лучше по моему просто прямые линейные сценарии делать, без опций
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message11960">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="27.11.2019 23:06:47 UTC+04:00">
+23:06
+       </div>
+
+       <div class="text">
+Если опции нужны, то это другой уж кейз и нужно ещё один линейный сценарий сделать, который начинается как предыдущий
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message11961">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="27.11.2019 23:07:40 UTC+04:00">
+23:07
+       </div>
+
+       <div class="text">
+Циклы вообще бы не использовал
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message11962">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="27.11.2019 23:08:16 UTC+04:00">
+23:08
+       </div>
+
+       <div class="text">
+Для повторяющихся действий есть катушки
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message service" id="message-29">
+
+      <div class="body details">
+28 November 2019
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message11966">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic5" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+VS
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="28.11.2019 11:55:45 UTC+04:00">
+11:55
+       </div>
+
+       <div class="from_name">
+Vyacheslav Smirnov
+       </div>
+
+       <div class="text">
+Есть такая группа инструментов &quot;бешеный пользователь&quot;. Цель таких инструментов -- нагрузить систему, без определенного профиля нагрузки по интенсивности. Но с профилем по количеству. Например, это утилита или скрипт, которая получает на вход число 1000, и должна создать 1000 документов.<br><br>Метрика в таком инструменте -- длительность от момента старта, до момента завершения всего теста, среднее время одной операции, если оно фиксируется.<br><br>Тут да, стоит добиваться успешной работы.<br><br>Кажется, что если сделать препроцессор, который будет запоминать параметры запроса до отправки. И поспроцессор, который будет программно досоздавать дерево элементов, то будет работать.
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message11967">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="28.11.2019 11:56:44 UTC+04:00">
+11:56
+       </div>
+
+       <div class="text">
+Был пример на stackoverflow от специалиста с индийским именем, он программно дерево элементов создавал на Groovy.<br><br><a href="https://t.me/aklexel">@aklexel</a> помнишь такой код смотрели. Сохранилась ссылка?
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message11968">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="28.11.2019 12:02:12 UTC+04:00">
+12:02
+       </div>
+
+       <div class="text">
+Если начальный сценарий короткий. То рекомендую перезапускать весь сценарий, а не запросы
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message11969">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic6" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+АК
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="28.11.2019 12:05:27 UTC+04:00">
+12:05
+       </div>
+
+       <div class="from_name">
+Алексей Колтаков
+       </div>
+
+       <div class="text">
+Вроде, на Хабре была статья про JMeter от ребят из Qiwi, где они приводили пример теста написанного на Java
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message11970">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="28.11.2019 12:05:46 UTC+04:00">
+12:05
+       </div>
+
+       <div class="text">
+Нагрузочное тестирование «не-HTTP». Ч.1 JMeter / Хабр<br><a href="https://habr.com/ru/company/qiwi/blog/345556/">https://habr.com/ru/company/qiwi/blog/345556/</a>
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message11971">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic5" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+ВК
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="28.11.2019 12:06:34 UTC+04:00">
+12:06
+       </div>
+
+       <div class="from_name">
+Вячеслав Калёкин
+       </div>
+
+       <div class="reply_to details">
+In reply to <a href="#go_to_message11965" onclick="return GoToMessage(11965)">this message</a>
+       </div>
+
+       <div class="text">
+Зачастую народ добавляет ветвления из любви к боли, наверно. Чтобы побольше профильтровать результаты, проанализировать глазами результаты
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message11972">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic6" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+АК
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="28.11.2019 12:08:46 UTC+04:00">
+12:08
+       </div>
+
+       <div class="from_name">
+Алексей Колтаков
+       </div>
+
+       <div class="text">
+У меня была идея добавить в JMeter новый элемент, в котором на Groovy описывался бы код создания теста и даже какие-то наработки были... но сейчас я просто перешёл на Gatling)
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message11973">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic6" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+М
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="28.11.2019 12:15:40 UTC+04:00">
+12:15
+       </div>
+
+       <div class="from_name">
+Максим 
+       </div>
+
+       <div class="reply_to details">
+In reply to <a href="#go_to_message11972" onclick="return GoToMessage(11972)">this message</a>
+       </div>
+
+       <div class="text">
+но зачем, когда есть вот такое вот:<br><a href="https://bitbucket.org/blazemeter/jmeter-from-code/src/master/">https://bitbucket.org/blazemeter/jmeter-from-code/src/master/</a>
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message11974">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic6" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+АК
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="28.11.2019 12:21:44 UTC+04:00">
+12:21
+       </div>
+
+       <div class="from_name">
+Алексей Колтаков
+       </div>
+
+       <div class="text">
+Идея была в том, чтобы прямо в Jmetr писать код построения дерева элементов и по кнопке видеть результат
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message11975">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic5" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+ВК
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="28.11.2019 12:23:13 UTC+04:00">
+12:23
+       </div>
+
+       <div class="from_name">
+Вячеслав Калёкин
+       </div>
+
+       <div class="text">
+Мне не нравится писать код в Jmeter. Лучше в какой-нибудь ide
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message11976">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic4" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+AL
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="28.11.2019 12:25:03 UTC+04:00">
+12:25
+       </div>
+
+       <div class="from_name">
+Alexandr Lipatov
+       </div>
+
+       <div class="reply_to details">
+In reply to <a href="#go_to_message11973" onclick="return GoToMessage(11973)">this message</a>
+       </div>
+
+       <div class="text">
+Крутая штука. Надо будет взять на заметку
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message service" id="message11977">
+
+      <div class="body details">
+Максим invited Максим
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message11978">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic5" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+ИА
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="28.11.2019 12:52:20 UTC+04:00">
+12:52
+       </div>
+
+       <div class="from_name">
+Иоанн Ахальцев
+       </div>
+
+       <div class="reply_to details">
+In reply to <a href="#go_to_message11972" onclick="return GoToMessage(11972)">this message</a>
+       </div>
+
+       <div class="media_wrap clearfix">
+
+        <a class="sticker_wrap clearfix pull_left" href="stickers/sticker (10).webp">
+
+         <img class="sticker" src="stickers/sticker (10)_thumb.webp" style="width: 192px; height: 81px"/>
+
+        </a>
+
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message11979">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic7" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+М
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="28.11.2019 12:54:31 UTC+04:00">
+12:54
+       </div>
+
+       <div class="from_name">
+Максим 
+       </div>
+
+       <div class="text">
+Всем привет. Подскажите, есть ли отдельный чатик по локусту или здесь тоже обсуждают?
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message11980">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic5" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+ИА
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="28.11.2019 12:55:52 UTC+04:00">
+12:55
+       </div>
+
+       <div class="from_name">
+Иоанн Ахальцев
+       </div>
+
+       <div class="reply_to details">
+In reply to <a href="#go_to_message11979" onclick="return GoToMessage(11979)">this message</a>
+       </div>
+
+       <div class="text">
+просто не используй локуст
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message11981">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic7" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+М
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="28.11.2019 12:56:00 UTC+04:00">
+12:56
+       </div>
+
+       <div class="from_name">
+Максим 
+       </div>
+
+       <div class="text">
+а че с ним
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message11982">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic5" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+ИА
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="28.11.2019 12:56:15 UTC+04:00">
+12:56
+       </div>
+
+       <div class="from_name">
+Иоанн Ахальцев
+       </div>
+
+       <div class="reply_to details">
+In reply to <a href="#go_to_message11981" onclick="return GoToMessage(11981)">this message</a>
+       </div>
+
+       <div class="text">
+низкопроизводительный
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message11983">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic7" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+М
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="28.11.2019 12:56:28 UTC+04:00">
+12:56
+       </div>
+
+       <div class="from_name">
+Максим 
+       </div>
+
+       <div class="text">
+даже в режиме мастер-слейв?
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message11984">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic5" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+ИА
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="28.11.2019 12:56:54 UTC+04:00">
+12:56
+       </div>
+
+       <div class="from_name">
+Иоанн Ахальцев
+       </div>
+
+       <div class="reply_to details">
+In reply to <a href="#go_to_message11983" onclick="return GoToMessage(11983)">this message</a>
+       </div>
+
+       <div class="text">
+ну там чтобы выдать какой то божеский рпс, надо 100 машин
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message11985">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic7" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+М
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="28.11.2019 12:57:32 UTC+04:00">
+12:57
+       </div>
+
+       <div class="from_name">
+Максим 
+       </div>
+
+       <div class="text">
+там 300рпс на инстанс насколько я понимаю, если хотябы 4 слейва уже прилично
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message11986">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic5" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+ИА
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="28.11.2019 12:58:10 UTC+04:00">
+12:58
+       </div>
+
+       <div class="from_name">
+Иоанн Ахальцев
+       </div>
+
+       <div class="text">
+300 рпс можно выдать и с одной ноды
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message11987">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="28.11.2019 12:58:14 UTC+04:00">
+12:58
+       </div>
+
+       <div class="text">
+но это так, совет
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message11988">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic7" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+М
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="28.11.2019 12:58:36 UTC+04:00">
+12:58
+       </div>
+
+       <div class="from_name">
+Максим 
+       </div>
+
+       <div class="text">
+а божеский это сколько?
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message11989">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="28.11.2019 12:58:55 UTC+04:00">
+12:58
+       </div>
+
+       <div class="text">
+я просто не знаю как люди нагружают
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message11990">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic5" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+ИА
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="28.11.2019 12:58:59 UTC+04:00">
+12:58
+       </div>
+
+       <div class="from_name">
+Иоанн Ахальцев
+       </div>
+
+       <div class="reply_to details">
+In reply to <a href="#go_to_message11988" onclick="return GoToMessage(11988)">this message</a>
+       </div>
+
+       <div class="text">
+ну хотя бы тыщу
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message11991">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic7" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+М
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="28.11.2019 12:59:13 UTC+04:00">
+12:59
+       </div>
+
+       <div class="from_name">
+Максим 
+       </div>
+
+       <div class="text">
+1200 вчера на локусте было с 8 инстансов
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message11992">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic5" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+ИА
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="28.11.2019 12:59:22 UTC+04:00">
+12:59
+       </div>
+
+       <div class="from_name">
+Иоанн Ахальцев
+       </div>
+
+       <div class="media_wrap clearfix">
+
+        <a class="sticker_wrap clearfix pull_left" href="stickers/sticker (11).webp">
+
+         <img class="sticker" src="stickers/sticker (11)_thumb.webp" style="width: 192px; height: 192px"/>
+
+        </a>
+
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message11993">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="28.11.2019 12:59:34 UTC+04:00">
+12:59
+       </div>
+
+       <div class="reply_to details">
+In reply to <a href="#go_to_message11991" onclick="return GoToMessage(11991)">this message</a>
+       </div>
+
+       <div class="text">
+а ресурсы какие?
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message11994">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic7" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+М
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="28.11.2019 12:59:43 UTC+04:00">
+12:59
+       </div>
+
+       <div class="from_name">
+Максим 
+       </div>
+
+       <div class="text">
+а какой инструмент умеет в сценарии и хорошо может нагрузить?
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message11995">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic5" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+ИА
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="28.11.2019 13:00:00 UTC+04:00">
+13:00
+       </div>
+
+       <div class="from_name">
+Иоанн Ахальцев
+       </div>
+
+       <div class="reply_to details">
+In reply to <a href="#go_to_message11994" onclick="return GoToMessage(11994)">this message</a>
+       </div>
+
+       <div class="text">
+jmeter, gatling, yandex.tank, loadrunner
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message11996">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic7" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+М
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="28.11.2019 13:00:33 UTC+04:00">
+13:00
+       </div>
+
+       <div class="from_name">
+Максим 
+       </div>
+
+       <div class="text">
+танк) отказались от него недавно, бфг тот еще п***абол
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message11997">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic5" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+ИА
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="28.11.2019 13:00:54 UTC+04:00">
+13:00
+       </div>
+
+       <div class="from_name">
+Иоанн Ахальцев
+       </div>
+
+       <div class="text">
+пандору можно попробовать вместо бфг
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message11998">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic7" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+М
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="28.11.2019 13:02:37 UTC+04:00">
+13:02
+       </div>
+
+       <div class="from_name">
+Максим 
+       </div>
+
+       <div class="text">
+jmeter умеет в сценарии? логин, запрос1, запрос2(данные из запроса1)
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message11999">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic4" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+M
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="28.11.2019 13:02:59 UTC+04:00">
+13:02
+       </div>
+
+       <div class="from_name">
+Max 
+       </div>
+
+       <div class="reply_to details">
+In reply to <a href="#go_to_message11998" onclick="return GoToMessage(11998)">this message</a>
+       </div>
+
+       <div class="text">
+конечно
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message12000">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic8" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+KG
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="28.11.2019 13:03:11 UTC+04:00">
+13:03
+       </div>
+
+       <div class="from_name">
+Kseniia Golovaneva
+       </div>
+
+       <div class="text">
+da
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message12001">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic7" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+М
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="28.11.2019 13:04:24 UTC+04:00">
+13:04
+       </div>
+
+       <div class="from_name">
+Максим 
+       </div>
+
+       <div class="text">
+в ci его тоже где то раскатать можно?
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message12002">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic5" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+ИА
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="28.11.2019 13:04:47 UTC+04:00">
+13:04
+       </div>
+
+       <div class="from_name">
+Иоанн Ахальцев
+       </div>
+
+       <div class="reply_to details">
+In reply to <a href="#go_to_message12001" onclick="return GoToMessage(12001)">this message</a>
+       </div>
+
+       <div class="text">
+да
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message12003">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic6" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+DS
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="28.11.2019 13:04:55 UTC+04:00">
+13:04
+       </div>
+
+       <div class="from_name">
+D S
+       </div>
+
+       <div class="reply_to details">
+In reply to <a href="#go_to_message12001" onclick="return GoToMessage(12001)">this message</a>
+       </div>
+
+       <div class="text">
+относительно просто в дженкинсе поднять
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message12004">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic7" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+М
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="28.11.2019 13:05:11 UTC+04:00">
+13:05
+       </div>
+
+       <div class="from_name">
+Максим 
+       </div>
+
+       <div class="text">
+спасибо, посмотрю
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message12005">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic5" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+ИА
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="28.11.2019 13:05:13 UTC+04:00">
+13:05
+       </div>
+
+       <div class="from_name">
+Иоанн Ахальцев
+       </div>
+
+       <div class="reply_to details">
+In reply to <a href="#go_to_message12001" onclick="return GoToMessage(12001)">this message</a>
+       </div>
+
+       <div class="text">
+в ci хорошо встраивается  gatling
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message12006">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic6" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+М
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="28.11.2019 13:07:09 UTC+04:00">
+13:07
+       </div>
+
+       <div class="from_name">
+Максим 
+       </div>
+
+       <div class="text">
+да в ci что угодно встроить можно
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message12007">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic5" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+ИА
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="28.11.2019 13:07:24 UTC+04:00">
+13:07
+       </div>
+
+       <div class="from_name">
+Иоанн Ахальцев
+       </div>
+
+       <div class="text">
+я бы тут оставил 3 слова
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message12008">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="28.11.2019 13:07:29 UTC+04:00">
+13:07
+       </div>
+
+       <div class="text">
+что угодно можно)
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message12009">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic7" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+М
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="28.11.2019 13:09:03 UTC+04:00">
+13:09
+       </div>
+
+       <div class="from_name">
+Максим 
+       </div>
+
+       <div class="reply_to details">
+In reply to <a href="#go_to_message12005" onclick="return GoToMessage(12005)">this message</a>
+       </div>
+
+       <div class="text">
+фри версии хватает?
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message12010">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic5" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+ИА
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="28.11.2019 13:09:41 UTC+04:00">
+13:09
+       </div>
+
+       <div class="from_name">
+Иоанн Ахальцев
+       </div>
+
+       <div class="reply_to details">
+In reply to <a href="#go_to_message12009" onclick="return GoToMessage(12009)">this message</a>
+       </div>
+
+       <div class="text">
+вполне
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message service" id="message12011">
+
+      <div class="body details">
+Aleksandr S invited Aleksandr S
+      </div>
+
+     </div>
+
+     <div class="message service" id="message12012">
+
+      <div class="body details">
+Nikita ヽ༼ ಠل͟ಠ༽ﾉ invited Nikita ヽ༼ ಠل͟ಠ༽ﾉ
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message12013">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic2" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+A
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="28.11.2019 13:57:06 UTC+04:00">
+13:57
+       </div>
+
+       <div class="from_name">
+Alex 
+       </div>
+
+       <div class="reply_to details">
+In reply to <a href="#go_to_message12001" onclick="return GoToMessage(12001)">this message</a>
+       </div>
+
+       <div class="text">
+в circle ci то же оч хорошо раскатывается
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message12014">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic7" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+М
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="28.11.2019 13:59:06 UTC+04:00">
+13:59
+       </div>
+
+       <div class="from_name">
+Максим 
+       </div>
+
+       <div class="reply_to details">
+In reply to <a href="#go_to_message12013" onclick="return GoToMessage(12013)">this message</a>
+       </div>
+
+       <div class="text">
+да я так понял что раскатка любого проекта не проблема
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message12015">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic8" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+ВС
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="28.11.2019 14:00:22 UTC+04:00">
+14:00
+       </div>
+
+       <div class="from_name">
+Владимир Ситников
+       </div>
+
+       <div class="reply_to details">
+In reply to <a href="#go_to_message11978" onclick="return GoToMessage(11978)">this message</a>
+       </div>
+
+       <div class="text">
+А как вы Gatling’ом передаёте «перечень http params’ов»?<br>Табличкой же их удобнее, а как это в коде?
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message12016">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic5" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+ИА
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="28.11.2019 14:00:45 UTC+04:00">
+14:00
+       </div>
+
+       <div class="from_name">
+Иоанн Ахальцев
+       </div>
+
+       <div class="reply_to details">
+In reply to <a href="#go_to_message12015" onclick="return GoToMessage(12015)">this message</a>
+       </div>
+
+       <div class="text">
+что за парамсы
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message12017">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic2" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+A
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="28.11.2019 14:00:57 UTC+04:00">
+14:00
+       </div>
+
+       <div class="from_name">
+Alex 
+       </div>
+
+       <div class="text">
+Есть свои ограничения в плане анализов результатов в CI...<br>В циркле, например, есть плагин удобный, в котором просто выставляются параметры для прошел/упал... Для дженкинса я такого вроде не смог найти
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message12018">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic7" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+М
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="28.11.2019 14:01:10 UTC+04:00">
+14:01
+       </div>
+
+       <div class="from_name">
+Максим 
+       </div>
+
+       <div class="text">
+я вот просто думаю, почему локуст умеет в слейвы, в докер композ, в кубер и он плох по нагрузке, дайте пруфы если они есть
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message12019">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic8" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+ВС
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="28.11.2019 14:01:12 UTC+04:00">
+14:01
+       </div>
+
+       <div class="from_name">
+Владимир Ситников
+       </div>
+
+       <div class="reply_to details">
+In reply to <a href="#go_to_message12016" onclick="return GoToMessage(12016)">this message</a>
+       </div>
+
+       <div class="text">
+?p1=v1&amp;p2=v2&amp;p3=v3&amp;...
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message12020">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic5" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+ИА
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="28.11.2019 14:01:36 UTC+04:00">
+14:01
+       </div>
+
+       <div class="from_name">
+Иоанн Ахальцев
+       </div>
+
+       <div class="reply_to details">
+In reply to <a href="#go_to_message12019" onclick="return GoToMessage(12019)">this message</a>
+       </div>
+
+       <div class="text">
+ну так там есть же formParam
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message12021">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="28.11.2019 14:10:51 UTC+04:00">
+14:10
+       </div>
+
+       <div class="text">
+<a href="https://github.com/gatling/gatling/issues/3820">https://github.com/gatling/gatling/issues/3820</a>
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message12022">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="28.11.2019 14:11:18 UTC+04:00">
+14:11
+       </div>
+
+       <div class="text">
+<a href="https://t.me/smirnovqa">@smirnovqa</a> сделали твой фичереквест
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message12023">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic2" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+С
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="28.11.2019 14:13:41 UTC+04:00">
+14:13
+       </div>
+
+       <div class="from_name">
+Сергей 
+       </div>
+
+       <div class="reply_to details">
+In reply to <a href="#go_to_message12015" onclick="return GoToMessage(12015)">this message</a>
+       </div>
+
+       <div class="text">
+http(&quot;request&quot;)<br>          .post(—url—)<br>          .header(&quot;Content-Type&quot;, &quot;application/json;charset=UTF-8&quot;)<br>          .formParam(&quot;p1&quot;, &quot;p1&quot;)<br>          .formParam(&quot;p2&quot; , &quot;p2&quot;)
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message12024">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="28.11.2019 14:21:19 UTC+04:00">
+14:21
+       </div>
+
+       <div class="reply_to details">
+In reply to <a href="#go_to_message12015" onclick="return GoToMessage(12015)">this message</a>
+       </div>
+
+       <div class="text">
+http(&quot;Getting issues&quot;)<br>  .get(&quot;url&quot;)<br>  .queryParam(&quot;milestone&quot;, &quot;1&quot;)<br>  .queryParam(&quot;state&quot;, &quot;open&quot;)
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message12025">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic5" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+VS
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="28.11.2019 14:28:30 UTC+04:00">
+14:28
+       </div>
+
+       <div class="from_name">
+Vyacheslav Smirnov
+       </div>
+
+       <div class="reply_to details">
+In reply to <a href="#go_to_message12022" onclick="return GoToMessage(12022)">this message</a>
+       </div>
+
+       <div class="text">
+Да. Так быстро сделали правку, что не успел свой вариант отправить. Только форкнул Gatling
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message12026">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic8" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+AK
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="28.11.2019 14:44:47 UTC+04:00">
+14:44
+       </div>
+
+       <div class="from_name">
+Anton Kramarev
+       </div>
+
+       <div class="text">
+А насколько хреновая идея использовать serverless решения для генерации нагрузки?
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message12027">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic2" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+A
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="28.11.2019 14:56:22 UTC+04:00">
+14:56
+       </div>
+
+       <div class="from_name">
+Alex 
+       </div>
+
+       <div class="text">
+дорага
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message12028">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="28.11.2019 14:56:25 UTC+04:00">
+14:56
+       </div>
+
+       <div class="text">
+на самом то деле
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message12029">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="28.11.2019 14:56:34 UTC+04:00">
+14:56
+       </div>
+
+       <div class="text">
+если брать авс лябды
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message12030">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="28.11.2019 14:57:12 UTC+04:00">
+14:57
+       </div>
+
+       <div class="text">
+Ну и контролить, насколько я понял, достаточно проблематично
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message service" id="message12031">
+
+      <div class="body details">
+Raisa Spiridonova invited Raisa Spiridonova
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message12032">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic8" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+AK
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="28.11.2019 15:27:45 UTC+04:00">
+15:27
+       </div>
+
+       <div class="from_name">
+Anton Kramarev
+       </div>
+
+       <div class="text">
+Вот у меня схожие консерны
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message12033">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic8" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+ОЄ
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="28.11.2019 15:32:21 UTC+04:00">
+15:32
+       </div>
+
+       <div class="from_name">
+Олександр Ємел‘янов 🇺🇦
+       </div>
+
+       <div class="text">
+Привет, а какой генератор нагрузки поддерживает вэбсокеты? Кроме jmetr на чем удобно будет ?
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message12034">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic5" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+ИА
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="28.11.2019 15:38:06 UTC+04:00">
+15:38
+       </div>
+
+       <div class="from_name">
+Иоанн Ахальцев
+       </div>
+
+       <div class="reply_to details">
+In reply to <a href="#go_to_message12033" onclick="return GoToMessage(12033)">this message</a>
+       </div>
+
+       <div class="text">
+гатлинг, танк + пандора
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message12035">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic8" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+ОЄ
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="28.11.2019 15:40:30 UTC+04:00">
+15:40
+       </div>
+
+       <div class="from_name">
+Олександр Ємел‘янов 🇺🇦
+       </div>
+
+       <div class="text">
+я на пандору смотрел но в документации написано что в разработке ws.<br>Plugins for other protocols (HTTP/2, Websocket, XMPP) are on the way.
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message12036">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic4" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+AF
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="28.11.2019 15:41:20 UTC+04:00">
+15:41
+       </div>
+
+       <div class="from_name">
+Andrey Filatov
+       </div>
+
+       <div class="reply_to details">
+In reply to <a href="#go_to_message12033" onclick="return GoToMessage(12033)">this message</a>
+       </div>
+
+       <div class="text">
+еще k6 вроде умеет <a href="https://docs.k6.io/docs/k6-websocket-api">https://docs.k6.io/docs/k6-websocket-api</a>
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message12037">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic8" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+ОЄ
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="28.11.2019 15:42:57 UTC+04:00">
+15:42
+       </div>
+
+       <div class="from_name">
+Олександр Ємел‘янов 🇺🇦
+       </div>
+
+       <div class="text">
+спасибо
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message12038">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic2" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+A
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="28.11.2019 15:50:11 UTC+04:00">
+15:50
+       </div>
+
+       <div class="from_name">
+Alex 
+       </div>
+
+       <div class="reply_to details">
+In reply to <a href="#go_to_message12033" onclick="return GoToMessage(12033)">this message</a>
+       </div>
+
+       <div class="text">
+tsung как вариант
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message12039">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="28.11.2019 15:50:43 UTC+04:00">
+15:50
+       </div>
+
+       <div class="text">
+если тесты не очень сложные, то в него влиться очень легко + документация годная
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message12040">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic8" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+ОЄ
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="28.11.2019 15:51:20 UTC+04:00">
+15:51
+       </div>
+
+       <div class="from_name">
+Олександр Ємел‘янов 🇺🇦
+       </div>
+
+       <div class="text">
+спасибо
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message service" id="message12041">
+
+      <div class="body details">
+Pavel invited Pavel
+      </div>
+
+     </div>
+
+     <div class="message service" id="message-30">
+
+      <div class="body details">
+29 November 2019
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message12044">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic2" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+A
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="29.11.2019 13:33:00 UTC+04:00">
+13:33
+       </div>
+
+       <div class="from_name">
+Alex 
+       </div>
+
+       <div class="text">
+Привет, <br>Возник такой вопрос, есть ли тулы для перфа, позволяющие динамически (по условию) добавлять генераторы нагрузки? Можно ли это как то сделать в jmeter? может кто то пилил костыли какие?
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message12045">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic5" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+ИА
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="29.11.2019 13:40:39 UTC+04:00">
+13:40
+       </div>
+
+       <div class="from_name">
+Иоанн Ахальцев
+       </div>
+
+       <div class="reply_to details">
+In reply to <a href="#go_to_message12044" onclick="return GoToMessage(12044)">this message</a>
+       </div>
+
+       <div class="text">
+можно на хост слать команду для подъёма жметра
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message12046">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="29.11.2019 13:40:44 UTC+04:00">
+13:40
+       </div>
+
+       <div class="text">
+по ссш например
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message12047">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic2" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+A
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="29.11.2019 13:44:46 UTC+04:00">
+13:44
+       </div>
+
+       <div class="from_name">
+Alex 
+       </div>
+
+       <div class="text">
+так подъем не вопрос, вопрос  в том, во время теста подрубалась еще 1 нода
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message12048">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="29.11.2019 13:45:03 UTC+04:00">
+13:45
+       </div>
+
+       <div class="text">
+и слала данные на мастер
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message12049">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="29.11.2019 13:46:58 UTC+04:00">
+13:46
+       </div>
+
+       <div class="text">
+Условно, если есть уже тест, но ноды начали загибаться по ресурсам или по другим условиям  - добавить ноды...
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message12050">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic1" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+UN
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="29.11.2019 13:48:26 UTC+04:00">
+13:48
+       </div>
+
+       <div class="from_name">
+User Name
+       </div>
+
+       <div class="text">
+Эмм.... а как же дебаг теста и предварительные расчеты, которые должны закрыть этот вопрос? И не надо будет велосипед изобретать.
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message12051">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic2" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+O
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="29.11.2019 13:52:48 UTC+04:00">
+13:52
+       </div>
+
+       <div class="from_name">
+Oleg 
+       </div>
+
+       <div class="reply_to details">
+In reply to <a href="#go_to_message12049" onclick="return GoToMessage(12049)">this message</a>
+       </div>
+
+       <div class="text">
+звучит так, что это ненужный воркэраунд какой-то другой проблемы. Если ноды загибаются надо энв чинить, а не новые докидывать
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message12052">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic2" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+A
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="29.11.2019 13:52:59 UTC+04:00">
+13:52
+       </div>
+
+       <div class="from_name">
+Alex 
+       </div>
+
+       <div class="text">
+да вот в том и проблема, что случай такой, что во время теста может произойти ситуевина, когда это потребуется. Как бы можно обойтись просто отдельной нодой если постить все результаты в ту же графану, но хотелось бы както красивее сделать)
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message12053">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic5" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+VS
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="29.11.2019 14:03:40 UTC+04:00">
+14:03
+       </div>
+
+       <div class="from_name">
+Vyacheslav Smirnov
+       </div>
+
+       <div class="reply_to details">
+In reply to <a href="#go_to_message12044" onclick="return GoToMessage(12044)">this message</a>
+       </div>
+
+       <div class="text">
+Тест должен быть особенный. Чтобы он он понимал динамически какой профиль с новой ноды надо выдавать.
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message12054">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="29.11.2019 14:04:29 UTC+04:00">
+14:04
+       </div>
+
+       <div class="text">
+Говорят в Microfocus HP Performance Center сделали пока бесплатную обёртку над JMeter
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message12055">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic1" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+СЧ
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="29.11.2019 14:06:03 UTC+04:00">
+14:06
+       </div>
+
+       <div class="from_name">
+Сергей Чепкасов
+       </div>
+
+       <div class="reply_to details">
+In reply to <a href="#go_to_message12049" onclick="return GoToMessage(12049)">this message</a>
+       </div>
+
+       <div class="text">
+Первое что приходит в голову:<br>Мониторинг генератора нагрузки, алерт в графане на высокую утилизацию, нотификация в виде пост запроса, которая стартует билд в дженкинс.<br>Если я правильно понял проблему
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message12056">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="29.11.2019 14:09:37 UTC+04:00">
+14:09
+       </div>
+
+       <div class="text">
+Только лучше заранее определять потребление ресурсов генератором
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message12057">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic5" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+VS
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="29.11.2019 14:09:57 UTC+04:00">
+14:09
+       </div>
+
+       <div class="from_name">
+Vyacheslav Smirnov
+       </div>
+
+       <div class="text">
+Володя Ситников начал делать правки по оптимизации работы JMeter во время ожидания. При их реализации потребности в ресурсах упадут
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message12058">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="29.11.2019 14:11:40 UTC+04:00">
+14:11
+       </div>
+
+       <div class="text">
+Ещё в Gatling есть асинхронный http клиент, который тратит немного ресурсов, когда система зависла, и не отвечает. Но это только для HTTP. Его можно использовать. При зависании системы он будет продолжать работать
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message12059">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic4" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+АВ
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="29.11.2019 14:12:30 UTC+04:00">
+14:12
+       </div>
+
+       <div class="from_name">
+Андрей Васильев
+       </div>
+
+       <div class="reply_to details">
+In reply to <a href="#go_to_message12058" onclick="return GoToMessage(12058)">this message</a>
+       </div>
+
+       <div class="text">
+это акашный который?
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message12060">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="29.11.2019 14:14:20 UTC+04:00">
+14:14
+       </div>
+
+       <div class="text">
+или о родном речь? (gatling-http-client)
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message12061">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic5" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+ИА
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="29.11.2019 14:17:10 UTC+04:00">
+14:17
+       </div>
+
+       <div class="from_name">
+Иоанн Ахальцев
+       </div>
+
+       <div class="reply_to details">
+In reply to <a href="#go_to_message12059" onclick="return GoToMessage(12059)">this message</a>
+       </div>
+
+       <div class="text">
+Они переписали его
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message12062">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic4" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+АВ
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="29.11.2019 14:17:32 UTC+04:00">
+14:17
+       </div>
+
+       <div class="from_name">
+Андрей Васильев
+       </div>
+
+       <div class="text">
+дайте сыль почитать, плз
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message12063">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic5" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+ИА
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="29.11.2019 14:18:24 UTC+04:00">
+14:18
+       </div>
+
+       <div class="from_name">
+Иоанн Ахальцев
+       </div>
+
+       <div class="text">
+Смотри майлстоуны на уровне 3.0.0
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message12064">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic2" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+A
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="29.11.2019 14:38:07 UTC+04:00">
+14:38
+       </div>
+
+       <div class="from_name">
+Alex 
+       </div>
+
+       <div class="reply_to details">
+In reply to <a href="#go_to_message12057" onclick="return GoToMessage(12057)">this message</a>
+       </div>
+
+       <div class="text">
+Читал и очень жду релиза)
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message12065">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic5" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+VS
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="29.11.2019 14:46:27 UTC+04:00">
+14:46
+       </div>
+
+       <div class="from_name">
+Vyacheslav Smirnov
+       </div>
+
+       <div class="reply_to details">
+In reply to <a href="#go_to_message12060" onclick="return GoToMessage(12060)">this message</a>
+       </div>
+
+       <div class="text">
+Думал про родной. Что netty экономит ресурсы:<br><a href="https://netty.io/">https://netty.io/</a><br>Но прочитал:<br><a href="https://dou.ua/lenta/columns/netty-optimization/">https://dou.ua/lenta/columns/netty-optimization/</a><br><br>epool сработает, только если явно это указать. А по умолчанию Java-реализация
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message12066">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic4" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+АВ
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="29.11.2019 14:47:10 UTC+04:00">
+14:47
+       </div>
+
+       <div class="from_name">
+Андрей Васильев
+       </div>
+
+       <div class="reply_to details">
+In reply to <a href="#go_to_message12065" onclick="return GoToMessage(12065)">this message</a>
+       </div>
+
+       <div class="media_wrap clearfix">
+
+        <a class="media clearfix pull_left block_link media_photo" href="stickers/AnimatedSticker.tgs">
+
+         <div class="fill pull_left">
+
+         </div>
+
+         <div class="body">
+
+          <div class="title bold">
+Sticker
+          </div>
+
+          <div class="status details">
+👍
+          </div>
+
+         </div>
+
+        </a>
+
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message12067">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic5" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+VS
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="29.11.2019 14:47:12 UTC+04:00">
+14:47
+       </div>
+
+       <div class="from_name">
+Vyacheslav Smirnov
+       </div>
+
+       <div class="text">
+Получается, не очень глубоко копнул. Вопрос требует исследования
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message12074">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic2" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+A
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="29.11.2019 17:38:47 UTC+04:00">
+17:38
+       </div>
+
+       <div class="from_name">
+Alex 
+       </div>
+
+       <div class="text">
+благодарствую
+       </div>
+
+      </div>
+
+     </div>
+     <a class="pagination block_link" href="../2019-12/messages.html">
+       Next messages
+     </a>
+
+    </div>
+
+   </div>
+
+  </div>
+
+ </body>
+
+</html>

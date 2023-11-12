@@ -1,0 +1,103 @@
+{
+    "error": null,
+    "data": [
+        {
+            "id": "d8af6a50-1bf4-4792-97ea-f9c819c60f8e",
+            "productId": "1a29f0c3-9180-4cd7-a5c7-282f6689c31a",
+            "productName": "Acme One Hundred Percent",
+            "pools": [
+                {
+                    "id": "cb720883-04f1-4be4-a416-2f0c75230768",
+                    "options": [
+                        {
+                            "id": "355548b5-b032-44f5-bf91-acfe987be3aa",
+                            "optionAmount": 1.0,
+                            "optionIndex": 0,
+                            "optionName": "$1",
+                            "audio": null,
+                            "image": "123/1-dollar-ball.png"
+                        },
+                        {
+                            "id": "178709f3-f47d-4a6f-9aa1-f27958c628ea",
+                            "optionAmount": 5.0,
+                            "optionIndex": 1,
+                            "optionName": "$5",
+                            "audio": null,
+                            "image": "123/5-dollar-ball.png"
+                        },
+                        {
+                            "id": "b0a227b0-2bf8-47cc-8422-5114edfb5c41",
+                            "optionAmount": 10.0,
+                            "optionIndex": 2,
+                            "optionName": "$10",
+                            "audio": null,
+                            "image": "123/10-dollar-ball.png"
+                        },
+                        {
+                            "id": "ee8e2b49-7539-4ddd-90a4-6745b1385733",
+                            "optionAmount": 20.0,
+                            "optionIndex": 3,
+                            "optionName": "$20",
+                            "audio": null,
+                            "image": "123/20-dollar-ball.png"
+                        }
+                    ],
+                    "poolName": "Panel Amounts",
+                    "audio": null,
+                    "image": null
+                },
+                {
+                    "id": "2f1403cb-df3e-4fbf-b594-352f76943895",
+                    "options": [
+                        {
+                            "id": "a5dc21e7-cc4e-4e93-b74f-1f4b19f322ef",
+                            "optionAmount": 0.0,
+                            "optionIndex": 0,
+                            "optionName": "Heads",
+                            "audio": null,
+                            "image": "123/OneHundredPercent/LibertyBellCoin.png"
+                        }
+                    ],
+                    "poolName": "Heads",
+                    "audio": null,
+                    "image": null
+                }
+            ],
+            "componentGroups": [
+                {
+                    "id": "126140ac-1cfa-40a3-9ab7-1a84469ab0db",
+                    "poolId": "cb720883-04f1-4be4-a416-2f0c75230768",
+                    "components": [
+                        {
+                            "id": "8291365c-df9f-4d7b-8f34-be0b500065ee",
+                            "componentConsumerSelectionType": 2,
+                            "componentName": "Panel Amount",
+                            "audio": null,
+                            "image": null
+                        }
+                    ],
+                    "componentGroupName": "Panel Amount Components",
+                    "audio": null,
+                    "image": null
+                },
+                {
+                    "id": "03ed0e60-8fba-4e01-83c2-ce960bf5e889",
+                    "poolId": "2f1403cb-df3e-4fbf-b594-352f76943895",
+                    "components": [
+                        {
+                            "id": "3f4b1a61-5d80-4b78-8c20-9f2b92022cf4",
+                            "componentConsumerSelectionType": 1,
+                            "componentName": "Heads",
+                            "audio": null,
+                            "image": null
+                        }
+                    ],
+                    "componentGroupName": "Heads Components",
+                    "audio": null,
+                    "image": null
+                }
+            ]
+        },
+        
+    ]
+}

@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jmeterTestPlan version="1.2" properties="5.0" jmeter="5.2.1">
+  <hashTree>
+    <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="Test Plan" enabled="true">
+      <stringProp name="TestPlan.comments"></stringProp>
+      <boolProp name="TestPlan.functional_mode">false</boolProp>
+      <boolProp name="TestPlan.tearDown_on_shutdown">true</boolProp>
+      <boolProp name="TestPlan.serialize_threadgroups">false</boolProp>
+      <elementProp name="TestPlan.user_defined_variables" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+        <collectionProp name="Arguments.arguments"/>
+      </elementProp>
+      <stringProp name="TestPlan.user_define_classpath"></stringProp>
+    </TestPlan>
+    <hashTree>
+      <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+        <collectionProp name="Arguments.arguments">
+          <elementProp name="fileSize" elementType="Argument">
+            <stringProp name="Argument.name">fileSize</stringProp>
+            <stringProp name="Argument.value">2000</stringProp>
+            <stringProp name="Argument.desc">KB (не менее 100 Кб)</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+        </collectionProp>
+      </Arguments>
+      <hashTree/>
+      <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+        <boolProp name="ResultCollector.error_logging">false</boolProp>
+        <objProp>
+          <name>saveConfig</name>
+          <value class="SampleSaveConfiguration">
+            <time>true</time>
+            <latency>true</latency>
+            <timestamp>true</timestamp>
+            <success>true</success>
+            <label>true</label>
+            <code>true</code>
+            <message>true</message>
+            <threadName>true</threadName>
+            <dataType>true</dataType>
+            <encoding>false</encoding>
+            <assertions>true</assertions>
+            <subresults>true</subresults>
+            <responseData>false</responseData>
+            <samplerData>false</samplerData>
+            <xml>false</xml>
+            <fieldNames>true</fieldNames>
+            <responseHeaders>false</responseHeaders>
+            <requestHeaders>false</requestHeaders>
+            <responseDataOnError>false</responseDataOnError>
+            <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+            <assertionsResultsToSave>0</assertionsResultsToSave>
+            <bytes>true</bytes>
+            <sentBytes>true</sentBytes>
+            <url>true</url>
+            <threadCounts>true</threadCounts>
+            <idleTime>true</idleTime>
+            <connectTime>true</connectTime>
+          </value>
+        </objProp>
+        <stringProp name="filename"></stringProp>
+      </ResultCollector>
+      <hashTree/>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="pdfGen Thread Group" enabled="true">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <stringProp name="LoopController.loops">1</stringProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">1</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration"></stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+        <boolProp name="ThreadGroup.same_user_on_next_iteration">true</boolProp>
+      </ThreadGroup>
+      <hashTree>
+        <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="PDF Generator" enabled="true">
+          <stringProp name="cacheKey">true</stringProp>
+          <stringProp name="filename"></stringProp>
+          <stringProp name="parameters">${__eval(${__time(MM-dd-YYYY-HH:MM:ss)})} ${__TestPlanName} ${__UUID}</stringProp>
+          <stringProp name="script">import org.apache.commons.lang3.StringUtils
+import org.apache.commons.io.FileUtils
+
+author = &apos;JMeter_pflb_pdfGen&apos;
+timestamp = args[0]
+UCName = args[1]
+uuid = args [2]
+dummy = &apos;&apos;
+string100kb = StringUtils.repeat(&apos;1&apos;, 102400)
+filesize = vars.get(&quot;fileSize&quot;) as int
+multiply = filesize/100
+
+for (i=0; i&lt;multiply; i++) {dummy += string100kb}
+
+pdf = &quot;%PDF-1.4  \n1 0 obj  \n  &lt;&lt; /Type /Catalog  \n      /Outlines 2 0 R \n      /Pages 3 0 R \n  &gt;&gt;  \nendobj  \n \n2 0 obj  \n  &lt;&lt; /Type /Outlines  \n      /Count 0 \n  &gt;&gt;  \nendobj  \n  \n3 0 obj  \n  &lt;&lt; /Type /Pages  \n      /Kids [ 4 0 R ] \n      /Count 1  \n  &gt;&gt; \nendobj  \n \n4 0 obj  \n  &lt;&lt; /Type /Page  \n      /Parent 3 0 R  \n      /MediaBox [ 0 0 612 792 ]  \n      /Contents 5 0 R  \n      /Resources &lt;&lt; /ProcSet 6 0 R  \n      /Font &lt;&lt; /F1 7 0 R &gt;&gt;  \n  &gt;&gt;  \n&gt;&gt;  \nendobj  \n  \n5 0 obj  \n  &lt;&lt; /Length 73 &gt;&gt;  \nstream  \n  BT  \n    /F1 12 Tf  \n    100 100 Td  \n ( TEST &quot; + author +&quot; DATA  &quot;  + UCName + &quot; &quot; + timestamp + &quot; &quot; + uuid + &quot; \n  )  &quot; + &quot;  Tj  \n ( DUMMY &quot; + dummy +  &quot; \n  )  &quot; +  &quot;  Tj  \n  ET  \nendstream  \nendobj  \n \n6 0 obj  \n  [ /PDF /Text ] \nendobj  \n  \n7 0 obj  \n  &lt;&lt; /Type /Font  \n    /Subtype /Type1  \n    /Name /F1  \n    /BaseFont /Helvetica  \n    /Encoding /MacRomanEncoding  \n  &gt;&gt;  \nendobj  \n  \nxref  \n0 8  \n0000000000 65535 f  \n0000000009 00000 n  \n0000000074 00000 n  \n0000000120 00000 n  \n0000000179 00000 n  \n0000000364 00000 n  \n0000000466 00000 n  \n0000000496 00000 n  \n \ntrailer  \n  &lt;&lt; /Size 8  \n    /Root 1 0 R  \n  &gt;&gt; \nstartxref  \n625  \n%%EOF&quot;
+
+// Запись результатов в Variable (уникальная переменная для каждого потока)
+vars.put(&quot;PDF&quot;, pdf);
+
+// Запись результатов в Property (одна переменная на все потоки)
+//vars.put(&quot;PDF&quot;, pdf);
+
+// Запись результатов в файл. Файл появится рядом с JMX
+//FileUtils.writeStringToFile(new File(&apos;test.pdf&apos;), pdf)
+</stringProp>
+          <stringProp name="scriptLanguage">groovy</stringProp>
+        </JSR223Sampler>
+        <hashTree/>
+      </hashTree>
+    </hashTree>
+  </hashTree>
+</jmeterTestPlan>

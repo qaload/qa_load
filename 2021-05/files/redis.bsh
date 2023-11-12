@@ -1,0 +1,45 @@
+import java.util.ArrayList;
+import java.util.List;
+import redis.clients.jedis.Jedis;
+import redis.clients.jedis.JedisPool;
+import redis.clients.jedis.JedisPoolConfig;
+import redis.clients.jedis.Protocol;
+
+
+
+if(vars.get("suggestKey_0")!=null){
+return vars;
+	}
+
+log.info("Redis start");
+// Connect to Redis server
+
+String redisHost = vars.get("redis.host");
+Integer redisPort = Integer.parseInt(vars.get("redis.port"));
+String redisPassword = vars.get("redis.password");
+String redisKeyPrefix = vars.get("redis.key.prefix");
+String wildCard = vars.get("redis.key.wildCard");
+
+
+log.info("Redis Connection Details: Host:" + redisHost + " port:"+ redisPort + " password:" + redisPassword + " prefix:" + redisKeyPrefix);
+
+
+
+Jedis jedis = new Jedis(redisHost, redisPort);
+jedis.auth(redisPassword);
+
+log.info("Redis running... " + jedis.ping());
+
+Set list = jedis.keys(redisKeyPrefix + "*"+wildCard+"*");
+
+Object[] listArray = list.toArray();
+
+log.info("Redis Keys Total Found:" + list.size());
+
+
+for (int i=0; i<listArray.length; i++) {
+  vars.put("suggestKey_" + i, ((String)listArray[i]).replace(redisKeyPrefix, ""));
+}
+
+//return one result to see it is working in the view results tree response
+return vars.get("suggestKey_0");

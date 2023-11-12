@@ -1,0 +1,31 @@
+{
+    "static_mime_types": [
+        "application/x-javascript",
+        "font/woff",
+        "text/css",
+        "image/gif",
+        "application/javascript",
+        "image/svg+xml",
+        "image/jpeg;charset=UTF-8",
+        "image/gif;charset=UTF-8",
+        "font/woff2",
+        "text/css;charset=UTF-8",
+        "application/font-woff",
+        "text/javascript;charset=UTF-8",
+        "image/png",
+        "application/javascript;charset=UTF-8"
+    ],
+    "requests_static_count": 170,
+    "non_static_count": 221,
+    "requests_summary_count": 391,
+    "total_time_millisec": 58179,
+    "static_time_millisec": 27934,
+    "non_static_time_millisec": 30245,
+    "total_time_with_think_time": 469101.0890197754,
+    "minutes_on_one_iteration_with_think_time": 7.818351483662923,
+    "throughput_in_minute_with_think_time": 0.1279042010441179,
+    "minutes_on_one_iteration_with_out_think_time": 0.96965,
+    "throughput_in_minute_with_out_think_time": 1.0312999535915022,
+    "minutes_on_one_iteration_non_static": 0.5040833333333333,
+    "throughput_in_minute_non_static": 1.9837989750371963
+}

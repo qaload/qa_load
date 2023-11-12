@@ -1,0 +1,38 @@
+{
+  "value": [
+    {
+      "id": 2306,
+      "created": "2023-04-10T10:11:15.613264Z",
+      "idExt": null,
+      "name": "Телемедцентр № 1",
+      "address": "проспект Механизаторов, 727, кв. 669, 313206, Ярославль, Калиниградская область, Россия",
+      "email": "tmc1@samsmu.io",
+      "phone": "9999999999",
+      "license": null,
+      "level": 0,
+      "status": "active",
+      "parentId": null,
+      "parent": null
+    },
+    {
+      "id": 2307,
+      "created": "2023-04-10T10:11:16.005865Z",
+      "idExt": null,
+      "name": "Скорая помощь № 1-1",
+      "address": "площадь Клубная, 601, кв. 681, 863642, Магнитогорск, Иркутская область, Россия",
+      "email": "ambulance1@samsmu.io",
+      "phone": "9999999999",
+      "license": null,
+      "level": 1,
+      "status": "active",
+      "parentId": 2306,
+      "parent": {
+        "created": "2023-04-10T10:11:15.613264Z",
+        "idExt": null,
+        "name": "Телемедцентр № 1",
+        "address": "проспект Механизаторов, 727, кв. 669, 313206, Ярославль, Калиниградская область, Россия",
+        "email": "tmc1@samsmu.io",
+        "phone": "9999999999",
+        "license": null
+      }
+    },
