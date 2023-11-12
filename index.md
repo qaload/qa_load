@@ -61,8 +61,3 @@
 * [2019-01](/2019-01/messages.html)
 * [2018-12](/2018-12/messages.html)
 * [2018-11](/2018-11/messages.html)
-
-
-```bash
-du -a  | sort -n | grep -E ".*\.[^\.,\/]+$"
-```
